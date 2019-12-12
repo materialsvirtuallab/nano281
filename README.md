@@ -23,7 +23,7 @@ However, the following are useful to have around:
 
 1. The Elements of Statistical Learning: Data Mining, Inference, and Prediction,
    Second Edition [Amazon](https://www.amazon.com/dp/0387848576/ref=cm_sw_em_r_mt_dp_U_Z8r8DbR3HMYRE)
-2. Python Data Science Handbook. [Amazon](https://www.amazon.com/gp/product/1491912057/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
-   [Free online version](https://jakevdp.github.io/PythonDataScienceHandbook/)
+2. Python Data Science Handbook. Buy from [Amazon](https://www.amazon.com/gp/product/1491912057/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) or get the
+   [free online version](https://jakevdp.github.io/PythonDataScienceHandbook/).
 
 
