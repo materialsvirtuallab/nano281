@@ -18,3 +18,14 @@ build
 .tox
 .eggs/
 .coverage
+
+# Latex
+.blg
+.bbl
+.log
+.nav
+.out
+.snm
+.toc
+.aux
+
