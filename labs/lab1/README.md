@@ -50,15 +50,19 @@ We will explore various sources of materials data:
 * Large public databases with API (Materials Project)
 * Shared research data (figshare)
 
-## Part 1 - Materials Project data
+## Q1 - Materials Project data
 
-Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABC3 type compounds (using the "formula_anonymous" key) compounds: materials project identifier, formula of the compound, number of sites in the unit cell, band gap, formation energy per atom, icsd ids, energy above hull. You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard
+Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type compounds (hint: look at this [example notebook](https://github.com/materialsproject/mapidoc/blob/master/example_notebooks/Using%20the%20Materials%20API%20with%20Python.ipynb) and figure out what is the best way to do this) compounds: materials project identifier, formula of the compound, number of sites in the unit cell, band gap, formation energy per atom, icsd ids, energy above hull. You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard . 1. Perform the query and convert the data into a Pandas DataFrame.
 
 ![API key](MP_API_KEY.png "Getting the Materials Project API key")
 
 Answer the following questions:
 1. How many ABC3 compounds in total are there?
-2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id.
+2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id?
 3. Plot the distribution of (a) the formation energies per atom and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity.
 
+## Q2 - Publicly available research data
 
+1. Query for the data from https://ndownloader.figshare.com/files/12978425, which is in the csv format. Parse the data into a Pandas DataFrame.
+2. How many compounds in total are there?
+3. Plot the distribution of (a) the formation energies per atom and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity.
