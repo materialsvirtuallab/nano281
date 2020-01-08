@@ -46,14 +46,19 @@ For this first lab, you will not be building any models. So the primary evaluati
 
 # Lab
 
-## Part 1 - Getting materials data
+We will explore various sources of materials data:
+* Large public databases with API (Materials Project)
+* Shared research data (figshare)
 
-In this part, we will explore various sources of materials data:
-i. Large public databases with API (Materials Project)
-ii. Shared research data (figshare)
+## Part 1 - Materials Project data
 
-Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABC3 type compounds (using the "formula_anonymous" key) compounds: materials project identifier, formula of the compound, number of sites in the unit cell, band gap, formation energy per atom, icsd ids, energy above hull. Answer the following questions:
-a. How many compounds in total are there?
-b. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id.
-b. Plot 
+Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABC3 type compounds (using the "formula_anonymous" key) compounds: materials project identifier, formula of the compound, number of sites in the unit cell, band gap, formation energy per atom, icsd ids, energy above hull. You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard
+
+![API key](MP_API_KEY.png "Getting the Materials Project API key")
+
+Answer the following questions:
+1. How many ABC3 compounds in total are there?
+2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id.
+3. Plot the distribution of (a) the formation energies per atom and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity.
+
 
