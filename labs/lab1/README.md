@@ -57,7 +57,7 @@ Using pymatgen (or any alternative approach), query the Materials Project for th
 ![API key](MP_API_KEY.png "Getting the Materials Project API key")
 
 Answer the following questions:
-1. How many ABC3 compounds in total are there?
+1. How many ABO3 compounds in total are there?
 2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id?
 3. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset that has the formation energies in J/mol.
 4. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled appropriately with units, i.e., something that you can potentially put in a scientific paper.
