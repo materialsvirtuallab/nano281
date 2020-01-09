@@ -52,15 +52,27 @@ We will explore various sources of materials data:
 
 ## Q1 - Materials Project data
 
-Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type compounds (hint: look at this [example notebook](https://github.com/materialsproject/mapidoc/blob/master/example_notebooks/Using%20the%20Materials%20API%20with%20Python.ipynb) and figure out what is the best way to do this) compounds: materials project identifier, formula of the compound, number of sites in the unit cell, band gap, formation energy per atom, icsd ids, energy above hull. You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard . 1. Perform the query and convert the data into a Pandas DataFrame.
+Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type compounds (hint: look at this [example notebook](https://github.com/materialsproject/mapidoc/blob/master/example_notebooks/Using%20the%20Materials%20API%20with%20Python.ipynb) and figure out what is the best way to do this) compounds: 
+
+- materials project identifier
+- formula of the compound
+- number of sites in the unit cell
+- band gap
+- formation energy per atom
+- icsd ids
+- energy above hull
+
+You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard . 1. Perform the query and convert the data into a Pandas DataFrame.
 
 ![API key](MP_API_KEY.png "Getting the Materials Project API key")
 
 Answer the following questions:
-1. How many ABO3 compounds in total are there?
+
+1. How many ABO3 compounds in total are there? and how many unique formula?
 2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id?
 3. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset that has the formation energies in J/mol.
-4. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled appropriately with units, i.e., something that you can potentially put in a scientific paper.
+4. Let us assume that materials with energy above hull of >0.03 eV/atom are `unstable` and are `potentially stable` otherwise. Furthermore, band gaps of 0, (0, 1], [1, +inf) are indicative of `metallic`, `small band gap`, `large band gap` for the materials. Count the number of ABO3 in each joint category, e.g., `unstable, metallic`, `unstable, small band gap`, etc.
+5. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled appropriately with units, i.e., something that you can potentially put in a scientific paper.
 
 
 ## Q2 - Publicly available research data
