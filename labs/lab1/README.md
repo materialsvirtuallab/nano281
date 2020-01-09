@@ -59,10 +59,14 @@ Using pymatgen (or any alternative approach), query the Materials Project for th
 Answer the following questions:
 1. How many ABC3 compounds in total are there?
 2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id?
-3. Plot the distribution of (a) the formation energies per atom and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity.
+3. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset that has the formation energies in J/mol.
+4. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled appropriately with units, i.e., something that you can potentially put in a scientific paper.
+
 
 ## Q2 - Publicly available research data
 
-1. Query for the data from https://ndownloader.figshare.com/files/12978425, which is in the csv format. Parse the data into a Pandas DataFrame.
+1. Query for the data for perovskites from https://ndownloader.figshare.com/files/12978425, which is in the csv format. Parse the data into a Pandas DataFrame.
 2. How many compounds in total are there?
-3. Plot the distribution of (a) the formation energies per atom and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity.
+3. How many total columns are there in the dataset?
+4. Plot the distribution of the formation energies per atom. Annotate the plot with the average and standard deviation.
+
