@@ -55,9 +55,9 @@ We will explore various sources of materials data:
 
 ## Q1 - Materials Project data
 
-Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type compounds (hint: look at this [example notebook](https://github.com/materialsproject/mapidoc/blob/master/example_notebooks/Using%20the%20Materials%20API%20with%20Python.ipynb) and figure out what is the best way to do this) compounds: 
+Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type compounds (hint: look at this [example notebook](https://github.com/materialsproject/mapidoc/blob/master/example_notebooks/Using%20the%20Materials%20API%20with%20Python.ipynb) and figure out what is the best way to do this): 
 
-- materials project identifier
+- materials project identifier (this is called task_id)
 - formula of the compound
 - number of sites in the unit cell
 - band gap
@@ -80,8 +80,17 @@ Answer the following questions:
 
 ## Q2 - Publicly available research data
 
-1. Query for the data for perovskites from https://ndownloader.figshare.com/files/12978425, which is in the csv format. Parse the data into a Pandas DataFrame.
+Researchers frequently share the datasets they have via various online platforms. [Figshare](https://figshare.com/) is one such online platform.
+
+1. Query for the data from https://ndownloader.figshare.com/files/12978425, which is in the csv format. This is one of three datasets shared by developers of the MAterials Simulation Toolkit - Machine Learning (MAST-ML) for exploring ML applications in materials science. This dataset, which we will call the MAST dataset, comprises computed data on compounds known as perovskites. Parse the data into a Pandas DataFrame.
 2. How many compounds in total are there?
 3. How many total columns are there in the dataset?
 4. Plot the distribution of the formation energies per atom. Annotate the plot with the average and standard deviation.
 
+## Q3 - Comparing data sets
+
+It is often useful to compare similar datasets to check them against each other. The simplest form of the perovskite crystal structure has formula ABO3, and such compounds are present in both the dataset you queried from the Materials Project in Q1 and the MAST data you downloaded from figshare in Q2.
+
+1. Identify the subset of formulas that are present in both the Materials Project dataset and MAST dataset.
+2. Plot the distribution of the formation energies per atom of this subset of formulas for (a) the Materials Project dataset, and (b) the MAST data, overlaying the two distributions on top of each other. Annotate your plot with the mean and standard deviation for each data set.
+3. Perform a hypothesis test at the 95% level to determine if there is a significant difference between the formation energies reported in the Materials Project and the MAST dataset. Discuss your findings, including providing any possible explanations for any discrepancy between the two datasets.
