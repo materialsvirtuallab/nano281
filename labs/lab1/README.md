@@ -65,7 +65,8 @@ Using pymatgen (or any alternative approach), query the Materials Project for th
 - icsd ids
 - energy above hull
 
-You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard. 
+You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard.
+
 ![API key](MP_API_KEY.png "Getting the Materials Project API key")
 
 Answer the following questions:
@@ -80,17 +81,18 @@ Answer the following questions:
 
 ## Q2 - Publicly available research data
 
-Researchers frequently share the datasets they have via various online platforms. [Figshare](https://figshare.com/) is one such online platform.
+Researchers frequently share the datasets they have via various online platforms. [Figshare](https://figshare.com/) is one such online platform. We will use this example to illustrate some of the challenges in working with datasets.
 
-1. Query for the data from https://ndownloader.figshare.com/files/12978425, which is in the csv format. This is one of three datasets shared by developers of the MAterials Simulation Toolkit - Machine Learning (MAST-ML) for exploring ML applications in materials science. This dataset, which we will call the MAST dataset, comprises computed data on compounds known as perovskites. Parse the data into a Pandas DataFrame.
+1. Query for the data from https://ndownloader.figshare.com/files/9158587, which is in the csv format. This is a dataset of from high-throughput DFT calculations of formation energy, stability and oxygen vacancy formation energy of ABO3 perovskites (https://www.nature.com/articles/sdata2017153) available in the Open Quantum Materials Database (OQMD). This dataset, which we will call the OQMD dataset, comprises computed data on compounds known as perovskites. Parse the data into a Pandas DataFrame.
 2. How many compounds in total are there?
-3. How many total columns are there in the dataset?
-4. Plot the distribution of the formation energies per atom. Annotate the plot with the average and standard deviation.
+3. How many total columns are there in the dataset? Print the column names.
+4. Unfortunately, the dataset contains invalid data and some of the data are also not properly tagged in the right data type. For example, the formation energy column contains strings, rather than floating point numbers. There are also strings that indicate whether a particular data point is valid. Filter the DataFrame to remove all invalid data points, i.e., those that contain just "-" in the formation energy column. and convert the formation energy column to the proper floats. How many data points remain?
+5. Plot the distribution of the formation energies per atom. Annotate the plot with the average and standard deviation.
 
 ## Q3 - Comparing data sets
 
-It is often useful to compare similar datasets to check them against each other. The simplest form of the perovskite crystal structure has formula ABO3, and such compounds are present in both the dataset you queried from the Materials Project in Q1 and the MAST data you downloaded from figshare in Q2.
+It is often useful to compare similar datasets to check them against each other. The simplest form of the perovskite crystal structure has formula ABO3, and such compounds are present in both the dataset you queried from the Materials Project in Q1 and the OQMD data you downloaded from figshare in Q2.
 
-1. Identify the subset of formulas that are present in both the Materials Project dataset and MAST dataset.
-2. Plot the distribution of the formation energies per atom of this subset of formulas for (a) the Materials Project dataset, and (b) the MAST data, overlaying the two distributions on top of each other. Annotate your plot with the mean and standard deviation for each data set.
-3. Perform a hypothesis test at the 95% level to determine if there is a significant difference between the formation energies reported in the Materials Project and the MAST dataset. Discuss your findings, including providing any possible explanations for any discrepancy between the two datasets.
+1. Identify the subset of formulas that are present in both the Materials Project dataset and OQMD dataset (hint: look at the Python set object). How many formulas are there?
+2. Plot the distribution of the formation energies per atom of this subset of formulas for (a) the Materials Project dataset, and (b) the OQMD data, overlaying the two distributions on top of each other. Annotate your plot with the mean and standard deviation for each data set.
+3. Perform a hypothesis test at the 95% level to determine if there is a significant difference between the formation energies reported in the Materials Project and the OQMD dataset (hint: check out the scipy.stats.ttest_ind method). Discuss your findings, including providing any possible explanations for any discrepancy between the two datasets.
