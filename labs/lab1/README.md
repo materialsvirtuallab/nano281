@@ -32,10 +32,13 @@ jupyter notebook
 ```
 10. Create a notebook and rename it `nano281-lab1-<first_name>-<last_name>`. This is important because I expect to be receiving a notebook from every student.
 
-
 # Assessment criteria
 
-Just a reminder on our assessment criteria for labs.
+Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells, etc. and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for your instructors to find the answers, the better.
+
+At the end of the lab, please submit the `nano281-lab1-<first_name>-<last_name>.ipynb` file (it should be in whatever directory you started your jupyter notebook application in) via Google classroom.
+
+Just a reminder on our assessment criteria:
 - Model performance: 30%
 - Materials Science Insights: 30%
 - Data Science Technique: 30%
@@ -62,17 +65,17 @@ Using pymatgen (or any alternative approach), query the Materials Project for th
 - icsd ids
 - energy above hull
 
-You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard . 1. Perform the query and convert the data into a Pandas DataFrame.
-
+You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard. 
 ![API key](MP_API_KEY.png "Getting the Materials Project API key")
 
 Answer the following questions:
 
-1. How many ABO3 compounds in total are there? and how many unique formula?
-2. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id?
-3. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset that has the formation energies in J/mol.
-4. Let us assume that materials with energy above hull of >0.03 eV/atom are `unstable` and are `potentially stable` otherwise. Furthermore, band gaps of 0, (0, 1], [1, +inf) are indicative of `metallic`, `small band gap`, `large band gap` for the materials. Count the number of ABO3 in each joint category, e.g., `unstable, metallic`, `unstable, small band gap`, etc.
-5. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled appropriately with units, i.e., something that you can potentially put in a scientific paper.
+1. Perform the query and convert the data into a Pandas DataFrame.
+2. How many ABO3 compounds in total are there in the Materials Project? How many unique ABO3 formulae are there? What is the average number of crystals (also known as polymorphs) per ABO3 formula?
+3. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least one icsd id?
+4. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset that has the formation energies in J/mol.
+5. Let us assume that materials with energy above hull of >0.03 eV/atom are `unstable` and are `potentially stable` otherwise. Furthermore, band gaps of 0, (0, 1], [1, +inf) are indicative of `metallic`, `small band gap`, `large band gap` for the materials. Create a table of the number of ABO3 crystals in each joint category, e.g., `(unstable, metallic)`, `(unstable, small band gap)`, etc.
+6. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials. Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled appropriately with units, i.e., something that you can potentially put in a scientific paper.
 
 
 ## Q2 - Publicly available research data
