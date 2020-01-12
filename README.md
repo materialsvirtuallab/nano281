@@ -16,6 +16,35 @@ please do the following:
    we are not expecting advanced python knowledge, everything will go much
    quicker if you are already familiar with the basics.
 
+# Preparing for your lectures and labs
+
+In preparation for your lectures and labs, please ensure that you have your Python environment setup properly. You only need to do this once. There are alternative approaches to setting up your machine, but the approach outlined here is guaranteed to work and is reproducble.
+
+1. Download the Python 3.7+ version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) (recommended) or [Anaconda](https://www.anaconda.com/distribution/) for your OS.
+2. Follow the official instructions and install Miniconda/Anaconda.
+3. Start the terminal (Mac/Linux) or Anaconda Prompt (Windows).
+4. Create a virtual environment for NANO281:
+```bash
+conda create --name nano281 python=3.7
+```
+5. Activate the virtual environment.
+```bash
+conda activate nano281
+```
+6. Install the necessary Python libraries.
+```bash
+conda install --yes numpy scipy matplotlib pandas jupyter seaborn scikit-learn tensorflow
+conda install --channel conda-forge --yes pymatgen
+```
+7. An alternative to steps 4-6 is to download the [nano281_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/nano281/master/nano281_env.yml) file from the Google classroom or Github repo and create the environment directly.
+```bash
+conda env create -f nano281_env.yml
+```
+8. Subsequently, always activate your nano281 environment prior to working on your lectures/labs using:
+```bash
+conda activate nano281
+```
+
 # Course textbooks
 
 The course is intended to be self-contained and all textbooks are optional.
