@@ -14,7 +14,7 @@ conda activate nano281
 ```bash
 jupyter notebook
 ```
-3. Create a notebook and rename it `nano281-lab1-<first_name>-<last_name>`. This is important because I expect to be receiving a notebook from every student.
+3. Create a Python 3 notebook and rename it `nano281-lab1-<first_name>-<last_name>`. This is important because I expect to be receiving a notebook from every student.
 
 # Assessment criteria
 
