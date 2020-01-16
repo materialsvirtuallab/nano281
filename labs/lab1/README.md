@@ -46,7 +46,7 @@ Using pymatgen (or any alternative approach), query the Materials Project for th
 - number of sites in the unit cell
 - band gap
 - formation energy per atom
-- icsd ids
+- icsd ids (note that `icsd_id` key is no longer used, use `icsd_ids` instead)
 - energy above hull
 
 You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the https://www.materialsproject.org/dashboard.
