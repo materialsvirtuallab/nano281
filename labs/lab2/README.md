@@ -71,7 +71,9 @@ We are going to use `band_gap`, `formation_energy_per_atom`, `e_above_hull` in `
 
 ## Q4 - Clustering
 
-In this problem, we will be looking at catalyst clusters. The image file `catalyst.png` is extracted from a figure shared on figshare by Gomez-Bolivar et al. (Front. Microbiol., 20 June 2019, DOI: 10.3389/fmicb.2019.01276). It is an energy dispersive X-ray (EDX) microanalysis of Pd/Ru bimetallic nanoparticle catalysts synthesized by Escherichia coli. For this whole exercise, it is recommendtation that you use the `hot` colormap in matplotlib.
+In this problem, we will be looking at catalyst clusters. The image file `catalyst.png` below is extracted from a figure shared on figshare by Gomez-Bolivar et al. (Front. Microbiol., 20 June 2019, DOI: 10.3389/fmicb.2019.01276). It is an energy dispersive X-ray (EDX) microanalysis of Pd/Ru bimetallic nanoparticle catalysts synthesized by Escherichia coli. For this whole exercise, it is recommended that you use the `hot` colormap in matplotlib.
+
+![catalyst.png](catalyst.png "catalyst.png")
 
 1. Read in the image as a numpy array using matplotlib. Show the image in your Jupyter notebook. What are the dimensions of the array?
 2. Plot the distribution of the values in the numpy array representing the image. Note that the values in the numpy array are between zero and 1.
