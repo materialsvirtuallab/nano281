@@ -40,13 +40,13 @@ Download `data.csv` file in this repo. It contains basic data for all materials 
 Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_filter=False` option, and perform the following analysis. 
 
 1. How many elements are there in this data set?
-2. What is the maximum number of elements in a single structure?
-3. How many binaries are there? what about ternaries, quaternaries, quinaries, ..., and n-aries (n <= maximum number of elements in a structure)? Show the material counts as a function of number of elements in a plot.
-4. Count the number of materials each element occured in. Sort this count and answer the following questions. What are the top 10 most common elements in this data set? and what are the top 10 least common elements in this data set?
+2. What is the maximum number of elements (`max_el`) in a single structure?
+3. Plot a histogram of the number of materials having 1, 2, 3, ... `max_els`. Use a log scale for the y-axis.
+4. Count the number of materials where each element is present. Sort this count and answer the following questions. What are the 10 most common elements in this data set? and what are the 10 least common elements in this data set?
 
 ## Q2 - Data cleaning and feature computations
 
-It is roughly esimated that the data processing part takes about 80% of the entire modeling workflow. Here we are going to do some data wrangling of our material data. 
+It is roughly esimated that the data processing part is about 80% of the effort in the entire modeling workflow. Here we are going to do some data wrangling of our material data. 
 
 We will try to predict the formation energy per atom and band gap of the material from the formula. To do that, we will first convert the formula to numeric vectors (descriptors) for model inputs. 
 
