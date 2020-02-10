@@ -35,7 +35,7 @@ Our assessment criteria:
 
 Download `data.csv` file in this repo. It contains basic data for all materials in the Materials Project.
 
-## Q1 - Exploratory data analysis
+## Q1 - Exploratory data analysis (10 points)
 
 Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_filter=False` option, and perform the following analysis. 
 
@@ -44,9 +44,7 @@ Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_fil
 3. Plot a histogram of the number of materials having 1, 2, 3, ... `max_els`. Use a log scale for the y-axis.
 4. Count the number of materials where each element is present. Sort this count and answer the following questions. What are the 10 most common elements in this data set? and what are the 10 least common elements in this data set?
 
-## Q2 - Data cleaning and feature computations
-
-
+## Q2 - Data cleaning and feature computations (20 points)
 
 About 80% of the effort in ML modelling is in data processing. The goal is to develop ML models to predict the formation energy per atom and band gap of the material from the formula. To do that, we will first convert the formula to numeric vectors (descriptors) for model inputs. 
 
@@ -58,7 +56,7 @@ About 80% of the effort in ML modelling is in data processing. The goal is to de
 6. Similar to the previous computations of average properties, compute the maximum properties and minimum properties for all properties and all materials, and store them in variables `max_properties` and `min_properties` respectively. Both variables should have dimension `(n, 16)`.
 7. Concatenate `average_properties`, `max_properties` and `min_properties`, and store the result in variable `design_matrix` with dimension `(n, 48)`. 
 
-## Q3 - Regression and classification modeling
+## Q3 - Regression and classification modeling (40 points)
 
 We are going to use `band_gap`, `formation_energy_per_atom`, `e_above_hull` in `data` as the targets, and store them in variable `targets`. `targets` should be a dataframe with dimension of `(n, 3)`. 
 
@@ -69,7 +67,7 @@ We are going to use `band_gap`, `formation_energy_per_atom`, `e_above_hull` in `
 5. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant analysis, quadratic discriminant analysis, and logistic regression models on train data and predict the accuracy of the models on test data. 
 6. What are the problems of using only the compositions to predict material properties?
 
-## Q4 - Clustering
+## Q4 - Clustering (30 points)
 
 In this problem, we will be looking at catalyst clusters. The image file `catalyst.png` below is extracted from a figure shared on figshare by Gomez-Bolivar et al. (Front. Microbiol., 20 June 2019, DOI: 10.3389/fmicb.2019.01276). It is an energy dispersive X-ray (EDX) microanalysis of Pd/Ru bimetallic nanoparticle catalysts synthesized by Escherichia coli. For this whole exercise, it is recommended that you use the `hot` colormap in matplotlib.
 
