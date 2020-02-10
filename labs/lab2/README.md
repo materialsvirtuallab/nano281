@@ -21,7 +21,7 @@ jupyter notebook
 # Assessment criteria
 Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells, etc. and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for your instructors to find the answers, the better.
 
-At the end of the lab, please submit the `nano281-lab1-<first_name>-<last_name>.ipynb` file (it should be in whatever directory you started your jupyter notebook application in) via Google classroom.
+At the end of the lab, please submit the `nano281-lab2-<first_name>-<last_name>.ipynb` file (it should be in whatever directory you started your jupyter notebook application in) via Google classroom.
 
 Our assessment criteria:
 
@@ -46,15 +46,15 @@ Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_fil
 
 ## Q2 - Data cleaning and feature computations
 
-It is roughly esimated that the data processing part is about 80% of the effort in the entire modeling workflow. Here we are going to do some data wrangling of our material data. 
 
-We will try to predict the formation energy per atom and band gap of the material from the formula. To do that, we will first convert the formula to numeric vectors (descriptors) for model inputs. 
 
-1. Filter out materials that contain noble gas elements and save it in variable `data`. How many materials are left? This number is stored in variable `n`.
+About 80% of the effort in ML modelling is in data processing. The goal is to develop ML models to predict the formation energy per atom and band gap of the material from the formula. To do that, we will first convert the formula to numeric vectors (descriptors) for model inputs. 
+
+1. Filter out materials that contain noble gas elements and save it in variable `data`. How many materials are left? Store this number in the variable `n`.
 2. Load the element property data file `element_properties.csv` in variable `element_data` using pandas by setting `index_col=0` in `pandas.read_csv` function. How many NaN (Not a Number) are there in each column? 
-3. Compute the mean values for each column. What are the means for each column? For each column, fill the NaN with the mean value of that column. This is a common data imputation technique.
+3. Compute the mean values for each column, ignoring the NaNs. For each column, fill the NaN with the mean value of that column. This is a common data imputation technique.
 4. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`. For example, averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where `1.45` is the `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`.
-5. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the results in `average_properties`. `average_properties` should have a dimension of `(n, 16)` where n is the number of materials and 16 is the number of properties.
+5. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the results in the variable `average_properties`. `average_properties` should have a dimension of `(n, 16)` where n is the number of materials and 16 is the number of properties.
 6. Similar to the previous computations of average properties, compute the maximum properties and minimum properties for all properties and all materials, and store them in variables `max_properties` and `min_properties` respectively. Both variables should have dimension `(n, 16)`.
 7. Concatenate `average_properties`, `max_properties` and `min_properties`, and store the result in variable `design_matrix` with dimension `(n, 48)`. 
 
@@ -62,7 +62,7 @@ We will try to predict the formation energy per atom and band gap of the materia
 
 We are going to use `band_gap`, `formation_energy_per_atom`, `e_above_hull` in `data` as the targets, and store them in variable `targets`. `targets` should be a dataframe with dimension of `(n, 3)`. 
 
-1. Split the data (`design_matrix` as X, and `targets` as y) into train and test (ratio 90%:10%), and store them in `train_X`, `train_y` for train and `test_X` and `test_y` for test. To make sure the data is reproducible, set the `random_state=42` in `sklearn.model_selection.train_test_split`. 
+1. Split the data (`design_matrix` as X, and `targets` as y) into training and test sets in the ratio 90%:10%. Store the training data in variables `train_X` and `train_y` and the test data as variables `test_X` and `test_y`. To make sure the data is reproducible, set the `random_state=42` in `sklearn.model_selection.train_test_split`.
 2. Compute the mean and standard deviation of columns in `train_X`. Both of them should be length 48 vectors. Use them to normalize `train_X` and `test_X`, so that each column has a mean of 0 and standard deviation of 1. Store the normalized design matrices to `norm_train_X`, `norm_test_X`. 
 3. Train a linear model to predict `formation_energy_per_atom`. What are the mean absolute error (MAE) and root mean squared error (RMSE) on the test data?
 4. Train a Ridge regression model and a LASSO regression model using `alpha=0.1`, what are the test MAE and RMSE?
