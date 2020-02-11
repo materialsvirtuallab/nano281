@@ -44,6 +44,15 @@ Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_fil
 3. Plot a barplot of the number of materials having 1, 2, 3, ... `max_els`. Use a log scale for the y-axis.
 4. Count the number of materials where each element is present. Sort this count and answer the following questions. What are the 10 most common elements in this data set? and what are the 10 least common elements in this data set?
 
+Hint: When dealing with formula, you may use `pymatgen.Composition` to speed up the process. For example, the following code snippet shows the use of Composition to process formula. For more usage, you may visit [https://matgenb.materialsvirtuallab.org/2013/01/01/Basic-functionality.html](https://matgenb.materialsvirtuallab.org/2013/01/01/Basic-functionality.html) 
+
+```python
+from pymatgen import Composition
+comp = Composition('Al2O3')
+print(comp.elements)  # this will give you the elements
+print(comp.to_data_dict['unit_cell_composition'])  # this will give you the elementstr-stoichiometry dictionary.
+
+```
 ## Q2 - Data cleaning and feature computations (20 points)
 
 About 80% of the effort in ML modelling is in data processing. The goal is to develop ML models to predict the formation energy per atom and band gap of the material from the formula. To do that, we will first convert the formula to numeric vectors (descriptors) for model inputs. 
