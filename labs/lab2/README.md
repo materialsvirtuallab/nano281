@@ -41,7 +41,7 @@ Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_fil
 
 1. How many elements are there in this data set?
 2. What is the maximum number of elements (`max_el`) in a single structure?
-3. Plot a histogram of the number of materials having 1, 2, 3, ... `max_els`. Use a log scale for the y-axis.
+3. Plot a barplot of the number of materials having 1, 2, 3, ... `max_els`. Use a log scale for the y-axis.
 4. Count the number of materials where each element is present. Sort this count and answer the following questions. What are the 10 most common elements in this data set? and what are the 10 least common elements in this data set?
 
 ## Q2 - Data cleaning and feature computations (20 points)
