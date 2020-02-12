@@ -1,0 +1,32 @@
+digraph Tree {
+node [shape=box] ;
+0 [label="ElectronegativityMean <= 1.983\nentropy = 0.995\nsamples = 84816\nvalue = [39037, 45779]"] ;
+1 [label="SecondIonizationEnergyMean <= 19.366\nentropy = 0.643\nsamples = 24631\nvalue = [20605, 4026]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="ElectronAffinityMean <= 112.383\nentropy = 0.47\nsamples = 19662\nvalue = [17688, 1974]"] ;
+1 -> 2 ;
+3 [label="entropy = 0.406\nsamples = 18095\nvalue = [16626, 1469]"] ;
+2 -> 3 ;
+4 [label="entropy = 0.907\nsamples = 1567\nvalue = [1062, 505]"] ;
+2 -> 4 ;
+5 [label="ElectronAffinityMean <= 94.278\nentropy = 0.978\nsamples = 4969\nvalue = [2917, 2052]"] ;
+1 -> 5 ;
+6 [label="entropy = 0.887\nsamples = 3474\nvalue = [2415, 1059]"] ;
+5 -> 6 ;
+7 [label="entropy = 0.921\nsamples = 1495\nvalue = [502, 993]"] ;
+5 -> 7 ;
+8 [label="SecondIonizationEnergyMean <= 26.962\nentropy = 0.889\nsamples = 60185\nvalue = [18432, 41753]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="ColumnMean <= 11.712\nentropy = 0.985\nsamples = 24156\nvalue = [10311, 13845]"] ;
+8 -> 9 ;
+10 [label="entropy = 0.992\nsamples = 10839\nvalue = [5973, 4866]"] ;
+9 -> 10 ;
+11 [label="entropy = 0.911\nsamples = 13317\nvalue = [4338, 8979]"] ;
+9 -> 11 ;
+12 [label="RowMean <= 2.409\nentropy = 0.77\nsamples = 36029\nvalue = [8121, 27908]"] ;
+8 -> 12 ;
+13 [label="entropy = 0.585\nsamples = 8463\nvalue = [1186, 7277]"] ;
+12 -> 13 ;
+14 [label="entropy = 0.814\nsamples = 27566\nvalue = [6935, 20631]"] ;
+12 -> 14 ;
+}
