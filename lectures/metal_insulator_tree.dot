@@ -1,20 +1,16 @@
 digraph Tree {
 node [shape=box] ;
-0 [label="ElectronegativityMean <= 1.983\nentropy = 0.995\nsamples = 84818\nvalue = [38958, 45860]"] ;
-1 [label="SecondIonizationEnergyMean <= 19.365\nentropy = 0.643\nsamples = 24568\nvalue = [20548, 4020]"] ;
+0 [label="ElectronegativityMean <= 1.983\nentropy = 0.995\nsamples = 84818\nvalue = [39013, 45805]"] ;
+1 [label="SecondIonizationEnergyMean <= 19.365\nentropy = 0.647\nsamples = 24527\nvalue = [20474, 4053]"] ;
 0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
-2 [label="entropy = 0.473\nsamples = 19641\nvalue = [17655, 1986]"] ;
+2 [label="entropy = 0.476\nsamples = 19624\nvalue = [17618, 2006]"] ;
 1 -> 2 ;
-3 [label="entropy = 0.978\nsamples = 4927\nvalue = [2893, 2034]"] ;
+3 [label="entropy = 0.98\nsamples = 4903\nvalue = [2856, 2047]"] ;
 1 -> 3 ;
-4 [label="SecondIonizationEnergyMean <= 26.963\nentropy = 0.888\nsamples = 60250\nvalue = [18410, 41840]"] ;
+4 [label="SecondIonizationEnergyMean <= 26.988\nentropy = 0.89\nsamples = 60291\nvalue = [18539, 41752]"] ;
 0 -> 4 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
-5 [label="ColumnMean <= 11.712\nentropy = 0.984\nsamples = 24187\nvalue = [10287, 13900]"] ;
+5 [label="entropy = 0.985\nsamples = 24366\nvalue = [10406, 13960]"] ;
 4 -> 5 ;
-6 [label="entropy = 0.994\nsamples = 10871\nvalue = [5951, 4920]"] ;
-5 -> 6 ;
-7 [label="entropy = 0.91\nsamples = 13316\nvalue = [4336, 8980]"] ;
-5 -> 7 ;
-8 [label="entropy = 0.77\nsamples = 36063\nvalue = [8123, 27940]"] ;
-4 -> 8 ;
+6 [label="entropy = 0.772\nsamples = 35925\nvalue = [8133, 27792]"] ;
+4 -> 6 ;
 }
