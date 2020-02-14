@@ -1,0 +1,215 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{color}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{listings}
+\usepackage{courier}
+
+
+\lstset{ %
+  basicstyle=\scriptsize\ttfamily, % fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  %breaklines=true,                 % sets automatic line breaking
+  %captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{gray}\textit,    % comment style
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Python,                 % the language of the code
+  %otherkeywords={*,...},          % if you want to add more keywords to the set
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stringstyle=\color{red}, % string literal style
+  tabsize=4,	                   % sets default tabsize to 2 spaces
+  columns=fixed                    % Using fixed column width (for e.g. nice alignment)
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    filecolor=magenta,      
+    urlcolor=red,
+}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\let \vec \mathbf
+
+\mode<presentation> {
+    \usetheme{CambridgeUS}
+    %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+    \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+    \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+
+\title[NANO281 Course Admin]{NANO281 - Data Science in Materials Science\\Course Admin}
+
+\author{Shyue Ping Ong}
+\institute[UCSD]{University of California, San Diego\\
+\medskip
+}
+\date{NANO281} % Date, can be changed to a custom date
+
+\begin{document}
+
+
+\begin{frame}
+    \titlepage % Print the title page as the first slide
+\end{frame}
+
+
+\begin{frame}{Course Objectives}
+\huge{To provide a comprehensive introduction into the application of data science to materials science.}
+\end{frame}
+
+
+\begin{frame}{What will you learn in this course?}
+    \begin{itemize}
+        \item Enough data science (including the mathematics) to understand how to apply them to solve materials science problems.
+        \item Best practices in using various data science techniques.
+        \item Practical use of open-source Python packages to perform analyses.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{What this course is \textbf{not}}
+    \begin{itemize}
+        \item A probability and statistics course.
+        \item A replacement for a full data science course.
+        \item A replacement for a materials science course.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Course Plan}
+    \begin{itemize}
+        \item Weeks 1 and 2: Introduction to Data Science, Python and Data Wrangling
+        \item Week 3: Lab 1
+        \item Weeks 4 and 5: Linear Methods and Unsupervised Learning
+        \item Week 6: Lab 2
+        \item Weeks 7 and 8: Kernel Methods, Trees and other Advanced Machine Learning
+        \item Weeks 9 and 10: Final Lab
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Instructors}
+    \begin{itemize}
+        \item Lecturer: Shyue Ping Ong (ongsp@eng.ucsd.edu)
+        \item ``Teaching Assistant'': Chi Chen (chc273@eng.ucsd.edu)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Recommended Textbooks (All Free)}
+\begin{columns}
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Second Edition\\ \href{http://www.amazon.com/dp/0387848576/ref=cm_sw_em_r_mt_dp_U_LTvbEbPHKK8VF}{[Amazon]} \href{http://web.stanford.edu/~hastie/ElemStatLearn/}{[Free PDF]}
+        \item Python Data Science Handbook\\
+        \href{https://www.amazon.com/dp/1491912057/ref=cm_sw_em_r_mt_dp_U_g0vbEb9N7HVQD}{[Amazon]} \href{http://jakevdp.github.io/PythonDataScienceHandbook/}{[Free web version]}
+    \end{itemize}
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/book-cover-elements-of-statistical-learning.jpg}
+    \includegraphics[width=0.45\textwidth]{figures/book-cover-python-data-science.jpg}
+\end{figure}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Course Structure}
+    \begin{itemize}
+        \item Lectures/Labs (T/T @ 930-1050)
+        \item Conducted in-person
+        \item Please bring your laptops.
+        \item Grading:
+        \begin{itemize}
+            \item Lab 1: 25\%
+            \item Lab 2: 25\%
+            \item Lab 3: 50\%
+        \end{itemize}
+        \item \textbf{Collaboration policy}:  Working together is highly encouraged, but each student must submit his / her own work. 
+        \item To make the best use of this course, you should make sure you can do the exercises and not over-rely on your course mates.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Lab Assessment Criteria}
+\begin{table}[]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline
+Model performance & 30\%\\
+\hline
+Materials Science Insights & 30\%\\
+\hline
+Data Science Technique & 30\%\\
+\hline
+Programming Style & 10\%\\
+\hline
+    \end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}{Class etiquette}
+    \begin{itemize}
+        \item Highly interactive
+        \item Interruptions with questions highly encouraged.
+        \item Please be punctual. Lectures will start on time.
+        \item Use of laptop to follow class examples is encouraged, but please be respectful of your lecturer and classmates by not using devices for non-class applications.  All devices must be on silent mode.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Pre-requisites}
+    \begin{itemize}
+        \item Knowledge of basic statistics (e.g., Gaussian distributions, Bayes theorem, etc.)
+        \item Knowledge of basic linear algebra (e.g., matrix multiplications, eigenvalue decompositions, inverses)
+        \item (Optional) Some programming experience, ideally in the Python programming language, would be helpful.
+        \item Homework:
+        \begin{enumerate}
+            \item Download and install python for your OS.
+            \item Go through items 1-3 in the \href{http://docs.python.org/3/tutorial/}{official Python tutorial} – please fire up your python and run through the actual tutorial line by line. It should not take you more than 30 mins to do the whole thing.
+            \item Extra: Briefly read through item 4 in the tutorial on flow control (if and for statements, especially).
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Course Admin}
+    \begin{itemize}
+        \item Google Classroom Code
+        \item Used for all course admin, including announcements/communications.
+        \item Lecture slides
+        \item Submission of labs
+        \item Useful resources (e.g., ebooks, websites, etc.)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Questions and Feedback}
+    \begin{itemize}
+        \item Questions welcomed at any time during or after lectures
+        \item NANO281 is very new - the instructors will try their best, but I would ask for you to be tolerant of any issues while we continue to improve the curriculum and labs.
+        \item Your \textbf{feedback} is invaluable in shaping the current course as well as future courses. 
+        \item Email all feedback directly to \href{mailto:ongsp@eng.ucsd.edu}{ongsp@ucsd.edu}.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \Huge{\centerline{The End}}
+\end{frame}
+
+\end{document}
+
