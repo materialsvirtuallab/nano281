@@ -1,0 +1,184 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{color}
+\usepackage{minted}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usepackage{mhchem}
+\usepackage{pgfplots}
+
+\setminted{fontsize=\scriptsize}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    filecolor=magenta,      
+    urlcolor=red,
+}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\let \vec \mathbf
+
+\mode<presentation> {
+    \usetheme{CambridgeUS}
+    %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+    \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+    \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+
+\title[Maximum Likelihood and Bayesian Methods]{Maximum Likelihood and Bayesian Methods}
+
+\author{Shyue Ping Ong}
+\institute[UCSD]{University of California, San Diego\\
+\medskip
+}
+\date{NANO281} % Date, can be changed to a custom date
+
+\begin{document}
+
+
+\begin{frame}
+    \titlepage % Print the title page as the first slide
+\end{frame}
+
+
+\begin{frame}{Overview}
+    \tableofcontents
+\end{frame}
+
+
+\section{Preliminaries}
+
+\begin{frame}{Preliminaries}
+    \begin{itemize}
+        \item Thus far, we have discussed ML models in the context of minimizing a loss function, typically a sum of squares.
+        \item These approaches have a probabilistic interpretation and are instances of the maximum likelihood (ML) approach to fitting.
+    \end{itemize}
+\end{frame}
+
+\section{Maximum Likelihood Inference}
+
+
+\begin{frame}{Maximum Likelihood Inference}
+    \begin{itemize}
+        \item Consider a probability distribution/mass function for the observations:
+        \begin{equation*}
+            z_i \sim g_{\theta}(z)
+        \end{equation*}
+        \item Also, known as a parametric model for $Z$, with $\theta$ being unknown parameter that govern the distribution. 
+        \item Let us assume that $Z$ has a normal distirbution ($\theta = (\mu, \sigma^2)$):
+        \begin{equation*}
+            g_{\theta} = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(z-\mu)^2}{2\sigma^2}}
+        \end{equation*}
+        \item The likelihood of the observed data under model $g_{\theta}$ is then given by the \textit{likelihood function}:
+        \begin{equation*}
+            L(\theta; \vec{Z}) = \prod_{i=1}^N g_{\theta}(z_i)
+        \end{equation*}
+    \end{itemize}
+\end{frame} 
+
+
+\begin{frame}{Maximum Likelihood Inference, cont.}
+    \begin{itemize}
+        \item Consider the log of $L$:
+        \begin{equation*}
+            \ell(\theta; \vec{Z}) = \sum_{i=1}^N \log{g_{\theta}(z_i)}
+        \end{equation*}
+        \item \textit{Score function} $\dot{\ell}(\theta; \vec{Z}) = 0$ at maximum (dot means derivative).
+        \item \textit{Information matrix}:
+        \begin{equation*}
+            \vec{I}(\theta) = -\sum_{i=1}^N\frac{\partial^2 \ell(\theta;z_i)}{\partial \theta \partial \theta^T}
+        \end{equation*}
+        \item \textit{Observed information} = $\vec{I}(\hat{\theta})$ ($\hat{\theta}$ is the estimated parameter)
+        \item \textit{Fisher information} $\vec{i}(\theta) = E_{\theta}[\vec{I}(\theta)]$, widely used in optimal experimental design.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Linear Regression Revisited as MLE}
+    \begin{itemize}
+        \item $Y = \beta_0 + \beta_1 X + \varepsilon$
+        \item $\varepsilon \sim N(0, \sigma^2)$, i.e., independent Gaussian noise.
+        \begin{eqnarray*}
+        L(\beta_0, \beta_1, \sigma; \vec{y}) &= & \prod_{i=1}^N P(y_i|x_i;\hat{\beta_0},\hat{\beta_1}, \hat{\sigma})\\
+        & = &\prod_{i=1}^N \frac{1}{\hat{\sigma}\sqrt{2\pi}} e^{-\frac{(y_i-\hat{\beta_0} - \hat{\beta_1}x_i)^2}{2\hat{\sigma}^2}}\\
+        \ell(\beta_0, \beta_1, \sigma; \vec{y})& = & \sum_{i=1}^N \log{\frac{1}{\hat{\sigma}\sqrt{2\pi}} e^{-\frac{(y_i-\hat{\beta_0} - \hat{\beta_1}x_i)^2}{2\hat{\sigma}^2}}}\\
+        & = & -\frac{N}{2}\log{\hat{\sigma^2}2\pi} - \sum_{i=1}^N \frac{(y_i-\hat{\beta_0} - \hat{\beta_1}x_i)^2}{2\hat{\sigma}^2}
+        \end{eqnarray*}
+        \item Clearly, MLE in this case is equivalent to minimizing least squares.
+    \end{itemize}
+\end{frame}
+
+
+\section{Bayesian Methods}
+
+
+\begin{frame}{Bayesian Methods}
+    \begin{itemize}
+        \item \textit{Posterior} distribution given by:
+        \begin{equation*}
+            P(\theta|\vec{Z}) = \frac{P(\vec{Z}|\theta)P(\theta)}{\int{P(\vec{Z}|\theta)P(\theta)}d\theta}
+        \end{equation*}
+        \item Updated knowledge about $\theta$ after seeing data.
+    \end{itemize}
+\end{frame}
+
+
+\section{Expectation Maximization}
+
+
+\begin{frame}{Expectation Maximization}
+    \begin{itemize}
+        \item Popular approach for solving MLE problems.
+        \item Algorithm (example for two-component Gaussian mixture):
+        \begin{enumerate}
+            \item Start with initial guesses for parameters (e.g, two random $y_i$).
+            \item Expectation step: Compute the \textit{responsibilities}.
+            \begin{equation*}
+                \hat{\gamma_i} = \frac{\hat{\pi}\phi_{\hat{\theta_2}}(y_i)}{(1-\hat{\pi})\phi_{\hat{\theta_1}}(y_i) + \hat{\pi}\phi_{\hat{\theta_2}}(y_i)}, i=1,2,...,N
+            \end{equation*}
+            \item Maximization step: Compute weighted means and variances.
+            \begin{eqnarray*}
+            \hat{\mu_1}& = \frac{\sum_{i=1}^N (1-\hat{\gamma_i})y_i}{\sum_{i=1}^N (1-\hat{\gamma_i})}, \hat{\sigma_1^2}& = \frac{\sum_{i=1}^N (1-\hat{\gamma_i})(y_i-\hat{\mu_1})^2}{\sum_{i=1}^N (1-\hat{\gamma_i})}\\
+            \hat{\mu_2}& =  \frac{\sum_{i=1}^N \hat{\gamma_i}y_i}{\sum_{i=1}^N \hat{\gamma_i}}, \hat{\sigma_2^2}& = \frac{\sum_{i=1}^N \hat{\gamma_i}(y_i-\hat{\mu_2})^2}{\sum_{i=1}^N \hat{\gamma_i}}
+            \end{eqnarray*}
+            with mixing probability $\hat{\pi} = \sum_{i=1}^N \hat{\gamma_i}/N$.
+            \item Iterate until convergence.
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]{Gaussian mixture using EM in scikit-learn}
+\begin{minted}{python}
+from sklearn.mixture import GaussianMixture
+estimator = GaussianMixture(n_components=n_classes, 
+                            covariance_type="spherical", 
+                            max_iter=20, 
+                            random_state=0)
+estimator.means_init = np.array([x_train[y_train == i].mean(axis=0)
+                                for i in range(n_classes)])
+estimator.fit(x_train)
+\end{minted}
+\end{frame}
+
+
+% \begin{frame}{Bibliography}
+%     \bibliographystyle{unsrt}
+%     \bibliography{refs}
+% \end{frame}
+
+
+
+
+\begin{frame}
+    \Huge{\centerline{The End}}
+\end{frame}
+
+\end{document}
+
