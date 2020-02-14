@@ -6,7 +6,7 @@ lectures, labs, as well as other useful resources.
 
 # Lecture materials
 
-All lecture materials are in the lectures folder.
+All lecture materials are in the [lectures](lectures) folder.
 - [slides](lectures/slides) contains the lecture slides in PDF format.
 - [slides_tex](lectures/slides_tex) contains the lecture slides in latex beamer
   format. This is useful if you want to extract an equation or figure.
@@ -16,18 +16,18 @@ All lecture materials are in the lectures folder.
 # Labs
 
 You will be assessed on three lab sessions. The instructions for all labs are
-in the `labs` folder.
+in the [labs](labs) folder.
 
 # Programming language
 
-All lectures and labs will be conducted in Python 3.7+/3.8+. Prior to the labs,
+All lectures and labs will be conducted in Python 3.7+. Prior to the labs,
 please do the following:
 
 1. Install [python](https://www.python.org/) on your laptop.
-2. If you are unfamiliar with Python, please minimally go through the official
+2. If you are unfamiliar with Python, please go through the official
    [Python tutorials](https://docs.python.org/3/tutorial/index.html) to
    understand the basics of variable assignment, if and for loops, etc. While
-   we are not expecting advanced python knowledge, everything will go much
+   we are not expecting advanced Python knowledge, everything will go much
    quicker if you are already familiar with the basics.
 
 # Preparing for your lectures and labs
@@ -35,7 +35,8 @@ please do the following:
 In preparation for your lectures and labs, please ensure that you have your 
 Python environment setup properly. You only need to do this once. There are 
 alternative approaches to setting up your machine, but the approach outlined 
-here is guaranteed to work and is reproducible.
+here is guaranteed to work and is reproducible. Your instructors would be better
+able to assist if there are issues in the installation.
 
 1. Download the Python 3.7+ version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) 
    (recommended) or [Anaconda](https://www.anaconda.com/distribution/) for your
@@ -65,6 +66,13 @@ conda env create -f nano281_env.yml
 ```bash
 conda activate nano281
 ```
+
+If for any reason you find that your conda environment is corrupted and you
+need to start over, please run:
+```
+conda env remove --name nano281
+```
+and simply start from step 4 above to redo your setup.
 
 # Course textbooks
 
