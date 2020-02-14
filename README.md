@@ -1,12 +1,26 @@
 # NANO281 - Data Science in Materials Science
 
 Welcome to the official Github repo for UCSD Course NANO281 - 
-"Data Science in Materials Science". Here, you will find the materials for all
-lab sessions, as well as useful resources.
+"Data Science in Materials Science". Here, you will find the materials for your
+lectures, labs, as well as other useful resources.
+
+# Lecture materials
+
+All lecture materials are in the lectures folder.
+- [slides](lectures/slides) contains the lecture slides in PDF format.
+- [slides_tex](lectures/slides_tex) contains the lecture slides in latex beamer
+  format. This is useful if you want to extract an equation or figure.
+- [notebooks](lectures/notebooks) contains the Jupyter notebooks that we will
+  be using for in-lecture demos.
+
+# Labs
+
+You will be assessed on three lab sessions. The instructions for all labs are
+in the `labs` folder.
 
 # Programming language
 
-All lab sessions will be conducted in Python 3.7+/3.8+. Prior to the labs,
+All lectures and labs will be conducted in Python 3.7+/3.8+. Prior to the labs,
 please do the following:
 
 1. Install [python](https://www.python.org/) on your laptop.
