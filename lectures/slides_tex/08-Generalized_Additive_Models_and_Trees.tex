@@ -380,6 +380,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
 
 
 \begin{frame}{AdaBoost.M1 Algorithm (Classification)}
+    \label{frame:adaboost}
     \begin{enumerate}
         \item Initialize observation weights as $w_i = 1/N$.
         \item For $m=1$ to $M$:
@@ -394,6 +395,12 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
         \end{enumerate}
         \item Output $G(x) = sign\left( \sum_{m=1}^M \alpha_mG_m(x)\right)$
     \end{enumerate}
+    \begin{figure}
+        \centering
+        \includegraphics{}
+        \caption{Caption}
+        \label{fig:my_label}
+    \end{figure}
 \end{frame}
 
 
@@ -411,6 +418,58 @@ test_accuracy = decision_tree.score(x_test, y_test)
 \end{minted}
 \end{frame}
 
+\section{Loss functions and robustness}
+
+
+\begin{frame}{Loss functions for regression}
+    \begin{itemize}
+        \item We have thus far focused on the squared error loss $L(y, f(x)) = (y - f(x))^2$
+        \item Another common loss function is the absolute error $L(y, f(x)) = |y - f(x)|$
+        \item MSE penalizes outliers with large observed residuals severely, and hence is less robust in data with long-tailed distributions.
+        \item MAE is more robust against outliers.
+        \item Other criteria include the Huber loss:
+        \begin{equation*}
+            L(y, f(x)) = \left\{ \begin{array}{cc}
+                (y - f(x))^2 & |y-f(x)| \leq \delta \\
+                2\delta (y-f(x) - \delta^2 & otherwise 
+            \end{array}\right.
+        \end{equation*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Loss functions for binary classification}
+    \begin{itemize}
+        \item Consider a simple binary classification with two levels (-1, 1). The decision boundary is at 0.
+        \item Using the square error does not make sense, since we only care about whether it is $>0$ or $<0$.
+        \item \textit{Margin} $yf(x)$ is positive when prediction and actual value is in the same class, and negative if they are in opposite classes.
+        \item Need a loss that penalizes negative values much more than positive values for margins, i.e., monotone decreasing function.
+        \item Exponential loss: $L(y, f(x)) = e^{-yf(x)}$
+        \item Binomial/multinomial loss (can be used for K-classes):
+        \begin{equation*}
+            L(y, p(x)) = -\sum_{k=1}^K I(y=G_k)f_k(x) + \log \left(\sum_{l=1}^K e^{f_l(x)}\right)
+        \end{equation*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Loss functions for binary classification}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/lossfunctions.pdf}
+    \caption{Loss functions for binary classification. The response is $y = \pm1$. Misclassification : $I(sign(f) \neq y$); exponential: $\exp(-yf)$; binomial deviance: $\log(1 + e^{-2yf})$; squared error: $(y - f)^2$ ; and support vector: $(1 - yf)_+$}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Boosting as a Forward Stagewise Additive Modeling}
+    \begin{itemize}
+        \item We can think of the algorithm in Slide \ref{frame:adaboost} as essentially a forward stage-wise fit of an additive model $f(x) = \sum_{m=1}^M \alpha_m G_m(x)$ (refer to \cite{hastieElementsStatisticalLearning2016} for details).
+        \item This approach is ``greedy'' in that it seeks to maximally reduce the loss at each step, i.e., steepest descent.
+        \item In gradient boosting, one fits the tree to the negative gradient values by  least squares.
+        
+    \end{itemize}
+\end{frame}
 
 
 \begin{frame}{Bibliography}
