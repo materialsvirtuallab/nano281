@@ -365,7 +365,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
 \begin{frame}{Boosting}
     \begin{itemize}
         \item One of the most successful ML approaches in the past few decades.
-        \item Concept: combine many ``weak'' learners in a ``committee''.
+        \item Concept: combine many "weak" learners in a "committee".
         \item Can be used for either classification or regression.
         \item Weak classifier: One whose error rate is slightly better than random guessing.
         \item Apply weak classifier to repeatedly modified versions of data to produce a sequence of weak classifiers.
@@ -386,10 +386,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
         \item For $m=1$ to $M$:
         \begin{enumerate}
             \item Fit classifier $G_m(x)$ to training data using weights $w_i$.
-            \item Compute:
-            \begin{equation*}
-                err_m = \frac{\sum_{i=1}^{N} w_i I(y_i \neq G_m(x_i))}{\sum_{i=1}{N} w_i}
-            \end{equation*}
+            \item Compute $err_m = \frac{\sum_{i=1}^{N} w_i I(y_i \neq G_m(x_i))}{\sum_{i=1}^{N} w_i}$
             \item Compute $\alpha_m = \log{\frac{1-err_m}{err_m}}$.
             \item Set $w_i = w_i\exp[\alpha_mI(y_i \neq G_m(x_i))]$, $i = 1, 2, ...N$. Conceptually, increase weights in step $m$ for observations that are misclassified in step $m-1$.
         \end{enumerate}
@@ -397,9 +394,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
     \end{enumerate}
     \begin{figure}
         \centering
-        \includegraphics{}
-        \caption{Caption}
-        \label{fig:my_label}
+        \includegraphics[width=0.6\textwidth]{figures/adaboostalgo.pdf}
     \end{figure}
 \end{frame}
 
@@ -465,9 +460,8 @@ test_accuracy = decision_tree.score(x_test, y_test)
 \begin{frame}{Boosting as a Forward Stagewise Additive Modeling}
     \begin{itemize}
         \item We can think of the algorithm in Slide \ref{frame:adaboost} as essentially a forward stage-wise fit of an additive model $f(x) = \sum_{m=1}^M \alpha_m G_m(x)$ (refer to \cite{hastieElementsStatisticalLearning2016} for details).
-        \item This approach is ``greedy'' in that it seeks to maximally reduce the loss at each step, i.e., steepest descent.
-        \item In gradient boosting, one fits the tree to the negative gradient values by  least squares.
-        
+        \item This approach is ``greedy'' in that it seeks to maximally reduce the loss at each step, i.e., steepest descent, by adjusting the weights iteratively.
+        \item In contrast, the gradient boosting approach attempts to fit a new learner to the residuals of the errors from the previous step. 
     \end{itemize}
 \end{frame}
 
