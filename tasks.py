@@ -25,17 +25,21 @@ def cleanup(ctx):
 
 
 @task
-def build_pdf(ctx):
-    status = subprocess.check_output(["git", "diff", "--name-only", "HEAD"])
-    changed = [Path(l) for l in status.decode("utf").split("\n") if l.endswith(".tex")]
-    print(changed)
+def build_pdf(ctx, fname):
     with cd("lectures/slides_tex"):
-        for f in changed:
-            fn = f.name.rstrip(".tex")
-            print(fn)
-            ctx.run('pdflatex -shell-escape "%s"' % fn)
-            ctx.run('bibtex "%s"' % fn, warn=True)
-            ctx.run('pdflatex -shell-escape "%s"' % fn)
-            ctx.run('pdflatex -shell-escape "%s"' % fn)
-        ctx.run("mv *.pdf ../slides", warn=True)
-    cleanup(ctx)
+        fn = fname.rstrip(".tex")
+        ctx.run('pdflatex -shell-escape "%s"' % fn)
+        ctx.run('bibtex "%s"' % fn, warn=True)
+        ctx.run('pdflatex -shell-escape "%s"' % fn)
+        ctx.run('pdflatex -shell-escape "%s"' % fn)
+    ctx.run("mv *.pdf ../slides", warn=True)
+
+
+@task
+def build_all(ctx):
+    status = subprocess.check_output(["git", "diff", "--name-only", "HEAD"])
+    changed = [Path(l).name for l in status.decode("utf").split("\n") if l.endswith(".tex")]
+    if changed:
+        for fname in changed:
+            build_pdf(ctx, fname)
+        cleanup(ctx)
