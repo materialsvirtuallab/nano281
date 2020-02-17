@@ -360,7 +360,23 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
 \end{frame}
 
 
-\section{Boosting and Additive Trees}
+\section{Ensemble learning}
+
+
+\begin{frame}{Ensemble learning}
+    \begin{itemize}
+        \item So far, we have covered the basics of using a single model (linear, kernel, tree) to perform an ML prediction.
+        \item In \textit{ensemble learning}, we use multiple models and average the results to improve prediction performance.
+        \item Advantage: lower variance and in many cases, dramatically improved prediction performance.
+        \item Disadvantage: some of the interpretability is lost in the process.
+        \item Here, we will cover two of the most popular ensemble learning approaches - \textit{boosting} and \textit{bagging}.
+        \item While ensemble learning can be applied to any of the previous ML methods, we will focus here on their application to decision trees.
+    \end{itemize}
+\end{frame}
+
+
+\subsection{Boosting}
+
 
 \begin{frame}{Boosting}
     \begin{itemize}
@@ -413,7 +429,43 @@ test_accuracy = decision_tree.score(x_test, y_test)
 \end{minted}
 \end{frame}
 
-\section{Loss functions and robustness}
+
+\begin{frame}
+\frametitle{Gradient Boosting}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/gradientboostingalgo.png}
+    \caption{Source: \href{https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d}{Gradient Boosting from Scratch}}
+\end{figure}
+\column{0.5\textwidth}
+    \begin{itemize}
+        \item We can think of the algorithm in Slide \ref{frame:adaboost} as essentially a forward stage-wise fit of an additive model $f(x) = \sum_{m=1}^M \alpha_m G_m(x)$ (refer to \cite{hastieElementsStatisticalLearning2016} for details).
+        \item Greedy approach in that it seeks to maximally reduce the loss at each step, i.e., steepest descent, by adjusting the weights iteratively.
+        \item In contrast, \textit{gradient boosting} attempts to fit a new learner to the residuals of the errors from the previous step. 
+    \end{itemize}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]{Gradient Boosting in Scikit-Learn}
+\begin{minted}{python}
+from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
+
+model = GradientBoostingClassifier(n_estimators=50)
+model.fit(x, y_class)
+model.predict(x)
+
+model = GradientBoostingRegressor(n_estimators=50)
+model.fit(x, y_reg)
+model.predict(x)
+
+\end{minted}
+\end{frame}
+
+
+\subsection{Loss functions and robustness}
 
 
 \begin{frame}{Loss functions for regression}
@@ -451,18 +503,45 @@ test_accuracy = decision_tree.score(x_test, y_test)
 \begin{frame}{Loss functions for binary classification}
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/lossfunctions.pdf}
-    \caption{Loss functions for binary classification. The response is $y = \pm1$. Misclassification : $I(sign(f) \neq y$); exponential: $\exp(-yf)$; binomial deviance: $\log(1 + e^{-2yf})$; squared error: $(y - f)^2$ ; and support vector: $(1 - yf)_+$}
+    \includegraphics[width=0.5\textwidth]{figures/lossfunctions.pdf}
+    \caption{Loss functions for binary classification. Response: $y = \pm1$. X-axis is the margin $y \cdot f$. Misclassification : $I(\mathrm{sign}(f) \neq y$); exponential: $e^{-yf}$; binomial deviance: $\log(1 + e^{-2yf})$; squared error: $(y - f)^2$ ; and support vector: $(1 - yf)_+$. Source: \cite{hastieElementsStatisticalLearning2016}}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}{Boosting as a Forward Stagewise Additive Modeling}
+\subsection{Bagging and Random Forests}
+
+\begin{frame}{Random Forests}
     \begin{itemize}
-        \item We can think of the algorithm in Slide \ref{frame:adaboost} as essentially a forward stage-wise fit of an additive model $f(x) = \sum_{m=1}^M \alpha_m G_m(x)$ (refer to \cite{hastieElementsStatisticalLearning2016} for details).
-        \item This approach is ``greedy'' in that it seeks to maximally reduce the loss at each step, i.e., steepest descent, by adjusting the weights iteratively.
-        \item In contrast, the gradient boosting approach attempts to fit a new learner to the residuals of the errors from the previous step. 
+        \item Bagging: average many noisy, unbiased models to reduce variance.
+        \item Random forest: Grow $B$ trees at random and average the results. Classification: majority vote (mode), regression: mean.
+        \item Tree growing:
+        \begin{enumerate}
+            \item At each branch, select $m$ variables at random from $p$ variables.
+            \item Determine best split among the $m$.
+            \item Split node into two daughter nodes.
+            \item Repeat until minimum node size is reached.
+        \end{enumerate}
+        
     \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Random Forest Algorithm}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/randomforestalgo.pdf}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Example: Random Forest Identification of Local Environments from K-edge XANES}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/randomforestxanes.pdf}
+    \caption{Workflow for classification of K-edge XANES spectra into one of 25 coordination environments.\cite{zhengRandomForestModels2019}}
+\end{figure}
 \end{frame}
 
 
