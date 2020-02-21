@@ -92,7 +92,7 @@
                 \hat{f_j} &\longleftarrow & \hat{f_j} - \frac{1}{N} \sum_{i=1}^N \hat{f_j}(x_{ij})
             \end{eqnarray*}
         \end{enumerate}
-        \item Conceptually, fitting a cubic smoothing spline $S_j$ to the residual $y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})$ for each $f_j$, and iterate until $\hat{f_j}$ stabilize.  
+        \item Conceptually, fitting a cubic smoothing spline $S_j$ to the residual $y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})$ for each $f_j$, and iterate until all $\hat{f_j}$s stabilize.  
     \end{itemize}
 \end{frame}
 
@@ -109,13 +109,6 @@
 \end{frame}
 
 
-\begin{frame}{Example application of GAM}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{frame}
-
-
 \section{Trees}
 
 \begin{frame}
@@ -123,8 +116,8 @@
 \begin{columns}
 \column{0.5\textwidth}
 \begin{itemize}
-        \item Feature space partitioned into rectangles, and simple model (e.g., constant) fitted into each rectangle.
-        \item CART 
+        \item Partition feature space into regions (e.g., rectangles for 2 features case), and simple model (e.g., constant) fitted into each rectangle.
+        \item Classification And Regression Trees (CART)
         \begin{equation*}
             \hat{f}(X) = \sum_{m} c_m I\{(X_1,X_2) \in R_m\}
         \end{equation*}
@@ -141,14 +134,14 @@
 
 \begin{frame}{Regression tree fitting}
     \begin{itemize}
-        \item For CART, it is clear that each region should just be given by the average of the observations to minimize sum of squares.
+        \item For CART, it is clear that each region should just be given by the average of the observations $y_i$ in that region to minimize sum of squares.
         \item Best partition is usually not computationally tractable.
         \item Greedy algorithm: Start with all data, choose splitting variable $X_j$ and split point $s$ such that:
         \begin{equation*}
             \min_{X_j, s} \left[ \sum_{x_i \in R_1(X_j, s)} (y_i - c_1)^2 + \sum_{x_i \in R_2(X_j, s)} (y_i - c_2)^2 \right]
         \end{equation*}
         \item For each $X_j$, splitting point $s$ can be found quickly via scanning of the variables.
-        \item This process is repeated for each of the regions to grow the regression tree.
+        \item This process is repeated for each region to grow the tree.
         \item Choice of tree size determines complexity of model - too large a tree results in overfitting, too small results in underfitting.
     \end{itemize}
 \end{frame}
@@ -156,7 +149,9 @@
 
 \begin{frame}{Cost-Complexity Tree Pruning}
     \begin{itemize}
-        \item Generate the tree until a minimum node size is achieved.
+        \item Generate the tree until a minimum node size is achieved. 
+        \item Note: perfect performance on training data can always be obtained with an arbitrarily large tree, e.g., when the final `leaf' nodes each contain only one training observation.
+        \item Number of samples in a node is therefore an indicator of tree complexity.
         \item Let subtree $T \subset T_0$ be any tree that can be obtained by pruning $T_0$.
         \item Cost-complexity criterion:
         \begin{equation*}
@@ -198,7 +193,7 @@
     \begin{itemize}
         \item We will now play around with the metal/insulator classification problem in Lab 2.
         \item However, we will make a few changes. First, we will not bother with NaN values. Imputing values is ok for many other domains. In materials science, imputing arbitrary values is a recipe for disaster.
-        \item Second, we will only select a smaller subset of elemental properties to construct our decision tree with. Namely, AtomicRadius, AtomicWeight, Column, ElectronAffinity, Electronegativity, FirstIonizationEnergy, Row, SecondIonizationEnergy. These properties are available for most elements and we avoid obviously correlated features, e.g., AtomicRadius and AtomicVolume.
+        \item Second, we will only select a smaller subset of elemental properties to construct our decision tree with. Namely, \textit{'AtomicRadius', 'AtomicWeight', 'Column', 'Electronegativity', 'Row'}. These properties are available for most elements and we avoid obviously correlated features, e.g., AtomicRadius and AtomicVolume.
     \end{itemize}
 \end{frame}
 
@@ -228,10 +223,10 @@ y_pred = decision_tree.predict(x_test)
 \end{frame}
 
 
-\begin{frame}{Misclassification rate}
+\begin{frame}{Classification accuracy}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/misclassfication_rate_metal_insulator.png}
+        \includegraphics[width=0.8\textwidth]{figures/accuracy_metal_insulator.png}
     \end{figure}
     \begin{itemize}
         \item Quite clearly, we cannot do much better than a $\sim 82\%$ accuracy (test misclassification rate of about 18\%) with a tree-depth of around 15.
@@ -260,30 +255,29 @@ y_pred = decision_tree.predict(x_test)
 \end{figure}
 \scriptsize{
 \begin{itemize}
-    \item Compounds with mean $\chi \leq 1.92$ are classified as metals.
-    \item Compounds with mean $1.92 \leq \chi \leq 2.05$ are classified as metals, unless they contain elements in groups I and II, i.e., ionic compounds.
-    \item Compounds with mean $\chi > 2.05$ are insulators unless "AtomicRadiusMean" $>$ 0.97, i.e., metals in group 6, 8, 9, 10, 11.
+    \item Compounds with mean $\chi \leq 2.03$ are mostly classified as metals. 
+    \item Compounds with mean $\chi > 2.03$ are classified as insulators, i.e., mostly ionic compounds containing chalcogenides and halides with high $\chi$.
 \end{itemize}}
 \column{0.5\textwidth}
 \begin{minted}[fontsize=\tiny]{python}
-|--- ElectronegativityMean <= 2.05
-|   |--- ElectronegativityMean <= 1.92
-|   |   |--- ColumnMin <= 2.50
+|--- ElectronegativityMean <= 2.03
+|   |--- ColumnMin <= 2.50
+|   |   |--- ElectronegativityMax <= 5.09
 |   |   |   |--- class: 0
-|   |   |--- ColumnMin >  2.50
+|   |   |--- ElectronegativityMax >  5.09
+|   |   |   |--- class: 1
+|   |--- ColumnMin >  2.50
+|   |   |--- ColumnMax <= 44.50
 |   |   |   |--- class: 0
-|   |--- ElectronegativityMean >  1.92
-|   |   |--- ColumnMin <= 2.50
-|   |   |   |--- class: 1
-|   |   |--- ColumnMin >  2.50
+|   |   |--- ColumnMax >  44.50
 |   |   |   |--- class: 0
-|--- ElectronegativityMean >  2.05
-|   |--- AtomicRadiusMean <= 0.97
-|   |   |--- RowMean <= 2.48
+|--- ElectronegativityMean >  2.03
+|   |--- AtomicRadiusMean <= 0.98
+|   |   |--- AtomicWeightMean <= 22.98
 |   |   |   |--- class: 1
-|   |   |--- RowMean >  2.48
+|   |   |--- AtomicWeightMean >  22.98
 |   |   |   |--- class: 1
-|   |--- AtomicRadiusMean >  0.97
+|   |--- AtomicRadiusMean >  0.98
 |   |   |--- ColumnMax <= 31.00
 |   |   |   |--- class: 0
 |   |   |--- ColumnMax >  31.00

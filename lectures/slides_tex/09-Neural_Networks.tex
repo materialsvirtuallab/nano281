@@ -1,0 +1,182 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{color}
+\usepackage{minted}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{tikz}
+\usepackage{mhchem}
+\usepackage{pgfplots}
+\setminted{fontsize=\scriptsize}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    filecolor=magenta,      
+    urlcolor=red,
+}
+
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\let \vec \mathbf
+
+\mode<presentation> {
+    \usetheme{CambridgeUS}
+    %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+    \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+    \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+
+\title[Neural Networks]{Neural Networks}
+
+\author{Shyue Ping Ong}
+\institute[UCSD]{University of California, San Diego\\
+\medskip
+}
+\date{NANO281} % Date, can be changed to a custom date
+
+\begin{document}
+
+
+\begin{frame}
+    \titlepage % Print the title page as the first slide
+\end{frame}
+
+
+\begin{frame}{Overview}
+    \tableofcontents
+\end{frame}
+
+
+\section{Preliminaries}
+
+\begin{frame}{Preliminaries}
+    \begin{itemize}
+        \item Neural networks/deep learning has gotten a lot of hype in recent years.
+        \item In many areas, they have outperformed many traditional ML methodologies.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{figures/imagenet.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/alphago.jpg}
+    \end{figure}
+    \end{itemize}
+
+\end{frame}
+
+\section{Neural Networks}
+
+
+\begin{frame}{Artificial Neural Network}
+\begin{itemize}
+        \item An artificial neural network (NN) is a learning algorithm that is (very) loosely based on the structure of the brain.
+        \begin{block}{Universal Approximation Theorem\cite{csajiApproximationArtificialNeural}}
+        A feed-forward network with a single hidden layer containing a finite number of neurons can approximate continuous functions under mild assumptions on the activation function. 
+        \end{block}
+\end{itemize}
+\begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/neuron.jpg}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Neural Networks}
+    \input{neural_network_tikz}
+\end{frame}
+
+
+\begin{frame}{Neuron}
+\begin{figure}
+\begin{tikzpicture}
+[roundnode/.style={circle, draw=black, very thick, minimum size=7mm}
+]
+\node at (0, 0) (X1) {$X_1$};
+\node at (0, 1) (X2) {$X_2$};
+\node at (0, 2) (X3) {$X_2$};
+\node[roundnode] at (2, 1) (C) {};
+\draw[->] (X1) -- (C);
+\draw[->] (X2) -- (C);
+\draw[->] (X3) -- (C);
+\node at (4, 1) (Y) {$Y_m$};
+\draw[->] (C) -- (Y);
+\end{tikzpicture}
+\end{figure}
+\begin{equation*}
+    Y_m = \sigma(\alpha_{0m} + \alpha_{m}^T \vec{X})
+\end{equation*}
+    \begin{itemize}
+        \item Output of each neuron is a linear function of the inputs.
+        \item In hidden layers, the output is passed through an \textit{activation function} $\sigma$.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Sigmoid Activation Function}
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1]
+    \begin{axis}[
+    axis lines=middle,
+    inner axis line style={-stealth},
+    xlabel={$x$},
+    ylabel={\large $y$},
+    ytick={0,0.5,1},
+    xtick={-10,-5, 0,...,10},
+    x tick label style={below},
+    y tick label style={left},
+    ymin=0,
+    ymax=1,
+    xmin=-10,
+    xmax=10,
+]
+\addplot[color=red,very thick,domain=-10:10,samples=100] {1/(1+exp(-0.5*x))};
+\addlegendentry{$s=0.5$}
+\addplot[color=green,very thick,domain=-10:10,samples=100] {1/(1+exp(-x))};
+\addlegendentry{$s=1$}
+\addplot[color=blue,very thick,domain=-10:10,samples=100] {1/(1+exp(-2*x))};
+\addlegendentry{$s=2$}
+\node at (axis cs:5,0.5) {$y=\frac{1}{1+e^{-sx}}$};
+\end{axis}
+    \end{tikzpicture}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Fitting a Neural Network}
+    \begin{itemize}
+        \item Model \textit{weights} ($\alpha$ in the linear functions) are fitted by \textit{back-propogation}, basically a form of gradient descent.
+        \item Loss functions: squared error for regression, squared error or cross entropy for classification.
+        \item To avoid overfitting, regularization (similar to ridge regression) is typically applied. E.g., \textit{weight decay}:
+        \begin{equation*}
+            J = \sum \alpha^2
+        \end{equation*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Decisions for Neural Networks}
+    \begin{itemize}
+        \item Number of hidden units and layers: generally error on the side of having too many hidden units than too few - flexibility is needed to capture non-linearities in the data.
+        \item Extra weights can be shrunk to zero with appropriate regularization.
+        \item Learning rate is a key parameter in NN as well as other model fitting. The learning rate controls the rate of gradient descent.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bibliography}
+    \bibliographystyle{unsrt}
+    \bibliography{refs}
+\end{frame}
+
+
+
+
+\begin{frame}
+    \Huge{\centerline{The End}}
+\end{frame}
+
+\end{document}
+
