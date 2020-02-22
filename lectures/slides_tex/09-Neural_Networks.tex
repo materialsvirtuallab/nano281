@@ -84,7 +84,7 @@
 
 
 \begin{frame}{Neural Networks}
-    \input{neural_network_tikz}
+    \input{figures/neural_network_tikz}
 \end{frame}
 
 
@@ -162,6 +162,20 @@
         \item Number of hidden units and layers: generally error on the side of having too many hidden units than too few - flexibility is needed to capture non-linearities in the data.
         \item Extra weights can be shrunk to zero with appropriate regularization.
         \item Learning rate is a key parameter in NN as well as other model fitting. The learning rate controls the rate of gradient descent.
+        \item The error function is non-convex and contains multiple minima, i.e., final solution obtained depends on initial weights. Typical approach is to start with a number of random starting configurations and choose solution with lowest penalized error.
+        \item Alternative is to average predictions over a number of NN, i.e., ensemble models.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Software packages for Neural Networks}
+    \begin{itemize}
+        \item Scikit-learn has a basic implementation of a multi-layer perceptron. For this course, we will use this to avoid overloading students with different software packages.
+        \item However, you should be aware that if you are into serious work with neural network, alternative software implementations are available that offer more features and efficiency. Note that these packages are not limited to NNs, but NNs are what their most common use case.
+        \begin{itemize}
+            \item \href{https://www.tensorflow.org/}{Tensorflow}. Open-source package by Google. Very powerful and efficient, but a very steep learning curve. Highly recommend that you use the Keras package (already intergrated into TF2) which provides a high level API to it similar to scikit-learn in some ways.
+            \item \href{https://pytorch.org/}{Pytorch}. Open-source package by Facebook. Equally powerful as TF but also steep learning curve.
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
