@@ -71,7 +71,8 @@
 
 \begin{frame}{Artificial Neural Network}
 \begin{itemize}
-        \item An artificial neural network (NN) is a learning algorithm that is (very) loosely based on the structure of the brain.
+        \item An artificial neural network (ANN) is a learning algorithm that is (very) loosely based on the structure of the brain.
+        \item Somewhat vaguely, you will also hear the terms ``multi-layer perceptron'' (MLP) used in place of ANN.
         \begin{block}{Universal Approximation Theorem\cite{csajiApproximationArtificialNeural}}
         A feed-forward network with a single hidden layer containing a finite number of neurons can approximate continuous functions under mild assumptions on the activation function. 
         \end{block}
@@ -110,14 +111,46 @@
     \begin{itemize}
         \item Output of each neuron is a linear function of the inputs.
         \item In hidden layers, the output is passed through an \textit{activation function} $\sigma$.
+        \item Common choices of $\sigma$ include the rectified linear unit (RELU), sigmoid function, softplus, etc.
     \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Sigmoid Activation Function}
+\begin{frame}{Activation Functions}
 \begin{figure}
     \centering
-    \begin{tikzpicture}[scale=1]
+    \begin{tikzpicture}[scale=0.7]
+        \begin{axis}[
+            axis lines=middle,
+            inner axis line style={-stealth},
+            xlabel={$x$},
+            ylabel={\large $y$},
+            ytick={0,1,...,2},
+            xtick={-2,-1,...,2},
+            y=2cm,
+            x=2cm,
+            x tick label style={below},
+            y tick label style={left},
+            x label style={at={(ticklabel* cs:1.01)},anchor=west},
+            y label style={at={(ticklabel* cs:1.05)},anchor=south},
+            ymin=0,
+            ymax=2,
+            xmin=-2,
+            xmax=2,
+            legend style={at={(0,0.85)},anchor=west}
+        ]
+        \addplot[color=red,very thick] coordinates {(-2, 0) (0, 0) (2, 2)};
+        \addlegendentry{relu}
+        \addplot[color=green,very thick,domain=-2:2,samples=100] {ln(1+exp(x))};
+        \addlegendentry{softplus}
+        \node at (axis cs:-1,0.7) {$y=\ln(1+e^x)$};
+        \node at (axis cs:1.3,0.4) {$y=\left\{ \begin{array}{ll}
+            x & , x \geq 0  \\
+            0 & , x < 0
+        \end{array} \right.$};
+        \end{axis}
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.7]
     \begin{axis}[
     axis lines=middle,
     inner axis line style={-stealth},
@@ -125,12 +158,13 @@
     ylabel={\large $y$},
     ytick={0,0.5,1},
     xtick={-10,-5, 0,...,10},
-    x tick label style={below},
-    y tick label style={left},
+    x label style={at={(ticklabel* cs:1.01)},anchor=west},
+    y label style={at={(ticklabel* cs:1.05)},anchor=south},
     ymin=0,
     ymax=1,
     xmin=-10,
     xmax=10,
+    legend style={at={(0,0.8)},anchor=west}
 ]
 \addplot[color=red,very thick,domain=-10:10,samples=100] {1/(1+exp(-0.5*x))};
 \addlegendentry{$s=0.5$}
@@ -157,11 +191,17 @@
 \end{frame}
 
 
-\begin{frame}{Decisions for Neural Networks}
+\begin{frame}[fragile]{}
+\begin{minted}{python}
+\end{minted}
+\end{frame}
+
+
+\begin{frame}{Parameter Decisions for Neural Networks}
     \begin{itemize}
         \item Number of hidden units and layers: generally error on the side of having too many hidden units than too few - flexibility is needed to capture non-linearities in the data.
         \item Extra weights can be shrunk to zero with appropriate regularization.
-        \item Learning rate is a key parameter in NN as well as other model fitting. The learning rate controls the rate of gradient descent.
+        \item Learning rate is a key parameter in fitting NNs as well as other models. The learning rate controls the rate of gradient descent. A high learning rate reduces training time, but also decreases accuracy. State-of-the-art is to use an adaptive learning rate. 
         \item The error function is non-convex and contains multiple minima, i.e., final solution obtained depends on initial weights. Typical approach is to start with a number of random starting configurations and choose solution with lowest penalized error.
         \item Alternative is to average predictions over a number of NN, i.e., ensemble models.
     \end{itemize}
@@ -171,11 +211,23 @@
 \begin{frame}{Software packages for Neural Networks}
     \begin{itemize}
         \item Scikit-learn has a basic implementation of a multi-layer perceptron. For this course, we will use this to avoid overloading students with different software packages.
-        \item However, you should be aware that if you are into serious work with neural network, alternative software implementations are available that offer more features and efficiency. Note that these packages are not limited to NNs, but NNs are what their most common use case.
+        \item However, you should be aware that if you are into serious work with NNs, alternative software are available that offer more features and efficiency. Note that these packages are not limited to NNs, but NNs are what their most common use case.
         \begin{itemize}
-            \item \href{https://www.tensorflow.org/}{Tensorflow}. Open-source package by Google. Very powerful and efficient, but a very steep learning curve. Highly recommend that you use the Keras package (already intergrated into TF2) which provides a high level API to it similar to scikit-learn in some ways.
+            \item \href{https://www.tensorflow.org/}{Tensorflow}. Open-source package by Google. Very powerful and efficient, but a very steep learning curve. Highly recommend that you use the Keras package (already integrated into TF2) which provides a high level API to it similar to scikit-learn in some ways.
             \item \href{https://pytorch.org/}{Pytorch}. Open-source package by Facebook. Equally powerful as TF but also steep learning curve.
         \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Beyond the Feedforward Neural Network}
+    \begin{itemize}
+        \item NNs can be an entire course in itself. Here, we cover some basic variations.
+        \begin{description}
+        \item[Convolutional NNs] Uses covolutional operations to achieve translational invariance. Especially important in image processing applications. In modeling crystals with periodic boundary conditions, this can also be a useful feature.
+        \item[Recurrent NNs] Connections between nodes form a directed graph along a temporal sequence. Exhibits temporal dynamic behavior and can handle variable length sequences of inputs. Applications: handwriting recognition or speech recognition.
+        \end{description}
+        
     \end{itemize}
 \end{frame}
 
@@ -184,8 +236,6 @@
     \bibliographystyle{unsrt}
     \bibliography{refs}
 \end{frame}
-
-
 
 
 \begin{frame}
