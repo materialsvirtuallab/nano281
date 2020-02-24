@@ -79,7 +79,7 @@
 \end{itemize}
 \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{figures/neuron.jpg}
+        \includegraphics[width=0.6\textwidth]{figures/neuron.jpg}
     \end{figure}
 \end{frame}
 
@@ -201,9 +201,9 @@
     \begin{itemize}
         \item Number of hidden units and layers: generally error on the side of having too many hidden units than too few - flexibility is needed to capture non-linearities in the data.
         \item Extra weights can be shrunk to zero with appropriate regularization.
-        \item Learning rate is a key parameter in fitting NNs as well as other models. The learning rate controls the rate of gradient descent. A high learning rate reduces training time, but also decreases accuracy. State-of-the-art is to use an adaptive learning rate. 
+        \item Learning rate is a key parameter in fitting ANNs as well as other models. The learning rate controls the rate of gradient descent. A high learning rate reduces training time, but also decreases accuracy. State-of-the-art is to use an adaptive learning rate. 
         \item The error function is non-convex and contains multiple minima, i.e., final solution obtained depends on initial weights. Typical approach is to start with a number of random starting configurations and choose solution with lowest penalized error.
-        \item Alternative is to average predictions over a number of NN, i.e., ensemble models.
+        \item Alternative is to average predictions over a number of ANN, i.e., ensemble models.
     \end{itemize}
 \end{frame}
 
@@ -211,7 +211,7 @@
 \begin{frame}{Software packages for Neural Networks}
     \begin{itemize}
         \item Scikit-learn has a basic implementation of a multi-layer perceptron. For this course, we will use this to avoid overloading students with different software packages.
-        \item However, you should be aware that if you are into serious work with NNs, alternative software are available that offer more features and efficiency. Note that these packages are not limited to NNs, but NNs are what their most common use case.
+        \item However, you should be aware that if you are into serious work with ANNs, alternative software are available that offer more features and efficiency. Note that these packages are not limited to ANNs, but ANNs are what their most common use case.
         \begin{itemize}
             \item \href{https://www.tensorflow.org/}{Tensorflow}. Open-source package by Google. Very powerful and efficient, but a very steep learning curve. Highly recommend that you use the Keras package (already integrated into TF2) which provides a high level API to it similar to scikit-learn in some ways.
             \item \href{https://pytorch.org/}{Pytorch}. Open-source package by Facebook. Equally powerful as TF but also steep learning curve.
@@ -220,9 +220,36 @@
 \end{frame}
 
 
+\begin{frame}[fragile]{ANNs in Scikit-learn and TF2.0}
+\begin{minted}{python}
+from sklearn.neural_network import MLPRegressor
+
+nn = MLPRegressor(hidden_layer_sizes=(5, 3),
+                  alpha=1e-4,
+                  max_iter=200,
+                  learning_rate_init=0.01)
+nn.fit(x, y_reg)
+
+# Equivalent Tensorflow 2.0
+from tensorflow.keras import Model, Input
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import Adam
+
+x_in = Input(shape=(x.shape[1],))
+x_h1 = Dense(5, activation="relu")(x_in)
+x_h2 = Dense(3, activation="relu")(x_h1)
+x_out = Dense(1)(x_h2)
+model = Model(inputs=x_in, outputs=x_out)
+opt = Adam(learning_rate=0.01)
+model.compile(optimizer=opt, loss='mse')
+model.fit(x, y_reg, epochs=200, batch_size=200)
+\end{minted}
+\end{frame}
+
+
 \begin{frame}{Beyond the Feedforward Neural Network}
     \begin{itemize}
-        \item NNs can be an entire course in itself. Here, we cover some basic variations.
+        \item ANNs can be an entire course in itself. Here, we cover some basic variations.
         \begin{description}
         \item[Convolutional NNs] Uses covolutional operations to achieve translational invariance. Especially important in image processing applications. In modeling crystals with periodic boundary conditions, this can also be a useful feature.
         \item[Recurrent NNs] Connections between nodes form a directed graph along a temporal sequence. Exhibits temporal dynamic behavior and can handle variable length sequences of inputs. Applications: handwriting recognition or speech recognition.
