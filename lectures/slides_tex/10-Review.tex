@@ -28,7 +28,7 @@
 }
 
 
-\title[Class Review]{Class Review}
+\title[NANO281 Review]{NANO281 Review}
 
 \author{Shyue Ping Ong}
 \institute[UCSD]{University of California, San Diego\\
@@ -86,6 +86,20 @@
 \end{frame}
 
 
+\begin{frame}{Data and Featurization}
+    \begin{itemize}
+        \item Data generation, collection and wrangling is typically the most time-consuming portion of the whole process.
+        \item Sources: Experimental (\href{http://icsd.fiz-karlsruhe.de/icsd/}{ICSD}, \href{http://paulingfile.com/}{Pauling file}, literature, ...), Computational (\href{http://www.materialsproject.org}{Materials Project}, \href{http://oqmd.org/}{OQMD}, \href{http://aflowlib.org/}{AFLOW}, \href{https://nomad-coe.eu/}{NOMAD}, ...).
+        \item Quality and quantity remains a big issue in materials science.
+        \item Featurization - typically the choice that affects model performance the most
+        \begin{itemize}
+            \item Composition-based features (e.g., electronegativity, atomic radii, etc.): intuitively simple, readily available, but clearly cannot capture structural differences.
+            \item Structure-based features (including graphs): much greater complexity, typically must obey symmetries of system to be effective.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}{Model fitting}
     \begin{itemize}
         \item All model fittings follow the same basic principle - minimizing of some \textit{loss function}, $L(\theta; y_i, \vec{x_i})$ either analytically or by numerical procedures (e.g., gradient descent).
@@ -126,7 +140,6 @@
         \includegraphics[width=0.4\textwidth]{figures/fig7-1.pdf}
     \end{figure}
 \end{frame} 
-
 
 
 \begin{frame}{Training, validation and test data}
@@ -172,8 +185,31 @@
             \item Shrink coefficients or weights, sometimes to zero.
             \item Subset selection / tree pruning.
         \end{itemize}
-        \item General approach is to add a \textit{penalty term} to loss functions that penalizes overcomplex models, e.g., sum of squares or absolute value of coefficients (e.g., MLR) or weights (NNs), tree size (decision trees), etc.
-        \item Controlled by some parameter to be specified by model developer that determines size of penalty.
+        \item General approach is to add a \textit{penalty term} to loss functions that penalizes overcomplex models, e.g., sum of squares or absolute value of coefficients (e.g., MLR) or weights (NNs), tree size (decision trees), etc. Controlled by some parameter to be specified by model developer that determines size of penalty.
+        \item Bias-variance trade-off:
+        \begin{equation*}
+            \mathrm{MSE} = \mathrm{var}(\hat{\theta}) + [E(\hat{\theta}) - \theta]^2
+        \end{equation*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Types of ML models}
+    \begin{itemize}
+        \item Supervised learning
+        \begin{itemize}
+            \item Linear (MLR, Ridge, Lasso, Linear/Quadratic Discriminant)
+            \item Local/Kernel methods (kNN, kernel density estimation, Gaussian mixture models)
+            \item Trees (CART, Adaboost, Gradient Boosting, Random Forest)
+            \item Neural networks
+        \end{itemize}
+        \item Unsupervised learning
+        \begin{itemize}
+            \item Principal Component Analysis
+            \item K-means
+            \item DBSCAN
+        \end{itemize}
+        \item And many others that have not been covered (e.g., support vector machines, graph-based models, etc.)
     \end{itemize}
 \end{frame}
 
