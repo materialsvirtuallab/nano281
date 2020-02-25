@@ -191,12 +191,6 @@
 \end{frame}
 
 
-\begin{frame}[fragile]{}
-\begin{minted}{python}
-\end{minted}
-\end{frame}
-
-
 \begin{frame}{Parameter Decisions for Neural Networks}
     \begin{itemize}
         \item Number of hidden units and layers: generally error on the side of having too many hidden units than too few - flexibility is needed to capture non-linearities in the data.
@@ -211,7 +205,7 @@
 \begin{frame}{Software packages for Neural Networks}
     \begin{itemize}
         \item Scikit-learn has a basic implementation of a multi-layer perceptron. For this course, we will use this to avoid overloading students with different software packages.
-        \item However, you should be aware that if you are into serious work with ANNs, alternative software are available that offer more features and efficiency. Note that these packages are not limited to ANNs, but ANNs are what their most common use case.
+        \item However, you should be aware that if you are into serious work with ANNs, alternative software are available that offer more features and efficiency. Note that these packages are not limited to ANNs, but ANNs are the most common use case.
         \begin{itemize}
             \item \href{https://www.tensorflow.org/}{Tensorflow}. Open-source package by Google. Very powerful and efficient, but a very steep learning curve. Highly recommend that you use the Keras package (already integrated into TF2) which provides a high level API to it similar to scikit-learn in some ways.
             \item \href{https://pytorch.org/}{Pytorch}. Open-source package by Facebook. Equally powerful as TF but also steep learning curve.
@@ -256,6 +250,67 @@ model.fit(x, y_reg, epochs=200, batch_size=200)
         \end{description}
         
     \end{itemize}
+\end{frame}
+
+
+\section{Applications}
+
+
+\begin{frame}{Example Application: NN for interatomic potentials}
+    \begin{itemize}
+        \item Atom-centered symmetry functions (ACSF)\cite{behlerAtomcenteredSymmetryFunctions2011} to represent the atomic local environments.
+        \begin{eqnarray*}
+            G_{i}^{\rm atom, \rm rad} & = & \sum_{j\neq i}^{N_{\rm atom}} e^{-\eta(R_{ij}-R_{s})^{2}} \cdot f_{c}(R_{ij}), \\
+            G_{i}^{\rm atom, \rm ang} & = & 2^{1-\zeta}\sum_{j,k \neq i}^{N_{\rm atom}} (1 + \lambda \cos \theta_{ijk})^{\zeta} \cdot e^{-\eta^{\prime}(R_{ij}^{2}+R_{ik}^{2}+R_{jk}^{2})}\cdot\\
+            & & f_{c}(R_{ij}) \cdot f_{c}(R_{ik}) \cdot f_{c}(R_{jk}),
+        \end{eqnarray*}
+        where $R_{ij}$ is the distance between atom $i$ and neighbor $j$; $\eta$ is the width of the Gaussian; $R_{s}$ is the position shift over all neighboring atoms; $\zeta$ controls the angular resolution. $f_{c}(R_{ij})$ is a cutoff function.    
+        \item Fully connected ANNs describe the PES with respect to ACSFs.\cite{behlerHighDimensionalNeuralNetwork}
+        \item Has been developed for Si, \ce{TiO2}, water, metal-organic frameworks, ZnO, \ce{Li3PO4}, etc.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Example Application: NNP for Si}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{figures/nnp.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/nnp-si.pdf}
+        \caption{Left: Schematic of NNP architecture. Right: Comparison of radial distribution functions from MD simulations using various interatomic potentials for Si.\cite{behlerGeneralizedNeuralNetworkRepresentation2007}}
+        \label{fig:my_label}
+    \end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}{Example Application: NNP-computed phase diagram for amorphous Li-Si}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.55\textwidth]{figures/li-si-nnp.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/li-si-nnp2.pdf}
+    \caption{From ref \cite{artrithConstructingFirstprinciplesPhase2018}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Example application: ANNs to predict crystal stability}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\textwidth]{figures/dnn-crystal-stability.png}
+    \includegraphics[width=0.5\textwidth]{figures/dnn-crystal-stability2.png}
+    \caption{ANNs predict formation energies of garnets and perovskite crystals from Pauling electronegativity and ionic radii.\cite{yeDeepNeuralNetworks2018}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Example application: CNNs for determination of crystal symmetry from electron diffraction}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/science-cnn-electron-diffraction.jpg}
+    \includegraphics[width=0.35\textwidth]{figures/science-cnn-electron-diffraction2.jpg}
+    \caption{CNNs to determine crystal symmetry from electron diffraction patterns with $>$ 90\% accuracy.\cite{kaufmannCrystalSymmetryDetermination2020}}
+\end{figure}
 \end{frame}
 
 
