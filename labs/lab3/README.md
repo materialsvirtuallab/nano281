@@ -1,13 +1,14 @@
 # Introduction
 
-Welcome to the final lab of NANO281 - Data Science in Materials Science. Unlike previous labs, this lab will be based on an *open* problem in materials science: how do we determine crystal structure from a diffraction pattern, specifically an X-ray diffraction pattern?
+Welcome to the final lab of NANO281 - Data Science in Materials Science. Unlike previous labs, this lab will be based on an **open** problem in materials science: how do we determine crystal structure from a diffraction pattern, specifically an X-ray diffraction pattern?
 
 ![XRD](xrd.png)
-*XRD pattern of Sr2LiAlO4, the first known phase in the Sr-Li-Al-O system.[3]*
 
-Calculating the XRD pattern from a known crystal structure is relatively easy. The peak positions are governed by Bragg's law, and the intensities of the peaks are given by the types of atoms present as well as the symmetry of the crystal. However, the inverse problem of predicting the crystal structure (lattice system, space group and atomic species and coordinates) is non-trivial. Typically, this is done via Rietveld refinement by matching a measured XRD pattern to a database of reference XRD patterns (using a least squares approach).
+**XRD pattern of Sr2LiAlO4, the first known phase in the Sr-Li-Al-O system.[3]**
 
-In this lab, we want to determine if we can bypass the matching process altogether using machine learning - can we classify an XRD pattern into one of the 14 3D Bravais lattices? Recent works that have attempted such inverse mappings, e.g., local environment from K-edge XANES[1] and bravais lattice from electron diffraction,[2] provides optimism that this should be achievable.
+Calculating the XRD pattern from a known crystal structure is relatively easy. The peak positions are governed by Bragg's law, and the intensities of the peaks are given by the types of atoms present as well as the symmetry of the crystal (see lecture notes from NANO106 or any crystallography text book). However, the inverse problem of predicting the crystal structure (lattice system, space group and atomic species and coordinates) is non-trivial. Typically, this is done via Rietveld refinement by matching a measured XRD pattern to a database of reference XRD patterns (using a least squares approach).
+
+In this lab, we want to determine if we can bypass the matching process altogether using machine learning - can we classify an XRD pattern into one of the 14 3D Bravais lattices? Recent works that have attempted such inverse mappings, e.g., local environment from K-edge XANES[1] and Bravais lattice from electron diffraction,[2] provide optimism that this should be achievable.
 
 # Getting started
 
@@ -41,7 +42,7 @@ Our assessment criteria:
 
 # Lab
 
-Now that we are at the Final Lab, hints will be minimal. In any case, the problem itself is an *open-ended* one where the instructors have no clear idea what the best final solution would be (though we can make intelligent guesses). It is expected that your ML models are properly trained using best practices, your notebooks are clearly annotated and your code is Pythonic. All these will be accounted for in your final score.
+Now that we are at the Final Lab, hints will be minimal. In any case, the problem itself is an **open-ended** one where the instructors have no clear idea what the best final solution would be (though we can make intelligent guesses). It is expected that your ML models are properly trained using best practices, your notebooks are clearly annotated and your code is Pythonic. All these will be accounted for in your final score.
 
 ## Data
 
@@ -51,11 +52,12 @@ Download the `cod.csv` file in this repo. Each row of the csv represents a singl
 - id: COD id
 - formula: Formula
 - int_num: International Space Group Number. This is an integer ranging from 1-230.
-- 180 coloumns of intensity values at 2theta ranging from 0.5 to 90 degrees in 0.5 degree intervals.
 - bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centered); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
+- 180 columns of intensity values at 2theta ranging from 0.5 to 90 degrees (inclusive) in 0.5 degree intervals.
 
 ![3D_bravais_lattices](bravais_lattices.png )
-*The 14 3D bravais lattices.*
+
+**The 14 3D bravais lattices.**
 
 ## Q1 - Predicting bravais lattice from XRD
 
