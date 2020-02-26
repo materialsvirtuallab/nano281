@@ -49,6 +49,7 @@ Now that we are at the Final Lab, hints will be minimal. In any case, the proble
 We will be using *computed* XRD patterns of crystal structures that have been obtained from the [Crystallography Open Database](http://www.crystallography.net/cod/). The reason we are using computed XRD patterns is to avoid having to deal with background and noise, all of which needs to be handled for experimentally measured XRD patterns. This is therefore a clean dataset that suffices to demonstrate that the problem is in principle solvable via machine learning. We can adapt the technique to work on experimentally measured XRD patterns subsequently. The XRD patterns were computed using [pymatgen's](http://pymatgen.org) XRDCalculator, with a Gaussian smearing of 0.2 eV applied and sampling carried out at 0.5 degree intervals of 2 theta from 0.5 to 90 degrees.
 
 Download the `cod.csv` file in this repo. Each row of the csv represents a single unique crystal:
+
 - id: COD id
 - formula: Formula
 - int_num: International Space Group Number. This is an integer ranging from 1-230.
@@ -61,9 +62,10 @@ Download the `cod.csv` file in this repo. Each row of the csv represents a singl
 
 ## Q1 - Predicting bravais lattice from XRD
 
-Develop a machine learning (ML) model to classify an XRD pattern into one of the 14 Bravais lattices. Experiment with any or all of the ML models that you have learnt so far in the course, and play around with various parameters. Given the size of the data, it is recommended that you sample only 10000 data points and use that to experiment with different models first, before trying to use the full data set to do a proper series of fits. Show all parameter optimizations carried out, e.g., grid search of relevant parameters. You should demonstrate the usage of at least two types of ML model (linear, trees, neural networks, etc.)/
+Develop a machine learning (ML) model to classify an XRD pattern into one of the 14 Bravais lattices. Experiment with any or all of the ML models that you have learnt so far in the course, and play around with various parameters. Given the size of the data, it is recommended that you sample only 10000 data points and use that to experiment with different models first, before trying to use the full data set to do a proper series of fits. Show all parameter optimizations carried out, e.g., grid search of relevant parameters. You should demonstrate the usage of at least two types of ML model (linear, trees, neural networks, etc.)
 
 Please save your *three best models* using:
+
 ```python
 import pickle
 with open('<First_name>_<Last_name>_<description of model, e.g., linear, tree, etc.>.pkl') as f:
@@ -71,8 +73,9 @@ with open('<First_name>_<Last_name>_<description of model, e.g., linear, tree, e
 ```
 
 Generate a csv with your best model with two columns:
+
 - id: COD id
-- pred_bravis_lattice: Predicted Bravais Lattice from your model.
+- pred\_bravis\_lattice: Predicted Bravais Lattice from your model.
 
 Report your classification accuracy.
 
@@ -85,7 +88,9 @@ Repeat Q1, but instead of classifying the XRD patterns based on the 14 Bravais l
 # References
 
 [1]: Zheng, C.; Chen, C.; Chen, Y.; Ong, S. P. Random Forest Models for Accurate Identification of Coordination Environments from X-Ray Absorption Near-Edge Structure. arXiv:1911.01358 [cond-mat] 2019.
+
 [2]: Kaufmann, K.; Zhu, C.; Rosengarten, A. S.; Maryanovsky, D.; Harrington, T. J.; Marin, E.; Vecchio, K. S. Crystal Symmetry Determination in Electron Diffraction Using Machine Learning. Science 2020, 367 (6477), 564–568. https://doi.org/10.1126/science.aay3062.
+
 [3]: Wang, Z.; Ha, J.; Kim, Y. H.; Im, W. B.; McKittrick, J.; Ong, S. P. Mining Unexplored Chemistries for Phosphors for High-Color-Quality White-Light-Emitting Diodes. Joule 2018, 2 (5), 914–926. https://doi.org/10.1016/j.joule.2018.01.015.
 
 
