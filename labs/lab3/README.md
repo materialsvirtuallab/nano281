@@ -2,7 +2,8 @@
 
 Welcome to the final lab of NANO281 - Data Science in Materials Science. Unlike previous labs, this lab will be based on an *open* problem in materials science: how do we determine crystal structure from a diffraction pattern, specifically an X-ray diffraction pattern?
 
-![XRD](xrd.png "XRD pattern of Sr2LiAlO4, the first known phase in the Sr-Li-Al-O system.[3]")
+![XRD](xrd.png)
+*XRD pattern of Sr2LiAlO4, the first known phase in the Sr-Li-Al-O system.[3]*
 
 Calculating the XRD pattern from a known crystal structure is relatively easy. The peak positions are governed by Bragg's law, and the intensities of the peaks are given by the types of atoms present as well as the symmetry of the crystal. However, the inverse problem of predicting the crystal structure (lattice system, space group and atomic species and coordinates) is non-trivial. Typically, this is done via Rietveld refinement by matching a measured XRD pattern to a database of reference XRD patterns (using a least squares approach).
 
@@ -53,7 +54,8 @@ Download the `cod.csv` file in this repo. Each row of the csv represents a singl
 - 180 coloumns of intensity values at 2theta ranging from 0.5 to 90 degrees in 0.5 degree intervals.
 - bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centered); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
 
-![3D_bravais_lattices](bravais_lattices.png "The 14 3D bravais lattices.")
+![3D_bravais_lattices](bravais_lattices.png )
+*The 14 3D bravais lattices.*
 
 ## Q1 - Predicting bravais lattice from XRD
 
