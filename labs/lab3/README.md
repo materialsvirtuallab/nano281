@@ -2,6 +2,12 @@
 
 Welcome to the final lab of NANO281 - Data Science in Materials Science. Unlike previous labs, this lab will be based on an *open* problem in materials science: how do we determine crystal structure from a diffraction pattern, specifically an X-ray diffraction pattern?
 
+![TaC_XRD](TaC_XRD.png "XRD pattern of cubic TaC.")
+
+Calculating the XRD pattern from a known crystal structure is relatively easy. The peak positions are governed by Bragg's law, and the intensities of the peaks are given by the types of atoms present as well as the symmetry of the crystal. However, the inverse problem of predicting the crystal structure (lattice system, space group and atomic species and coordinates) is non-trivial. Typically, this is done via Rietveld refinement by matching a measured XRD pattern to a database of reference XRD patterns (using a least squares approach).
+
+In this lab, we want to determine if we can bypass the matching process altogether using machine learning - can we classify an XRD pattern into one of the 14 3D Bravais lattices? Recent works that have attempted such inverse mappings, e.g., [local environment from K-edge XANES][1] and bravais lattice from electron diffraction, provides optimism that this should be achievable.
+
 # Getting started
 
 Same as previous lab, you need to set up your computer environment before the lab. 
@@ -16,7 +22,7 @@ conda activate nano281
 jupyter notebook
 ```
 
-3. Create a Python 3 notebook and rename it `nano281-lab2-<first_name>-<last_name>`.
+3. Create a Python 3 notebook and rename it `nano281-lab3-<first_name>-<last_name>`.
 
 # Assessment criteria
 
@@ -38,12 +44,14 @@ Now that we are at the Final Lab, hints will be minimal. In any case, the proble
 
 ## Data
 
+We will be using *computed* XRD patterns of crystal structures that have been obtained from the Cambridge Open Database.
+
 Download the `cod.csv` file in this repo. Each row of the csv represents a single unique crystal:
 - id: COD id
 - formula: Formula
 - int_num: International Space Group Number. This is an integer ranging from 1-230.
 - 180 coloumns of intensity values at 2theta ranging from 0.5 to 90 degrees in 0.5 degree intervals.
-- bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centerd); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
+- bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centered); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
 
 
 ![3D_bravais_lattices](bravais_lattices.png "The 14 3D bravais lattices.")
@@ -65,3 +73,8 @@ Generate a csv with your model predicitons with two columns:
 - pred_bravis_lattice: Predicted Bravais Lattice from your model.
 
 Report your classification accuracy.
+
+
+References:
+
+[1]: Zheng, C.; Chen, C.; Chen, Y.; Ong, S. P. Random Forest Models for Accurate Identification of Coordination Environments from X-Ray Absorption Near-Edge Structure. arXiv:1911.01358 [cond-mat] 2019.
