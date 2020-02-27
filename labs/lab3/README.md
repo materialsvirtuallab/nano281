@@ -48,7 +48,6 @@ Now that we are at the Final Lab, hints will be minimal. In any case, the proble
 
 We will be using *computed* XRD patterns of crystal structures that have been obtained from the [Crystallography Open Database](http://www.crystallography.net/cod/). The reason we are using computed XRD patterns is to avoid having to deal with background and noise, all of which needs to be handled for experimentally measured XRD patterns. This is therefore a clean dataset that suffices to demonstrate that the problem is in principle solvable via machine learning. We can adapt the technique to work on experimentally measured XRD patterns subsequently. The XRD patterns were computed using [pymatgen's](http://pymatgen.org) XRDCalculator, with a Gaussian smearing of 0.2 eV applied and sampling carried out at 0.5 degree intervals of 2 theta from 0.5 to 90 degrees.
 
-Download the zipped csv file [`cod_xrd_35k.csv.gz`](https://drive.google.com/open?id=13C3F9-iGnbuqkFuhSR14pKiYbQIwPDIQ) on google drive (https://drive.google.com/open?id=13C3F9-iGnbuqkFuhSR14pKiYbQIwPDIQ). Each row of the csv represents a single unique crystal:
 
 - id: COD id
 - formula: Formula
@@ -56,8 +55,7 @@ Download the zipped csv file [`cod_xrd_35k.csv.gz`](https://drive.google.com/ope
 - bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centered); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
 - 180 columns of intensity values at 2theta ranging from 0.5 to 90 degrees (inclusive) in 0.5 degree intervals.
 
-
-Optional: For those who are interested in more the full dataset. Please use [`cod_xrd.csv.gz`](https://drive.google.com/open?id=1IXDhRIrV1HZH-9a8Exz5zHjxDBW2lGuC) on google drive (https://drive.google.com/open?id=1IXDhRIrV1HZH-9a8Exz5zHjxDBW2lGuC).
+Lab3 is hosted on Kaggle, please visit using this [link])(https://www.kaggle.com/c/nano281-final-lab-2020/overview).
 
 ![3D_bravais_lattices](https://github.com/materialsvirtuallab/nano281/blob/master/labs/lab3/bravais_lattices.png?raw=true)
 
