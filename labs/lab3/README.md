@@ -48,7 +48,7 @@ Now that we are at the Final Lab, hints will be minimal. In any case, the proble
 
 We will be using *computed* XRD patterns of crystal structures that have been obtained from the [Crystallography Open Database](http://www.crystallography.net/cod/). The reason we are using computed XRD patterns is to avoid having to deal with background and noise, all of which needs to be handled for experimentally measured XRD patterns. This is therefore a clean dataset that suffices to demonstrate that the problem is in principle solvable via machine learning. We can adapt the technique to work on experimentally measured XRD patterns subsequently. The XRD patterns were computed using [pymatgen's](http://pymatgen.org) XRDCalculator, with a Gaussian smearing of 0.2 eV applied and sampling carried out at 0.5 degree intervals of 2 theta from 0.5 to 90 degrees.
 
-Download the `cod.csv` file in this repo. Each row of the csv represents a single unique crystal:
+Download the `cod_xrd_50k.csv.gz` file in this repo. Each row of the csv represents a single unique crystal:
 
 - id: COD id
 - formula: Formula
