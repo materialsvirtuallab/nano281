@@ -2,7 +2,7 @@
 
 Welcome to the final lab of NANO281 - Data Science in Materials Science. Unlike previous labs, this lab will be based on an **open** problem in materials science: how do we determine crystal structure from a diffraction pattern, specifically an X-ray diffraction pattern?
 
-![XRD](xrd.png)
+![XRD](https://github.com/materialsvirtuallab/nano281/blob/master/labs/lab3/xrd.png?raw=true)
 
 **XRD pattern of Sr2LiAlO4, the first known phase in the Sr-Li-Al-O system.[3]**
 
@@ -56,7 +56,7 @@ Download the `cod.csv` file in this repo. Each row of the csv represents a singl
 - bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centered); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
 - 180 columns of intensity values at 2theta ranging from 0.5 to 90 degrees (inclusive) in 0.5 degree intervals.
 
-![3D_bravais_lattices](bravais_lattices.png )
+![3D_bravais_lattices](https://github.com/materialsvirtuallab/nano281/blob/master/labs/lab3/bravais_lattices.png?raw=true)
 
 **The 14 3D bravais lattices.**
 
