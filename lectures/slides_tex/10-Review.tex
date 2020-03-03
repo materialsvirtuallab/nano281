@@ -229,6 +229,129 @@
 \end{frame}
 
 
+ \begin{frame}{X-ray diffraction}
+ \begin{figure}
+     \centering
+     \includegraphics[width=0.5\textwidth]{figures/xrd.png}
+ \end{figure}
+    \begin{itemize}
+        \item X-ray diffraction (XRD) is a technique for determining the structure of crystals and is frequently used for phase identification. Planes in a crystal cause a beam of incident X-rays to diffract into many specific directions.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{XRD pattern}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/xrd_patterns.pdf}
+\end{figure}
+\begin{itemize}
+    \item Peak positions (given in $2\theta$) are given by Bragg's equation: $2d \sin{\theta} = \lambda$, where $\lambda$ is the wavelength of the X-ray and $d$ is the interplanar spacing.
+    \item Peak intensities are given the nature of the atomic species and the presence of various symmetries (e.g., centering atoms).
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{The challenge}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/xrd_pattern.png}
+\end{figure}
+    \begin{itemize}
+        \item Computing the XRD pattern given a crystal structure is easy.
+        \item Inverse problem of predicting crystal structure given an XRD pattern is \textbf{very hard} - phase identification is usually done by matching to database of patterns of \textit{known} crystals using Rietveld refinement (see earlier lecture).
+        \item Question: Can we use ML to directly predict crystal structure from a given XRD pattern?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Is it doable?}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/randomforestxanes.pdf}
+    \caption{Workflow for classification of K-edge XANES spectra into one of 25 coordination environments.\cite{zhengRandomForestModels2019}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Is it doable, contd?}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/science-cnn-electron-diffraction.jpg}
+    \includegraphics[width=0.35\textwidth]{figures/science-cnn-electron-diffraction2.jpg}
+    \caption{CNNs to determine crystal symmetry from electron diffraction patterns with $>$ 90\% accuracy.\cite{kaufmannCrystalSymmetryDetermination2020}}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{The 14 3D Bravais lattices}
+\begin{figure}
+    \includegraphics[width=0.5\textwidth]{figures/bravais_lattices.png}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Dataset}
+    \begin{itemize}
+        \item $\sim$ 42,000 crystals from Crystallography Open Database
+        \item We have already sampled the crystals in a way to somewhat equalize the number of crystals in each Bravais lattice type (note that the actual distribution in the literature is highly biased towards certain lattices).  
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\textwidth]{figures/lab3_data_distribution.png}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Dataset, contd.}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/cod_csv_fmt.png}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Task}
+    \begin{itemize}
+        \item Develop a ML model to classify an XRD pattern into one of the 14 Bravais lattices. 
+        \item Experiment with any of the ML models that you have learnt, and play around with various parameters. 
+        \item \textbf{Hint:} use smaller sample of 10,000 data points to experiment with different models first, before using full data set to do serious model building and optimization. 
+        \item Show all parameter optimizations carried out, e.g., grid search. Demonstrate the usage of at least two types of ML model. 
+        \item Submission should be done in two places:
+        \begin{itemize}
+            \item Kaggle, which will have a leaderboard.
+            \item Google classroom, where you will submit your Jupyter notebooks.
+        \end{itemize}
+        \item Discuss the results you have obtained, offering interpretations of how your model is achieving the performance claimed. Compare the results you have obtained with what would have been achieved based on random guessing. Is the ML model doing anything useful?
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Evaluation Criteria}
+    \begin{itemize}
+        \item Grading will be done on the basis of the proper use of data science techniques, e.g., separation of training and test data, validation, parameter search and optimization, coding style and materials science insights. Raw accuracy is not the goal for grading.
+        \item Competition evaluation will be based on robust performance achieved.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Next steps}
+    \begin{itemize}
+        \item Sign up for Kaggle account.
+        \item Download the dataset.
+        \item Start building your models.
+        \item Submission: Please submit at least one model 
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Optional challenge problem}
+    \begin{itemize}
+        \item Instead of classification into 14 Bravais lattices, can an ML algorithm classify an XRD pattern into one of 230 space groups?
+    \end{itemize}
+\end{frame}
+
+
 \begin{frame}{Bibliography}
     \bibliographystyle{unsrt}
     \bibliography{refs}
