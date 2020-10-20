@@ -111,7 +111,13 @@
     \end{frame}
 
     \begin{frame}{What are the optimal parameters $\beta_0$ and $\beta_1$?}
-       \Huge{\centerline{Derivation in class...}}
+    \begin{eqnarray*}
+        \frac{\partial L}{\partial\beta_0} & = & \sum_{i=1}^N 2 (y_i - \beta_0 - \beta_1 x_{i1}) = 0\\
+        \implies & & \sum_{i=1}^N y_i = N \beta_0 + \sum_{i=1}^N \beta_1 x_{i1} \\
+        \implies & & \beta_0 = \bar{y} - \beta_1 \bar{x_{1}} \\
+        \frac{\partial L}{\partial\beta_1} & = & \sum_{i=1}^N 2 (y_i - \beta_0 - \beta_1 x_{i1}) (-x_{i1}) = 0\\
+        \implies & & \beta_1 = \frac{\sum_{i=1}^N 2 x_i1 y_i - N \bar{x_1}\bar{y}}{\sum_{i=1}^N 2 x_i1^2 - N \bar{x_1}^2}\\
+    \end{eqnarray*}
     \end{frame}
 
     \begin{frame}{Reformulating the general multiple linear regression as a vector equation…}
@@ -230,7 +236,7 @@
             \item We will add some transformations of these inputs as well, i.e., the square and square root of the electronegativity and atomic radius.
     \end{itemize}
     \end{column}
-    \begin{column}{0.4\textwidth}
+    \begin{column}{0.3\textwidth}
         \begin{figure}
         \centering
         \includegraphics[width=\textwidth]{figures/elementdata.png}
@@ -318,7 +324,7 @@ print(reg.intercept_)
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics[width=0.5\textwidth]{figures/fig7-1.pdf}
+        \includegraphics[width=0.35\textwidth]{figures/fig7-1.pdf}
     \end{figure}
 \end{frame}
 
@@ -380,7 +386,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         \item In other words, the input features are \textbf{non-orthonormal} with each other.
         \begin{figure}
             \centering
-            \includegraphics[width=0.45\textwidth]{figures/pairplot-materialsdata.png}
+            \includegraphics[width=0.35\textwidth]{figures/pairplot-materialsdata.png}
             \includegraphics[width=0.45\textwidth]{figures/paircorrelations-materialsdata.png}
         \end{figure}
     \end{itemize}
@@ -500,7 +506,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         \end{itemize}
     \end{itemize}
     \begin{figure}
-    \begin{tikzpicture}[scale=0.3]
+    \begin{tikzpicture}[scale=0.35]
 	\begin{axis}[title=Best subset, grid=major]
 	\addplot[color=black, dashed] coordinates {
 		(-9,-9)
@@ -516,7 +522,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
 	};
 	\end{axis}
 	\end{tikzpicture}
-    \begin{tikzpicture}[scale=0.3]
+    \begin{tikzpicture}[scale=0.35]
 	\begin{axis}[title=Ridge, grid=major]
 	\addplot[color=black, dashed] coordinates {
 		(-9,-9)
@@ -528,7 +534,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
 	};
 	\end{axis}
     \end{tikzpicture}
-    \begin{tikzpicture}[scale=0.3]
+    \begin{tikzpicture}[scale=0.35]
 	\begin{axis}[title=LASSO, grid=major]
 	\addplot[color=black, dashed] coordinates {
 		(-9,-9)
@@ -542,7 +548,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
 	};
 	\end{axis}
     \end{tikzpicture}
-        \includegraphics[width=0.3\textwidth]{figures/fig3-14.pdf}
+        \includegraphics[width=0.35\textwidth]{figures/fig3-14.pdf}
     \end{figure}
 \end{frame} 
 
@@ -663,8 +669,8 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         \item Compressive sensing: essentially a LASSO to solve for ECIs.\cite{nelsonCompressiveSensingParadigm2013}
         \begin{figure}
             \centering
-            \includegraphics[width=0.4\textwidth]{figures/numberofclusters.png}
-            \includegraphics[width=0.4\textwidth]{figures/ecifit.pdf}
+            \includegraphics[width=0.35\textwidth]{figures/numberofclusters.png}
+            \includegraphics[width=0.35\textwidth]{figures/ecifit.pdf}
         \end{figure}
     \end{itemize}
 \end{frame} 
@@ -679,7 +685,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
     \column{0.5\textwidth}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/piecewisefits.pdf}
+        \includegraphics[width=0.7\textwidth]{figures/piecewisefits.pdf}
     \end{figure}
     \column{0.5\textwidth}
     Parameters:
@@ -697,7 +703,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
     \column{0.5\textwidth}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/piecewisecubic.pdf}
+        \includegraphics[width=0.7\textwidth]{figures/piecewisecubic.pdf}
     \end{figure}
     \column{0.5\textwidth}
     \begin{itemize}
@@ -724,8 +730,8 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         where $\phi$, $U$, $\rho$, $f$ and $g$ can be approximated by cubic splines. 
         \begin{figure}
             \centering
-            \includegraphics[width=0.45\textwidth]{figures/meam-phi.png}
-            \includegraphics[width=0.45\textwidth]{figures/meam-u.png}
+            \includegraphics[width=0.35\textwidth]{figures/meam-phi.png}
+            \includegraphics[width=0.35\textwidth]{figures/meam-u.png}
 
         \end{figure}
     \end{itemize}
@@ -737,17 +743,13 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
 import numpy as np
 ## Import CubicSpline from scipy
 from scipy.interpolate import CubicSpline
-
 ## x, y data for generating the spline fitting
 x = np.arange(10)
 y = np.sin(x)
-
 ## Fit the spline
 cs = CubicSpline(x, y)
-
 ## Generate new x values
 xs = np.arange(-0.5, 9.6, 0.1)
-
 ## Perform the interpolation on the new points
 ys = cs(xs)
 \end{minted}
@@ -771,7 +773,7 @@ ys = cs(xs)
 \begin{frame}{Example: Rietveld refinement}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/rietveld.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/rietveld.pdf}
     \caption{Neutron powder diffraction diagram of \ce{CaUO4}}
 \end{figure}
     \begin{itemize}
@@ -824,7 +826,7 @@ ys = cs(xs)
 \column{0.5\textwidth}
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/nmrwavelet.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/nmrwavelet.pdf}
     \caption{Subtraction of a large spectral line: (top) the original spectrum of polyethylene, (bottom) reconstructed spectrum after removal of \ce{CH2} peak.\cite{baracheContinuousWaveletTransform1997}}
 \end{figure}
 \column{0.5\textwidth}
@@ -841,14 +843,14 @@ ys = cs(xs)
 \begin{frame}{Example: Fourier transform for analysis of extended X-ray absorption fine structure (EXAFS)}
     
     \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.23\textwidth}
     \begin{figure}
         \centering
-    \includegraphics[width=0.6\textwidth]{figures/EXAFS-1.png}
-    \includegraphics[width=0.6\textwidth]{figures/EXAFS-2.png}
-    \includegraphics[width=0.6\textwidth]{figures/EXAFS-3.png}
+    \includegraphics[width=\textwidth]{figures/EXAFS-1.png}
+    \includegraphics[width=\textwidth]{figures/EXAFS-2.png}
+    \includegraphics[width=\textwidth]{figures/EXAFS-3.png}
     \end{figure}
-    \column{0.5\textwidth}
+    \column{0.77\textwidth}
     \begin{itemize}
         \item (a) The extended edge (orange part) contains information of atom chemical environment.
         \item (b) Subtract the background, convert energy to k-space unit, and multiply the normalized intensity by $k^2$
