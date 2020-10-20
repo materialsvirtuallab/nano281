@@ -4,11 +4,13 @@
 \usepackage{amsmath,amsfonts,amsthm,bm}
 \usepackage{color}
 \usepackage{minted}
-\usepackage{graphicx}
-\usepackage{booktabs}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\usepackage{mhchem}
+\pgfplotsset{compat=1.16} 
+\setminted{fontsize=\scriptsize}
 
 \hypersetup{
     colorlinks=true,
@@ -112,11 +114,11 @@
 
     \begin{frame}{What are the optimal parameters $\beta_0$ and $\beta_1$?}
     \begin{eqnarray*}
-        \frac{\partial L}{\partial\beta_0} & = & \sum_{i=1}^N 2 (y_i - \beta_0 - \beta_1 x_{i1}) = 0\\
+        \frac{\partial L}{\partial\beta_0} & = & \sum_{i=1}^N 2 (y_i - \beta_0 - \beta_1 x_{i1})(-1) = 0\\
         \implies & & \sum_{i=1}^N y_i = N \beta_0 + \sum_{i=1}^N \beta_1 x_{i1} \\
         \implies & & \beta_0 = \bar{y} - \beta_1 \bar{x_{1}} \\
         \frac{\partial L}{\partial\beta_1} & = & \sum_{i=1}^N 2 (y_i - \beta_0 - \beta_1 x_{i1}) (-x_{i1}) = 0\\
-        \implies & & \beta_1 = \frac{\sum_{i=1}^N 2 x_i1 y_i - N \bar{x_1}\bar{y}}{\sum_{i=1}^N 2 x_i1^2 - N \bar{x_1}^2}\\
+        \implies & & \beta_1 = \frac{\sum_{i=1}^N x_{i1} y_i - N \bar{x_1}\bar{y}}{\sum_{i=1}^N x_{i1}^2 - N \bar{x_1}^2}\\
     \end{eqnarray*}
     \end{frame}
 
@@ -156,8 +158,8 @@
 \begin{frame}{Graphic representation of MLR with two dependent variables}
     \begin{figure}
         \centering
-        \includegraphics[width=0.35\textwidth]{figures/fig3-1.pdf}
-        \includegraphics[width=0.35\textwidth]{figures/fig3-2.pdf}
+        \includegraphics[width=0.3\textwidth]{figures/fig3-1.pdf}
+        \includegraphics[width=0.3\textwidth]{figures/fig3-2.pdf}
         \caption{MLR minimizes sum square of residuals. The projection $\vec{\hat{y}}$ represents the vector of the least squares predictions onto the hyperplane spanned by the input vectors $\vec{x_1}$ and $\vec{x_2}$. \cite{hastieElementsStatisticalLearning2016}.}
     \end{figure}
 \end{frame}
@@ -669,8 +671,8 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         \item Compressive sensing: essentially a LASSO to solve for ECIs.\cite{nelsonCompressiveSensingParadigm2013}
         \begin{figure}
             \centering
-            \includegraphics[width=0.35\textwidth]{figures/numberofclusters.png}
-            \includegraphics[width=0.35\textwidth]{figures/ecifit.pdf}
+            \includegraphics[width=0.3\textwidth]{figures/numberofclusters.png}
+            \includegraphics[width=0.3\textwidth]{figures/ecifit.pdf}
         \end{figure}
     \end{itemize}
 \end{frame} 
@@ -682,12 +684,12 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         h_1(X) = I(X < \xi_1), h_2(X) = I(\xi_1 \leq X < \xi_2), h_3(X) = I(X \geq \xi_2)
     \end{equation*}
     \begin{columns}
-    \column{0.5\textwidth}
+    \column{0.3\textwidth}
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{figures/piecewisefits.pdf}
+        \includegraphics[width=\textwidth]{figures/piecewisefits.pdf}
     \end{figure}
-    \column{0.5\textwidth}
+    \column{0.7\textwidth}
     Parameters:
     \begin{itemize}
         \item No. of knots
@@ -730,8 +732,8 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
         where $\phi$, $U$, $\rho$, $f$ and $g$ can be approximated by cubic splines. 
         \begin{figure}
             \centering
-            \includegraphics[width=0.35\textwidth]{figures/meam-phi.png}
-            \includegraphics[width=0.35\textwidth]{figures/meam-u.png}
+            \includegraphics[width=0.3\textwidth]{figures/meam-phi.png}
+            \includegraphics[width=0.3\textwidth]{figures/meam-u.png}
 
         \end{figure}
     \end{itemize}
@@ -806,12 +808,12 @@ ys = cs(xs)
 \begin{frame}
 \frametitle{Wavelet smoothing}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.4\textwidth}
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/wavelets.pdf}
 \end{figure}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
     \begin{itemize}
         \item Complete orthonormal basis
         \item Shrink and select toward \textbf{sparse} representation.
@@ -823,13 +825,13 @@ ys = cs(xs)
 
 \begin{frame}{Example: NMR Spectroscopy}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.4\textwidth}
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\textwidth]{figures/nmrwavelet.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/nmrwavelet.pdf}
     \caption{Subtraction of a large spectral line: (top) the original spectrum of polyethylene, (bottom) reconstructed spectrum after removal of \ce{CH2} peak.\cite{baracheContinuousWaveletTransform1997}}
 \end{figure}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
     Applications:
     \begin{itemize}
         \item Suppression of large unwanted spectral line (left).
@@ -843,7 +845,7 @@ ys = cs(xs)
 \begin{frame}{Example: Fourier transform for analysis of extended X-ray absorption fine structure (EXAFS)}
     
     \begin{columns}
-    \column{0.23\textwidth}
+    \column{0.2\textwidth}
     \begin{figure}
         \centering
     \includegraphics[width=\textwidth]{figures/EXAFS-1.png}
@@ -857,7 +859,6 @@ ys = cs(xs)
         \item (c) Fourier transform $k$-space information to real space and obtain the first shell bond length. 
     \end{itemize}
     \end{columns}
-    
 \end{frame} 
 
 

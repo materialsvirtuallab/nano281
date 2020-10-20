@@ -7,8 +7,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
-\usepackage{mhchem}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.16} 
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
@@ -114,7 +115,7 @@
 \begin{frame}
 \frametitle{Tree-based methods}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
 \begin{itemize}
         \item Partition feature space into regions (e.g., rectangles for 2 features case), and simple model (e.g., constant) fitted into each rectangle.
         \item Classification And Regression Trees (CART)
@@ -123,7 +124,7 @@
         \end{equation*}
         \item Main question: How to decide on partitions/topology?
 \end{itemize}
-\column{0.5\textwidth}
+\column{0.4\textwidth}
 \begin{figure}
             \centering
             \includegraphics[width=\textwidth]{figures/cart.pdf}
@@ -173,7 +174,7 @@
         \end{description}
         \begin{figure}
             \centering
-            \includegraphics[width=0.6\textwidth]{figures/node-impurity-measures.pdf}
+            \includegraphics[width=0.5\textwidth]{figures/node-impurity-measures.pdf}
         \end{figure}
     \end{itemize}
 \end{frame}
@@ -226,7 +227,7 @@ y_pred = decision_tree.predict(x_test)
 \begin{frame}{Classification accuracy}
     \begin{figure}
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/accuracy_metal_insulator.png}
+        \includegraphics[width=0.6\textwidth]{figures/accuracy_metal_insulator.png}
     \end{figure}
     \begin{itemize}
         \item Quite clearly, we cannot do much better than a $\sim 82\%$ accuracy (test misclassification rate of about 18\%) with a tree-depth of around 15.
@@ -240,7 +241,7 @@ y_pred = decision_tree.predict(x_test)
         \item A 8-deep tree is not very easy to read. Here, we will use cost-complexity pruning with a parameter $\alpha = 0.01$ to prune the tree. The resulting tree has an accuracy of around 74\%. Let's see how the decision is being made at the first few levels.
         \begin{figure}
             \centering
-            \includegraphics[width=0.8\textwidth]{figures/metal_insulator_tree.png}
+            \includegraphics[width=0.6\textwidth]{figures/metal_insulator_tree.png}
         \end{figure}
     \end{itemize}
 \end{frame}
@@ -306,7 +307,7 @@ y_pred = decision_tree.predict(x_test)
 
 \begin{frame}{Receiver Operating Characteristic (ROC) Curve}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.6\textwidth}
 \begin{eqnarray*}
 TPR & = & \frac{TP}{P} = \frac{TP}{TP + FN}\\
 FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
@@ -316,7 +317,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
     \item $y=x$ line denotes random guessing (TPR = FPR).
     \item The greater the area under curve (AUC), better the performance.
 \end{itemize}
-\column{0.5\textwidth}
+\column{0.4\textwidth}
     \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/ROC.png}
@@ -349,7 +350,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
     \end{itemize}
     \begin{figure}
     \centering
-    \includegraphics[width=0.4\textwidth]{figures/MARS.pdf}
+    \includegraphics[width=0.25\textwidth]{figures/MARS.pdf}
 \end{figure}
 \end{frame}
 
@@ -404,7 +405,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
     \end{enumerate}
     \begin{figure}
         \centering
-        \includegraphics[width=0.6\textwidth]{figures/adaboostalgo.pdf}
+        \includegraphics[width=0.45\textwidth]{figures/adaboostalgo.pdf}
     \end{figure}
 \end{frame}
 
@@ -427,13 +428,13 @@ test_accuracy = decision_tree.score(x_test, y_test)
 \begin{frame}
 \frametitle{Gradient Boosting}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.3\textwidth}
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/gradientboostingalgo.png}
+    \includegraphics[width=\textwidth]{figures/gradientboostingalgo.png}
     \caption{Source: \href{https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d}{Gradient Boosting from Scratch}}
 \end{figure}
-\column{0.5\textwidth}
+\column{0.7\textwidth}
     \begin{itemize}
         \item We can think of the algorithm in Slide \ref{frame:adaboost} as essentially a forward stage-wise fit of an additive model $f(x) = \sum_{m=1}^M \alpha_m G_m(x)$ (refer to \cite{hastieElementsStatisticalLearning2016} for details).
         \item Greedy approach in that it seeks to maximally reduce the loss at each step, i.e., steepest descent, by adjusting the weights iteratively.
@@ -497,7 +498,7 @@ model.predict(x)
 \begin{frame}{Loss functions for binary classification}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/lossfunctions.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/lossfunctions.pdf}
     \caption{Loss functions for binary classification. Response: $y = \pm1$. X-axis is the margin $y \cdot f$. Misclassification : $I(\mathrm{sign}(f) \neq y)$; exponential: $e^{-yf}$; binomial deviance: $\log(1 + e^{-2yf})$; squared error: $(y - f)^2$ ; and support vector: $(1 - yf)_+$. Source: \cite{hastieElementsStatisticalLearning2016}}
 \end{figure}
 \end{frame}
@@ -524,7 +525,7 @@ model.predict(x)
 \begin{frame}{Random Forest Algorithm}
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{figures/randomforestalgo.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/randomforestalgo.pdf}
 \end{figure}
 \end{frame}
 
@@ -533,7 +534,7 @@ model.predict(x)
 \begin{frame}{Example: Identification of Local Environments from K-edge XANES}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/randomforestxanes.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/randomforestxanes.pdf}
     \caption{Workflow for classification of K-edge XANES spectra into one of 25 coordination environments.\cite{zhengRandomForestModels2019}}
 \end{figure}
 \end{frame}
@@ -542,7 +543,7 @@ model.predict(x)
 \begin{frame}{Example: Identification of Local Environments from K-edge XANES}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/coord_env_class_acc_radar.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/coord_env_class_acc_radar.pdf}
     \caption{Comparison of different ML methods for K-edge XANAES classification.\cite{zhengRandomForestModels2019}}
 \end{figure}
 \end{frame}

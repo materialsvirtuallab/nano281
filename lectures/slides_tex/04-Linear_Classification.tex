@@ -7,9 +7,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
-\usepackage{mhchem}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-
+\pgfplotsset{compat=1.16} 
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
@@ -71,7 +71,7 @@
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics[width=0.5\textwidth]{figures/electronnegativity_bandgap.png}
+        \includegraphics[width=0.35\textwidth]{figures/electronnegativity_bandgap.png}
     \end{figure}
 \end{frame}
 
@@ -185,7 +185,7 @@ binaries['class'] = [0 if eg < 1e-5 else 1 for eg in binaries['Eg (eV)']]}
         \item For the example data,
         \begin{figure}
             \centering
-            \includegraphics[width=0.5\textwidth]{figures/lda_metal_insulator.png}
+            \includegraphics[width=0.35\textwidth]{figures/lda_metal_insulator.png}
         \end{figure}
     \end{itemize}
 \end{frame}
@@ -202,7 +202,7 @@ binaries['class'] = [0 if eg < 1e-5 else 1 for eg in binaries['Eg (eV)']]}
         \item For the same metal-insulator example,
         \begin{figure}
             \centering
-            \includegraphics[width=0.5\textwidth]{figures/qda_metal_insulator.png}
+            \includegraphics[width=0.35\textwidth]{figures/qda_metal_insulator.png}
         \end{figure}
     \end{itemize}
 \end{frame}
@@ -231,12 +231,12 @@ y_pred = qda.fit(X, y).predict(X)
             \log{\frac{P(G=1|X=x)}{P(G=K|X=x)}} & = & \beta_{10} + \beta_1^T x\\
             \log{\frac{P(G=2|X=x)}{P(G=K|X=x)}} & = & \beta_{20} + \beta_2^T x\\
             & ... &\\
-            \log{\frac{P(G=K-1|X=x)}{P(G=K|X=x)}} & = & \beta_{(k-1)0} + \beta_{k-1}^T x\\
+            \log{\frac{P(G=K-1|X=x)}{P(G=K|X=x)}} & = & \beta_{(k-1)0} + \beta_{k-1}^T x
         \end{eqnarray*}
         \item Results in the following posterior probabilities:
         \begin{eqnarray*}
             P(G=1|X=x) & = & \frac{\exp{(\beta_{10} + \beta_1^T x)}}{1 + \sum_{l=1}^{K-1}\exp{(\beta_{l0} + \beta_l^T x})}\\
-            P(G=K|X=x) & = & \frac{1}{1 + \sum_{l=1}^{K-1}\exp{(\beta_{l0} + \beta_l^T x})}\\
+            P(G=K|X=x) & = & \frac{1}{1 + \sum_{l=1}^{K-1}\exp{(\beta_{l0} + \beta_l^T x})}
         \end{eqnarray*}
     \end{itemize}
 \end{frame} 
@@ -263,16 +263,9 @@ y_pred = model.predict(X)
 \end{minted}
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/logistic_metal_insulator.png}
+    \includegraphics[width=0.5\textwidth]{figures/logistic_metal_insulator.png}
 \end{figure}
 \end{frame} 
-
-
-\begin{frame}{Bibliography}
-    \bibliographystyle{unsrt}
-    \bibliography{refs}
-\end{frame}
-
 
 \begin{frame}
     \Huge{\centerline{The End}}

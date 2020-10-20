@@ -7,9 +7,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
-\usepackage{mhchem}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-
+\pgfplotsset{compat=1.16} 
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
@@ -162,7 +162,7 @@ yhat_mlr = cross_val_predict(mlr, x_pca[:, 0:2], y, cv=kfold)
 \begin{frame}{Example of linear regression on PCA components}
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/pca-regression.png}
+    \includegraphics[width=0.45\textwidth]{figures/pca-regression.png}
 \end{figure}
 \end{frame} 
 
@@ -211,10 +211,10 @@ yhat_mlr = cross_val_predict(mlr, x_pca[:, 0:2], y, cv=kfold)
             \item Algorithm is converged when assignment no longer changes.
         \end{enumerate}
         \begin{figure}
-            \includegraphics[width=0.24\textwidth]{figures/k-means-step-1.png}
-            \includegraphics[width=0.24\textwidth]{figures/k-means-step-2.png}
-            \includegraphics[width=0.24\textwidth]{figures/k-means-step-3.png}
-            \includegraphics[width=0.24\textwidth]{figures/k-means-step-4.png}
+            \includegraphics[width=0.18\textwidth]{figures/k-means-step-1.png}
+            \includegraphics[width=0.18\textwidth]{figures/k-means-step-2.png}
+            \includegraphics[width=0.18\textwidth]{figures/k-means-step-3.png}
+            \includegraphics[width=0.18\textwidth]{figures/k-means-step-4.png}
             \caption{Four steps of K-means algorithm. Source: Wikipedia}
         \end{figure}
 \end{frame} 
@@ -247,7 +247,7 @@ yhat_mlr = cross_val_predict(mlr, x_pca[:, 0:2], y, cv=kfold)
 \begin{frame}{Recent application: Lithium Superionic Conductors}
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{figures/hirerachicalclustering-superionicconductors.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/hirerachicalclustering-superionicconductors.pdf}
     \caption{a. Dendrogram generated using the agglomerative hierarchical clustering method. The dashed line shows the position where all compounds are partitioned into seven groups, marked as I–VII from left to right and distinguished by different colors. b Mapping the dendrogram to the conductivity reveals the grouping of known solid-state Li-ion conductors in group V and VI. Reproduced from \cite{zhangUnsupervisedDiscoverySolidstate2019}.}
 \end{figure}
 \end{frame}

@@ -7,9 +7,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
-\usepackage{mhchem}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
@@ -65,12 +65,12 @@
     \end{itemize}
 \end{frame}
 
-\section{$k$ nearest neighbor}
+\section{k nearest neighbor}
 
 \begin{frame}
 \frametitle{$k$ Nearest Neighbor ($k$NN)}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.65\textwidth}
     \begin{itemize}
         \item Simplest possible model for prediction - even simpler than linear regression!
         \item Given a set of observations, we take the average of the $k$ nearest neighbors as an estimate.
@@ -79,10 +79,10 @@
         \end{equation*}
         \item Prediction is bumpy, i.e., changes in average are discrete at the boundary between the inclusion and exclusion of a point.
     \end{itemize}
-\column{0.5\textwidth}
+\column{0.35\textwidth}
 \begin{figure}
             \centering
-            \includegraphics[width=0.9\textwidth]{figures/knn.pdf}
+            \includegraphics[width=\textwidth]{figures/knn.pdf}
         \end{figure}
 \end{columns}
 \end{frame}
@@ -91,7 +91,7 @@
 \begin{frame}
 \frametitle{Improving on $k$NN}
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.65\textwidth}
     \begin{itemize}
         \item $k$NN gives equal weight to all points that falls within the $k$ nearest neighbor region.
         \item Solution: use a weighted kernel that goes to zero smoothly with distance from point.
@@ -104,10 +104,10 @@
             K_{\lambda}(x_0,x) = D(\frac{|x-x_0|}{\lambda}), D(t) = \frac{3}{4}(1-t^2)\mathrm{~if~}|t| \leq 1
         \end{equation*}
     \end{itemize}
-\column{0.5\textwidth}
+\column{0.35\textwidth}
 \begin{figure}
             \centering
-            \includegraphics[width=0.9\textwidth]{figures/epankernel.pdf}
+            \includegraphics[width=\textwidth]{figures/epankernel.pdf}
         \end{figure}
 \end{columns}
 \end{frame}
@@ -176,7 +176,7 @@ yhat_knn = cross_val_predict(knn, x, y, cv=kfold)
 \begin{frame}{Gaussian KDE}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/gaussian_kde.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/gaussian_kde.pdf}
 \end{figure}
 \end{frame}
 
@@ -190,7 +190,7 @@ yhat_knn = cross_val_predict(knn, x, y, cv=kfold)
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{figures/PES.png}
+        \includegraphics[width=0.45\textwidth]{figures/PES.png}
     \end{figure}
 \end{frame}
 
@@ -208,7 +208,7 @@ yhat_knn = cross_val_predict(knn, x, y, cv=kfold)
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics[width=0.7\textwidth]{figures/classdensities.pdf}
+        \includegraphics[width=0.6\textwidth]{figures/classdensities.pdf}
     \end{figure}
 \end{frame}
 
@@ -260,8 +260,8 @@ yhat_knn = cross_val_predict(knn, x, y, cv=kfold)
 \begin{frame}{CARS spectroscopy analysis using Gaussian Mixtures}
 \begin{figure}
     \centering
-    \includegraphics[width=0.4\textwidth]{figures/cars1.jpeg}
-    \includegraphics[width=0.7\textwidth]{figures/cars2.jpeg}
+    \includegraphics[width=0.3\textwidth]{figures/cars1.jpeg}
+    \includegraphics[width=0.65\textwidth]{figures/cars2.jpeg}
     \caption{From ref. \cite{voglerSeparationCARSImage2010}}
 \end{figure}
 \end{frame}

@@ -3,10 +3,14 @@
 \usepackage{hyperref}
 \usepackage{amsmath,amsfonts,amsthm,bm}
 \usepackage{color}
+\usepackage{minted}
 \usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
-\usepackage{mhchem}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.16} 
+\setminted{fontsize=\scriptsize}
 \usepackage{multirow}
 
 \hypersetup{
@@ -81,7 +85,7 @@
 \begin{frame}{ML flowchart}
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{figures/ml_flowchart.pdf}
+    \includegraphics[width=0.65\textwidth]{figures/ml_flowchart.pdf}
 \end{figure}
 \end{frame}
 
@@ -137,7 +141,7 @@
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics[width=0.4\textwidth]{figures/fig7-1.pdf}
+        \includegraphics[width=0.25\textwidth]{figures/fig7-1.pdf}
     \end{figure}
 \end{frame} 
 
@@ -243,7 +247,7 @@
 \begin{frame}{XRD pattern}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/xrd_patterns.pdf}
+    \includegraphics[width=0.4\textwidth]{figures/xrd_patterns.pdf}
 \end{figure}
 \begin{itemize}
     \item Peak positions (given in $2\theta$) are given by Bragg's equation: $2d \sin{\theta} = \lambda$, where $\lambda$ is the wavelength of the X-ray and $d$ is the interplanar spacing.
@@ -255,7 +259,7 @@
 \begin{frame}{The challenge}
 \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/xrd_pattern.png}
+    \includegraphics[width=0.6\textwidth]{figures/xrd_pattern.png}
 \end{figure}
     \begin{itemize}
         \item Computing the XRD pattern given a crystal structure is easy.
@@ -268,8 +272,8 @@
 \begin{frame}{Is it doable?}
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/randomforestxanes.pdf}
-    \caption{Workflow for classification of K-edge XANES spectra into one of 25 coordination environments.\cite{zhengRandomForestModels2019}}
+    \includegraphics[width=0.4\textwidth]{figures/randomforestxanes.pdf}
+    \caption{Workflow for classification of K-edge XANES spectra into one of 25 coordination environments.\cite{zhengRandomForestModels2020}}
 \end{figure}
 \end{frame}
 
@@ -277,8 +281,8 @@
 \begin{frame}{Is it doable, contd?}
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/science-cnn-electron-diffraction.jpg}
-    \includegraphics[width=0.35\textwidth]{figures/science-cnn-electron-diffraction2.jpg}
+    \includegraphics[width=0.5\textwidth]{figures/science-cnn-electron-diffraction.jpg}
+    \includegraphics[width=0.3\textwidth]{figures/science-cnn-electron-diffraction2.jpg}
     \caption{CNNs to determine crystal symmetry from electron diffraction patterns with $>$ 90\% accuracy.\cite{kaufmannCrystalSymmetryDetermination2020}}
 \end{figure}
 \end{frame}
@@ -286,7 +290,7 @@
 
 \begin{frame}{The 14 3D Bravais lattices}
 \begin{figure}
-    \includegraphics[width=0.5\textwidth]{figures/bravais_lattices.png}
+    \includegraphics[width=0.4\textwidth]{figures/bravais_lattices.png}
 \end{figure}
 \end{frame}
 
@@ -298,7 +302,7 @@
     \end{itemize}
     \begin{figure}
         \centering
-        \includegraphics[width=0.6\textwidth]{figures/lab3_data_distribution.png}
+        \includegraphics[width=0.45\textwidth]{figures/lab3_data_distribution.png}
     \end{figure}
 \end{frame}
 

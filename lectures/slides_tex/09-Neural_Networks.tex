@@ -7,8 +7,9 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
-\usepackage{mhchem}
+\usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.16} 
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
@@ -73,13 +74,13 @@
 \begin{itemize}
         \item An artificial neural network (ANN) is a learning algorithm that is (very) loosely based on the structure of the brain.
         \item Somewhat vaguely, you will also hear the terms ``multi-layer perceptron'' (MLP) used in place of ANN.
-        \begin{block}{Universal Approximation Theorem\cite{csajiApproximationArtificialNeural}}
+        \begin{block}{Universal Approximation Theorem\cite{csajiApproximationArtificialNeural2001}}
         A feed-forward network with a single hidden layer containing a finite number of neurons can approximate continuous functions under mild assumptions on the activation function. 
         \end{block}
 \end{itemize}
 \begin{figure}
         \centering
-        \includegraphics[width=0.6\textwidth]{figures/neuron.jpg}
+        \includegraphics[width=0.4\textwidth]{figures/neuron.jpg}
     \end{figure}
 \end{frame}
 
@@ -228,7 +229,6 @@ nn.fit(x, y_reg)
 from tensorflow.keras import Model, Input
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
-
 x_in = Input(shape=(x.shape[1],))
 x_h1 = Dense(5, activation="relu")(x_in)
 x_h2 = Dense(3, activation="relu")(x_h1)
@@ -287,7 +287,7 @@ model.fit(x, y_reg, epochs=200, batch_size=200)
 \begin{frame}{Example Application: NNP-computed phase diagram for amorphous Li-Si}
 \begin{figure}
     \centering
-    \includegraphics[width=0.55\textwidth]{figures/li-si-nnp.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/li-si-nnp.pdf}
     \includegraphics[width=0.5\textwidth]{figures/li-si-nnp2.pdf}
     \caption{From ref \cite{artrithConstructingFirstprinciplesPhase2018}}
 \end{figure}
@@ -297,8 +297,8 @@ model.fit(x, y_reg, epochs=200, batch_size=200)
 \begin{frame}{Example application: ANNs to predict crystal stability}
 \begin{figure}
     \centering
-    \includegraphics[width=0.45\textwidth]{figures/dnn-crystal-stability.png}
-    \includegraphics[width=0.5\textwidth]{figures/dnn-crystal-stability2.png}
+    \includegraphics[width=0.35\textwidth]{figures/dnn-crystal-stability.png}
+    \includegraphics[width=0.35\textwidth]{figures/dnn-crystal-stability2.png}
     \caption{ANNs predict formation energies of garnets and perovskite crystals from Pauling electronegativity and ionic radii.\cite{yeDeepNeuralNetworks2018}}
 \end{figure}
 \end{frame}
@@ -307,14 +307,14 @@ model.fit(x, y_reg, epochs=200, batch_size=200)
 \begin{frame}{Example application: CNNs for determination of crystal symmetry from electron diffraction}
 \begin{figure}
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/science-cnn-electron-diffraction.jpg}
-    \includegraphics[width=0.35\textwidth]{figures/science-cnn-electron-diffraction2.jpg}
+    \includegraphics[width=0.4\textwidth]{figures/science-cnn-electron-diffraction.jpg}
+    \includegraphics[width=0.25\textwidth]{figures/science-cnn-electron-diffraction2.jpg}
     \caption{CNNs to determine crystal symmetry from electron diffraction patterns with $>$ 90\% accuracy.\cite{kaufmannCrystalSymmetryDetermination2020}}
 \end{figure}
 \end{frame}
 
 
-\begin{frame}{Bibliography}
+\begin{frame}[allowframebreaks]{Bibliography}
     \bibliographystyle{unsrt}
     \bibliography{refs}
 \end{frame}
