@@ -585,8 +585,8 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
     \begin{itemize}
         \item Algorithm:
         \begin{enumerate}
-            \item Compute $\phi_{1i} = <\vec{x_j}, \vec{y}>$ for each $j$.
-            \item First transformed direction $\vec{z_1} = \sum_j \phi_{1i} \vec{x_j}$, i.e., each direction is weighted by strength of effect on $\vec{y}$.
+            \item Compute $\phi_{1j} = <\vec{x_j}, \vec{y}>$ for each $j$.
+            \item First transformed direction $\vec{z_1} = \sum_j \phi_{1j} \vec{x_j}$, i.e., each direction is weighted by strength of effect on $\vec{y}$.
             \item Regress $\vec{y}$ on $\vec{z_1}$ to obtain $\theta_1$, orthogonalize $\vec{x_1}, ... \vec{x_p}$ wrt $\vec{z_1}$ via $x_j' = x_j - \frac{<\vec{z_1}, \vec{x_j}>}{<\vec{z_1}, \vec{z_1}>}\vec{z_1}$.
             \item Repeat until $M \leq p$ coefficients are obtained.
         \end{enumerate}
