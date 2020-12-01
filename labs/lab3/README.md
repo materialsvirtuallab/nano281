@@ -55,7 +55,7 @@ We will be using *computed* XRD patterns of crystal structures that have been ob
 - bravais_lattice: Bravais lattice. This is one of 14 string values (aP, mP, mS, oP, oS, oI, oF, tP, tI, cP, cI, cF, hP, hR). The first letter denotes the crystal system (a: anortic or triclinic; m: monoclinic; o: orthorhombic; t: tetragonal; c: cubic; h: hexagonal) and the second letter denotes the centering (P: primitive; S: side centered (a collective for the more commonly used A, B or C centered); I: body centered; F: face centered; R: rhombohedral; H: hexagonal).
 - 180 columns of intensity values at 2theta ranging from 0.5 to 90 degrees (inclusive) in 0.5 degree intervals.
 
-Lab3 is hosted on Kaggle, please visit using this [link])(https://www.kaggle.com/t/2b2a24d3729b4ec2b226904039b5ea78).
+Lab3 is hosted on Kaggle. Please use the private link posted in Canvas to access the competition.
 
 ![3D_bravais_lattices](https://github.com/materialsvirtuallab/nano281/blob/master/labs/lab3/bravais_lattices.png?raw=true)
 
