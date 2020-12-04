@@ -200,27 +200,7 @@
 
 
 \begin{frame}[fragile]{Decision Tree Regressor and Classifier in scikit-learn}
-\begin{minted}{python}
-from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.tree import export_text
-
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.1)
-
-decision_tree = DecisionTreeClassifier(criterion="entropy", random_state=0, 
-                                       max_depth=5)
-decision_tree = decision_tree.fit(x_train, y_train)
-train_accuracy = decision_tree.score(x_train, y_train)
-test_accuracy = decision_tree.score(x_test, y_test)
-r = export_text(decision_tree, feature_names=list(x.columns))
-print("Train accuracy = %.3f; test accuracy: %.3f" % (train_accuracy, test_accuracy))
-print(r)
-
-decision_tree = DecisionTreeRegressor(criterion="mse", 
-                                      random_state=0, max_depth=10)
-decision_tree = decision_tree.fit(x_train, y_train)
-y_pred = decision_tree.predict(x_test)
-\end{minted}
+\inputminted{python}{example_sklearn_decision_tree.py}
 \end{frame}
 
 
@@ -260,7 +240,8 @@ y_pred = decision_tree.predict(x_test)
     \item Compounds with mean $\chi > 2.03$ are classified as insulators, i.e., mostly ionic compounds containing chalcogenides and halides with high $\chi$.
 \end{itemize}}
 \column{0.5\textwidth}
-\begin{minted}[fontsize=\tiny]{python}
+\begin{tiny}
+\begin{verbatim}
 |--- ElectronegativityMean <= 2.03
 |   |--- ColumnMin <= 2.50
 |   |   |--- ElectronegativityMax <= 5.09
@@ -283,7 +264,8 @@ y_pred = decision_tree.predict(x_test)
 |   |   |   |--- class: 0
 |   |   |--- ColumnMax >  31.00
 |   |   |   |--- class: 1
-\end{minted}
+\end{verbatim}
+\end{tiny}
 \end{columns}
 \end{frame}
 
@@ -411,17 +393,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
 
 
 \begin{frame}[fragile]{AdaBoost in scikit-learn}
-\begin{minted}{python}
-from sklearn.ensemble import AdaBoostClassifier
-
-x_train, x_test, y_train, y_test = train_test_split(x, y_class, test_size=0.2)
-
-decision_tree = AdaBoostClassifier(DecisionTreeClassifier(criterion="entropy", random_state=0, max_depth=3), 
-                                   n_estimators=20)
-decision_tree = decision_tree.fit(x_train, y_train)
-train_accuracy = decision_tree.score(x_train, y_train)
-test_accuracy = decision_tree.score(x_test, y_test)
-\end{minted}
+\inputminted{python}{example_sklearn_adaboost.py}
 \end{frame}
 
 
@@ -445,18 +417,7 @@ test_accuracy = decision_tree.score(x_test, y_test)
 
 
 \begin{frame}[fragile]{Gradient Boosting in Scikit-Learn}
-\begin{minted}{python}
-from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
-
-model = GradientBoostingClassifier(n_estimators=50)
-model.fit(x, y_class)
-model.predict(x)
-
-model = GradientBoostingRegressor(n_estimators=50)
-model.fit(x, y_reg)
-model.predict(x)
-
-\end{minted}
+\inputminted{python}{example_sklearn_gradient_boosting.py}
 \end{frame}
 
 

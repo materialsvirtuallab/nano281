@@ -77,21 +77,7 @@
 
 
 \begin{frame}[fragile]{Creating the features and classes}
-\begin{minted}{python}
-import pandas as pd
-from pymatgen import Composition
-binaries = pd.read_csv('binary_band_gap.csv')
-# We create a column holding the Composition object. 
-# Note the use of list comprehension in Python.
-binaries['composition'] = [Composition(c) for c in binaries['Formula']]
-electronegs = [[el.X for el in c] for c in binaries['composition']]
-# Create the features mean and difference between electronegativities
-binaries['mean_X'] = [np.mean(e) for e in electronegs]
-binaries['diff_X'] = [max(e) - min(e) for e in electronegs]
-# Label metals (band gap of 0. 1e-5 is used as numerical tolerance) as class 0
-# Insulators are labelled as class 1.
-binaries['class'] = [0 if eg < 1e-5 else 1 for eg in binaries['Eg (eV)']]}
-\end{minted}
+\inputminted{python}{example_element_features.py}
 \end{frame} 
 
 
@@ -209,18 +195,7 @@ binaries['class'] = [0 if eg < 1e-5 else 1 for eg in binaries['Eg (eV)']]}
 
 
 \begin{frame}[fragile]{Discriminant analysis in scikit-learn}
-\begin{minted}{python}
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis,
-    QuadraticDiscriminantAnalysis
-lda = LinearDiscriminantAnalysis(solver="svd", store_covariance=True)
-X = binaries[["mean_X", "diff_X"]]
-y = binaries["class"]
-model = lda.fit(X, y)
-y_pred = model.predict(X)
-
-qda = QuadraticDiscriminantAnalysis(store_covariance=True)
-y_pred = qda.fit(X, y).predict(X)
-\end{minted}
+\inputminted{python}{example_sklearn_discriminant_analysis.py}
 \end{frame} 
 
 
@@ -255,12 +230,7 @@ y_pred = qda.fit(X, y).predict(X)
 
 
 \begin{frame}[fragile]{Logistic regression on metal/insulator dataset}
-\begin{minted}{python}
-from sklearn.linear_model import LogisticRegression
-clf = LogisticRegression(penalty='none', random_state=0)
-model = clf.fit(X, y)
-y_pred = model.predict(X)
-\end{minted}
+\inputminted{python}{example_sklearn_logistic__regression.py}
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/logistic_metal_insulator.png}

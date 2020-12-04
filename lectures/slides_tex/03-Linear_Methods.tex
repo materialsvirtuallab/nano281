@@ -249,35 +249,13 @@
 
 
 \begin{frame}[fragile]{Using pandas for easy data manipulation}
-    \begin{minted}{python}
-import pandas as pd
-# Read in data and set first column as index.
-data = pd.read_csv("element_data.csv", index_col=0)
-# Generate transformations as additional columns.
-data["X^2"] = data["X"] ** 2
-data["sqrt(X)"] = data["X"] ** 0.5
-data["r^2"] = data["r"] ** 2
-data["sqrt(r)"] = data["r"] ** 0.5
-# Define our features, which is all the columns
-# excluding K, which is the target.
-features = [c for c in data.columns if c != "K"]
-x = data[features]
-y = data["K"]
-\end{minted}
-
+    \inputminted{python}{example_pandas_data_manipulation.py}
 Recommendation: Go through the \href{https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html}{10 minute guide to pandas}.
 \end{frame} 
 
 
 \begin{frame}[fragile]{MLR in scikit-learn}
-\begin{minted}{python}
-from sklearn import linear_model
-reg = linear_model.LinearRegression()
-reg.fit(x, y)
-print(ref.coef_)
-print(reg.intercept_)
-\end{minted}
-
+\inputminted{python}{example_sklearn_mlr.py}
 \begin{itemize}
     \item Note that x should contain the features only - there is no need to add a 1 column for the intercept. By default, the parameter fit\_intercept in sklearn.linear\_model.LinearRegression is True. You can set it to False to do a MLR without intercept.
     \item Documentation: \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{link}.
@@ -369,11 +347,7 @@ print(reg.intercept_)
 
 
 \begin{frame}[fragile]{CV in scikit-learn}
-\begin{minted}{python}
-from sklearn.model_selection import cross_validate, KFold
-kfold = KFold(n_splits=5, shuffle=True, random_state=42)
-cv_results = cross_validate(ridge, z, y, cv=kfold)
-\end{minted}
+\inputminted{python}{example_sklearn_cv.py}
 \begin{itemize}
     \item Note that we have customized the KFold object passed to the cross\_validate method. The reason is that our element data is non-random by default. So we want to perform shuffling prior to doing the splits.
     \item Documentation: \href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html?highlight=cross_validate#sklearn.model_selection.cross_validate}{link}.
@@ -741,20 +715,7 @@ cv_results = cross_validate(ridge, z, y, cv=kfold)
 
 
 \begin{frame}[fragile]{Demo: Cubic spline fitting in scipy}
-    \begin{minted}{python}
-import numpy as np
-## Import CubicSpline from scipy
-from scipy.interpolate import CubicSpline
-## x, y data for generating the spline fitting
-x = np.arange(10)
-y = np.sin(x)
-## Fit the spline
-cs = CubicSpline(x, y)
-## Generate new x values
-xs = np.arange(-0.5, 9.6, 0.1)
-## Perform the interpolation on the new points
-ys = cs(xs)
-\end{minted}
+    \inputminted{python}{example_sklearn_spline.py}
 \end{frame} 
 
 
@@ -862,8 +823,8 @@ ys = cs(xs)
 \end{frame} 
 
 
-\begin{frame}{Bibliography}
-    \bibliographystyle{plain}
+\begin{frame}[allowframebreaks]{Bibliography}
+    \bibliographystyle{unsrt}
     \bibliography{refs}
 \end{frame}
 

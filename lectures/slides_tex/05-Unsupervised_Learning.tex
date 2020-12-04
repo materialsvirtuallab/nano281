@@ -141,21 +141,7 @@ Unsupervised Learning
 
 
 \begin{frame}[fragile]{Code}
-\begin{minted}{python}
-from sklearn.decomposition import PCA
-pca = PCA()
-pca.fit(x)
-x_pca = pca.transform(x)
-print(pca.explained_variance_)
-
-# Linear regression using PCA components
-from sklearn import linear_model
-from sklearn.model_selection import cross_val_predict, KFold
-
-kfold = KFold(n_splits=5, shuffle=True, random_state=42)
-mlr = linear_model.LinearRegression()
-yhat_mlr = cross_val_predict(mlr, x_pca[:, 0:2], y, cv=kfold)
-\end{minted}
+\inputminted{python}{example_sklearn_pca.py}
 \end{frame} 
 
 
@@ -268,27 +254,12 @@ yhat_mlr = cross_val_predict(mlr, x_pca[:, 0:2], y, cv=kfold)
 
 
 \begin{frame}[fragile]{K-means and DBSCAN in scikit-learn}
-\begin{minted}{python}
-# Reading images using matplotlib
-from matplotlib import image
-import matplotlib.pyplot as plt
-import numpy as np
-# load image as numpy array.
-data = image.imread('example.png')
-# Display image
-plt.imshow(data)
-
-from sklearn.cluster import kmeans, DBSCAN
-clustering = KMeans(k).fit(X)
-print(clustering.labels_)
-clustering = DBSCAN(eps=3, min_samples=2).fit(X)
-print(clustering.labels_)
-\end{minted}
+\inputminted{python}{example_sklearn_clustering.py}
 \end{frame}
 
 
 
-\begin{frame}{Bibliography}
+\begin{frame}[allowframebreaks]{Bibliography}
     \bibliographystyle{unsrt}
     \bibliography{refs}
 \end{frame}

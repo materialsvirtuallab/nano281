@@ -89,17 +89,9 @@
 \begin{frame}[fragile]{Python vs other languages}
 \begin{itemize}
     \item Java
-    \begin{minted}{java}
-public class Hello {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-}
-    \end{minted}
+    \inputminted{java}{example_hello_world_java.java}
     \item Python
-    \begin{minted}{python}
-print("Hello world")
-    \end{minted}
+    \inputminted{python}{example_hello_world_python.py}
 \end{itemize}
 \end{frame}
 
@@ -127,18 +119,9 @@ print("Hello world")
 \begin{frame}[fragile]{Basics of Python}
     \begin{itemize}
         \item Dynamically typed, i.e., no need for variable declaration.
-        \begin{minted}{python}
-x = 1  # integer
-y = 2.0  # float
-my_string = "Hello world"  # string
-my_list = [1, 2, 3, "a"]  # list
-my_dict = {"a": 1, "b": 2, "c": 3}  # dict
-        \end{minted}
+        \inputminted{python}{example_basic_python.py}
         \item Other than some basic operations and functions, most other functions are in packages and modules and must be \textit{imported} prior to use.
-        \begin{minted}{python}
-import math
-z = math.sin(3.14159)  # Gives ~0
-        \end{minted}
+        \inputminted{python}{example_imports.py}
         \item Please go through \href{https://docs.python.org/3/tutorial/index.html}{official Python tutorial}.
     \end{itemize}
 \end{frame} 
@@ -148,19 +131,19 @@ z = math.sin(3.14159)  # Gives ~0
     \begin{itemize}
         \item Isolated environment for Python projects, i.e., each env has its own Python and packages.
         \item Both conda and python3 itself comes with the ability to create virtual environments.
-        \begin{minted}{bash}
+        \begin{verbatim}
 conda create --name nano281 python=3.7
 conda activate nano281
-        \end{minted}
+        \end{verbatim}
         \item Please use Python 3.7 as some of the packages are not yet available for Python 3.8.
         \item To start over, you can remove the environment:
-        \begin{minted}{bash}
+        \begin{verbatim}
 conda remove --name nano281 --all
-        \end{minted}
+        \end{verbatim}
         \item You can also create reproducible environments from a file.
-        \begin{minted}{bash}
+        \begin{verbatim}
 conda env create -f nano281_env.yml
-        \end{minted}
+        \end{verbatim}
         \item Example nano281\_env.yml file given in the \href{https://github.com/materialsvirtuallab/nano281}{nano281 Github repo}.
     \end{itemize}
 \end{frame}
@@ -169,18 +152,18 @@ conda env create -f nano281_env.yml
 \begin{frame}[fragile]{Installing packages using conda}
     \begin{itemize}
         \item We will get into the details of the specific packages later.
-    \begin{minted}{python}
+    \begin{verbatim}
 # Scientific python stack
 conda install numpy scipy matplotlib seaborn jupyter
 # Data Science tools
 conda install pandas scikit-learn tensorflow
 # Materials science library
 conda install --channel conda-forge pymatgen
-    \end{minted}
+    \end{verbatim}
         \item To update a package, use:
-    \begin{minted}{python}
+    \begin{verbatim}
 conda update numpy
-    \end{minted}
+    \end{verbatim}
     \end{itemize}
 \end{frame}
 
@@ -231,9 +214,9 @@ conda update numpy
         \item All lecture examples will be done in Jupyter notebooks. You will also be submitting notebooks (ipynb files) as your lab reports.
         \item Document: \href{http://jupyter-notebook.readthedocs.io/en/stable/}{link}
         \item Running a jupyter notebook:
-        \begin{minted}{python}
+        \begin{verbatim}
         jupyter notebook
-        \end{minted}
+        \end{verbatim}
         \item The notebook server will be running at http://localhost:8888 (typically).
     \end{itemize}
 \end{frame}
@@ -266,25 +249,7 @@ conda update numpy
 
 
 \begin{frame}[fragile]{Numpy examples}
-    \begin{minted}{python}
->>> import numpy as np
->>> x = np.array([[1, 2, 3],
-                  [4, 7, 6],
-                  [9, 4, 2]])
->>> y = np.array([1.5, 0.5, 3])
->>> x * x
-array([[ 1,  4,  9],
-       [16, 49, 36],
-       [81, 16,  4]])
->>> np.dot(x, x)
-array([[36, 28, 21],
-       [86, 81, 66],
-       [43, 54, 55]])
->>> np.linalg.inv(x)
-array([[ 0.16949153, -0.13559322,  0.15254237],
-       [-0.77966102,  0.42372881, -0.10169492],
-       [ 0.79661017, -0.23728814,  0.01694915]])
-       \end{minted}
+    \inputminted{python}{example_numpy.py}
 \end{frame}
 
 
@@ -293,15 +258,7 @@ array([[ 0.16949153, -0.13559322,  0.15254237],
         \item Efficient numerical routines for numerical integration, interpolation, optimization, linear algebra, and statistics, etc.
         \item scipy.linalg is a superset of numpy.linalg, and is always compiled with BLAS/LAPACK. So use scipy.linalg.
         \item Dependency for most other packages you will be using.
-    \begin{minted}{python}
->>> from scipy import stats  # Statistics package
->>> dist = stats.norm(0, 1)  # Gaussian distribution
->>> dist.cdf(1.96)
-0.9750021048517795
->>> from scipy import constants  # Physical constants
->>> constants.e
-1.6021766208e-19
-    \end{minted}
+    \inputminted{python}{example_scipy.py}
     \item Documentation: \href{https://docs.scipy.org/doc/scipy/reference/}{link}
     \item Scipy lectures (very useful resource): \href{https://scipy-lectures.org/}{link}
     \end{itemize}
@@ -327,24 +284,7 @@ array([[ 0.16949153, -0.13559322,  0.15254237],
     \begin{itemize}
         \item For this demo, we will utilize data that has been published by the MAterials Simulation Toolkit - Machine Learning (MAST-ML) on figshare.
     \end{itemize}
-\begin{minted}{python}
-from io import StringIO
-import pandas as pd
-import requests
-
-# Get the raw text of the data directly from the figshare url.
-url = "https://ndownloader.figshare.com/files/13007075"
-raw = requests.get(url).text
-# Then reads in the data as a pandas DataFrame.
-data = pd.read_csv(StringIO(raw))
-
-# Extracting a column as a Series.
-form_e = data['E_raw (eV)']
-
-# Summary statistics
-data.describe()
-
-\end{minted}
+\inputminted{python}{example_pandas.py}
 \end{frame}
 
 
@@ -362,14 +302,7 @@ data.describe()
 \begin{frame}[fragile]{Scikit-learn Model API}
     \begin{itemize}
         \item All ML models inherit from BaseEstimator and various mix-in classes with standardized method names.
-        \begin{minted}{python}
-model = Model(**params)  # Init a model with parameters.
-model.get_params()  # Get model parameters. 
-model.set_params(**params)  # Set model parameters
-model.fit(X, y)  # Fit the model with a dataset
-model.score(X, y)  # Provides the score for the dataset.   
-model.predict(X)  # Make a prediction using fitted model.
-        \end{minted}
+        \inputminted{python}{example_sklearn.py}
         \item Note that the params and score depends on the specifics of the ML model type.
     \end{itemize}
 \end{frame} 
@@ -381,19 +314,7 @@ model.predict(X)  # Make a prediction using fitted model.
         \item Plotting libraries.
         \item Matplotlib is the de facto library for generating all kinds of plots and many other plotting engines (including seaborn) are built on top of it
         \item seaborn is a extremely helpful package for statistical data visualization. Works very well with Pandas DataFrame.
-\begin{minted}{python}
-import matplotlib.pyplot as plt
-# Plot two variables x and y with 'x' as markers and solid lines.
-plt.plot(x, y, 'x-')
-# Use circles as markers and dashed lines instead.
-plt.plot(x, y, 'o--')
-
-import seaborn as sns
-# Plot the distribution of x.
-sns.distplot(x)
-# Scatter plot using columns from DataFrame
-sns.scatterplot(x="Melting point", y="Modulus", data=materials)
-        \end{minted}
+\inputminted{python}{example_plotting.py}
         \item \href{http://seaborn.pydata.org/examples/index.html}{Seaborn gallery} contains may visual examples with source code. 
     \end{itemize}
 \end{frame} 
@@ -429,25 +350,14 @@ sns.scatterplot(x="Melting point", y="Modulus", data=materials)
         \item Accessed using the pymatgen.ext.matproj.MPRester class.
         \item While there are many convenience methods to query for crystal structures and other object types, the most powerful and useful method for data analysis is the MPRester's query method.
         \item This method has to be used in conjunction with the Materials API documentation available at \url{https://github.com/materialsproject/mapidoc}.
-\begin{minted}{python}
-from pymatgen.ext.matproj import MPRester
-# Change "<APIKEY>" to the API key obtained from MP.
-mpr = MPRester("<APIKEY>")
-data = mpr.query(criteria={"pretty_formula": "Al2O3"}, 
-                 properties=["final_energy", "band_gap"])
-print(data)
-import pandas as pd
-df = pd.DataFrame(data)   # Convert to DataFrame
-\end{minted}
+\inputminted{python}{example_materials_api.py}
     \end{itemize}
 \end{frame} 
 
 
-\begin{frame}{Bibliography}
-    \scriptsize{
+\begin{frame}[allowframebreaks]{Bibliography}
     \bibliographystyle{unsrt}
     \bibliography{refs}
-    }
 \end{frame}
 
 
