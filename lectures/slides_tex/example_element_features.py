@@ -1,5 +1,5 @@
 import pandas as pd
-from pymatgen import Composition
+from pymatgen.core import Composition
 binaries = pd.read_csv('binary_band_gap.csv')
 # We create a column holding the Composition object. 
 # Note the use of list comprehension in Python.
