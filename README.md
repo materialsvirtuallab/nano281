@@ -20,7 +20,7 @@ in the [labs](labs) folder.
 
 # Programming language
 
-All lectures and labs will be conducted in Python 3.7+. Prior to the labs,
+All lectures and labs will be conducted in Python 3.9+. Prior to the labs,
 please do the following:
 
 1. Install [python](https://www.python.org/) on your laptop.
@@ -38,14 +38,14 @@ alternative approaches to setting up your machine, but the approach outlined
 here is guaranteed to work and is reproducible. Your instructors would be better
 able to assist if there are issues in the installation.
 
-1. Download the Python 3.7+ version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) 
+1. Download the Python 3.9+ version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) 
    (recommended) or [Anaconda](https://www.anaconda.com/distribution/) for your
    OS.
 2. Follow the official instructions and install Miniconda/Anaconda.
 3. Start the terminal (Mac/Linux) or Anaconda Prompt (Windows).
 4. Create a virtual environment for NANO281:
 ```bash
-conda create --name nano281 python=3.7
+conda create --name nano281 python=3.9
 ```
 5. Activate the virtual environment.
 ```bash
