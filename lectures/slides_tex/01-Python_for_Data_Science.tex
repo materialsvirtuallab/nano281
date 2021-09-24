@@ -132,10 +132,9 @@
         \item Isolated environment for Python projects, i.e., each env has its own Python and packages.
         \item Both conda and python3 itself comes with the ability to create virtual environments.
         \begin{verbatim}
-conda create --name nano281 python=3.7
+conda create --name nano281 python=3.9
 conda activate nano281
         \end{verbatim}
-        \item Please use Python 3.7 as some of the packages are not yet available for Python 3.8.
         \item To start over, you can remove the environment:
         \begin{verbatim}
 conda remove --name nano281 --all
@@ -241,7 +240,7 @@ conda update numpy
         \item Underlying implementation is in C, and hence extremely efficient.
         \item Vectorization of operations, as opposed to loops, is key to efficiency.
         \item Recommend that you focus on the array object and ignore the matrix object.
-        \item Note that standard operations such as +, -, * and / for np.arrays are element-wise. For matrix multiplications, use special numpy functions, e.g., numpy.dot or the new @ operator available in Python 3.7
+        \item Note that standard operations such as +, -, * and / for np.arrays are element-wise. For matrix multiplications, use special numpy functions, e.g., numpy.dot or the new @ operator available in Python 3.7 and above.
         \item For those of you who are familiar with Matlab, it helps to read the \href{https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html}{Numpy for matlab users doc}.
         \item Documentation: \href{http://docs.scipy.org/doc/numpy/}{link}
     \end{itemize}
