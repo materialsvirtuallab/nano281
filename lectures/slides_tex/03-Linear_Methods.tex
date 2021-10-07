@@ -180,47 +180,6 @@
 \end{frame}
 
 
-\begin{frame}{Hypothesis Testing for Coefficients}
-    \begin{itemize}
-        \item To derive insights into a model, we often want to know which of the input parameters are the most relevant to the target.
-        \item Under assumptions of the errors in $y$ follow a Gaussian distribution $N(0, \sigma^2)$, the errors in $\hat{\bm{\beta}}$ also have a Gaussian distribution $N(\beta, (\vec{X}^T \vec{X})^{-1} \sigma^2)$
-        \item Hypothesis testing can be carried out for whether a particular $\beta_j$ is 0 using the following test statistic:
-        \begin{equation*}
-        t_j = \frac{\hat{\bm{\beta_j}}}{\sigma\sqrt{v_j}}
-        \end{equation*}
-        where $v_j$ is the $j$th diagonal element of $(\vec{X}^T \vec{X})^{-1}$. $t_j$ has a $t$ distribution with $N-p-1$ degrees of freedom (dof).
-    \end{itemize}
-\end{frame} 
-
-
-\begin{frame}{Hypothesis Testing for Groups of Coefficients}
-    \begin{itemize}
-        \item More often, we want to test groups of coefficient for significance. E.g., to the $k$ levels of a categorical variable.
-        \item We will use the following $F$ statistic:
-        \begin{equation*}
-        F = \frac{(\mathrm{RSS}_0 - \mathrm{RSS}_1)/(p_1-p_0)}{\mathrm{RSS}_1/(N-p_1-1)}
-        \end{equation*}
-        where $\mathrm{RSS}_0$ is the RSS of the larger model with $p_0 + 1$ parameters and $\mathrm{RSS}_1$ is the RSS of the smaller model with $p_1 + 1$ parameters with $p_0 - p_1$ parameters set to zero. The $F$ statistic has a distribution of $F_{p_1-p_0,N-p_1-1}$.
-    \end{itemize}
-\end{frame} 
-
-
-\begin{frame}{Gauss-Markov Theorem}
-    \begin{itemize}
-        \item Consider the estimator $\hat{\theta}$ for a variable $\theta$.
-        \begin{eqnarray*}
-            \mathrm{MSE} & = & E(\hat{\theta} - \theta)^2 \\
-            & = & \mathrm{var}(\hat{\theta}) + [E(\hat{\theta}) - \theta]^2
-        \end{eqnarray*}
-        \item The MSE can be broken down into the variance of the estimate itself and the square of the bias.
-        \begin{block}{Gauss-Markov Theorem}
-        The least squares estimator has the smallest variance among all linear \textit{unbiased} estimators.
-        \end{block}
-        \item However, there can be estimators that are biased with smaller MSE.
-    \end{itemize}
-\end{frame}
-
-
 \begin{frame}{Example materials data}
     \begin{columns}
     \begin{column}{0.6\textwidth}
@@ -261,6 +220,50 @@
 \end{itemize}
 
 \end{frame} 
+
+
+
+
+\begin{frame}{Hypothesis Testing for Coefficients}
+    \begin{itemize}
+        \item To derive insights into a model, we often want to know which of the input parameters are the most relevant to the target.
+        \item Under assumptions of the errors in $y$ follow a Gaussian distribution $N(0, \sigma^2)$, the errors in $\hat{\bm{\beta}}$ also have a Gaussian distribution $N(\beta, (\vec{X}^T \vec{X})^{-1} \sigma^2)$
+        \item Hypothesis testing can be carried out for whether a particular $\beta_j$ is 0 using the following test statistic:
+        \begin{equation*}
+        t_j = \frac{\hat{\bm{\beta_j}}}{\sigma\sqrt{v_j}}
+        \end{equation*}
+        where $v_j$ is the $j$th diagonal element of $(\vec{X}^T \vec{X})^{-1}$. $t_j$ has a $t$ distribution with $N-p-1$ degrees of freedom (dof).
+    \end{itemize}
+\end{frame} 
+
+
+\begin{frame}{Hypothesis Testing for Groups of Coefficients}
+    \begin{itemize}
+        \item More often, we want to test groups of coefficient for significance. E.g., to the $k$ levels of a categorical variable.
+        \item We will use the following $F$ statistic:
+        \begin{equation*}
+        F = \frac{(\mathrm{RSS}_0 - \mathrm{RSS}_1)/(p_1-p_0)}{\mathrm{RSS}_1/(N-p_1-1)}
+        \end{equation*}
+        where $\mathrm{RSS}_0$ is the RSS of the larger model with $p_0 + 1$ parameters and $\mathrm{RSS}_1$ is the RSS of the smaller model with $p_1 + 1$ parameters with $p_0 - p_1$ parameters set to zero. The $F$ statistic has a distribution of $F_{p_1-p_0,N-p_1-1}$.
+    \end{itemize}
+\end{frame} 
+
+
+\begin{frame}{Gauss-Markov Theorem}
+    \begin{itemize}
+        \item Consider the estimator $\hat{\theta}$ for a variable $\theta$.
+        \begin{eqnarray*}
+            \mathrm{MSE} & = & E(\hat{\theta} - \theta)^2 \\
+            & = & \mathrm{var}(\hat{\theta}) + [E(\hat{\theta}) - \theta]^2
+        \end{eqnarray*}
+        \item The MSE can be broken down into the variance of the estimate itself and the square of the bias.
+        \begin{block}{Gauss-Markov Theorem}
+        The least squares estimator has the smallest variance among all linear \textit{unbiased} estimators.
+        \end{block}
+        \item However, there can be estimators that are biased with smaller MSE.
+    \end{itemize}
+\end{frame}
+
 
 
 \section{Model selection}
