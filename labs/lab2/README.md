@@ -67,12 +67,12 @@ About 80% of the effort in ML modelling is in data processing. The goal is to de
 
 ## Q3 - Regression and classification modeling (40 points)
 
-We are going to use `band_gap`, `formation_energy_per_atom`, `e_above_hull` in `data` as the targets, and store them in variable `targets`. `targets` should be a dataframe with dimension of `(n, 3)`. 
+We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets, and store them in variable `targets`. `targets` should be a dataframe with dimension of `(n, 2)`. 
 
 1. Split the data (`design_matrix` as X, and `targets` as y) into training and test sets in the ratio 90%:10%. Store the training data in variables `train_X` and `train_y` and the test data as variables `test_X` and `test_y`. To make sure the data is reproducible, set the `random_state=42` in `sklearn.model_selection.train_test_split`.
 2. Compute the mean and standard deviation of columns in `train_X`. Both of them should be length 48 vectors. Use them to normalize `train_X` and `test_X`, so that each column has a mean of 0 and standard deviation of 1. Store the normalized design matrices to `norm_train_X`, `norm_test_X`. 
 3. Train a linear model to predict `formation_energy_per_atom`. What are the mean absolute error (MAE) and root mean squared error (RMSE) on the test data?
-4. Train a Ridge regression model and a LASSO regression model using `alpha=0.1`, what are the test MAE and RMSE?
+4. Train a Ridge regression model and a LASSO regression model for the `formation_energy_per_atom` using `alpha=0.1`, what are the test MAE and RMSE?
 5. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant analysis, quadratic discriminant analysis, and logistic regression models on train data and predict the accuracy of the models on test data. 
 6. What are the problems of using only the compositions to predict material properties?
 
