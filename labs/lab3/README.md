@@ -38,15 +38,16 @@ Now that we are at the Final Lab, hints will be minimal. In any case, the proble
 
 ## Problem
 
-The dielectric constant is a fundamental property of a material. The Materials Project today already contains around 7800 dielectric constants. You will be concerned with the following properties:
+The dielectric constant is a fundamental property of a material. The Materials Project today already contains around 7800 dielectric constants. The dataset you will be provided contains the following:
 
 - `material_id` A unique identifier for each material in the Materials Project database
 - `dielectric_poly_total` The computed polycrystalline total dielectric constant.
 
 For other information, such as structure and composition, you will need to query using `material_id` from the Materials Project.
 
-Build the best machine learning models you can to predict the total and electronic dielectric constants (these are two separate models) from either compositional features or a combination of compositional and structural features. You may obtain compositional features by constructing them from attributes available in the `Element` class in pymatgen (see [documentation here](https://pymatgen.org/pymatgen.core.periodic_table.html?highlight=element#pymatgen.core.periodic_table.Element)), similar to what you have done in lab 2. You can choose whatever reasonable attributes and transformation of attributes you wish. You may also use structural information, but it will be up to you to figure out the best structural representation. 
+Build the best machine learning models you can to predict the total and electronic dielectric constants (these are two separate models) from either compositional features or a combination of compositional and structural features. You may obtain compositional features by constructing them from attributes available in the `Element` class in pymatgen (see [documentation here](https://pymatgen.org/pymatgen.core.periodic_table.html?highlight=element#pymatgen.core.periodic_table.Element)), similar to what you have done in lab 2. You can choose whatever reasonable attributes and transformation of attributes you wish. You may also use structural information, but it will be up to you to figure out the best structural representation. You will need to look at the `sample_submission.csv` to see what kind of files you should be submitting. Your results will be on the leaderboard of the Kaggle competition.
 
+Some very broad hints:
 1. Think carefully about the underlying science of dielectric constants. Choose your features and transformations like a materials scientist, not a data scientist.
 2. Since this is the final lab, I am expecting well-written code with clear documentation on every step. Explain your thinking behind every single thing you do. Use Jupyter's markdown cells to present your thought processes. Note that I can only give you points only if I am able to understand your code and thought processes. Raw performance on accuracy is not going to be sufficient.
 
