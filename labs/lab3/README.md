@@ -22,7 +22,7 @@ jupyter notebook
 
 Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells, etc.  and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for your instructors to find the answers, the better.
 
-At the end of the lab, please submit the `nano281-lab2-<first_name>-<last_name>.ipynb` file (it should be in whatever directory you started your jupyter notebook application in) via Google classroom.
+At the end of the lab, please submit the `nano281-lab2-<first_name>-<last_name>.ipynb` file (it should be in whatever directory you started your jupyter notebook application in) via Canvas.
 
 Our assessment criteria:
 
@@ -45,7 +45,7 @@ The dielectric constant is a fundamental property of a material. The Materials P
 
 For other information, such as structure and composition, you will need to query using `material_id` from the Materials Project.
 
-Build the best machine learning models you can to predict the total and electronic dielectric constants (these are two separate models) from either compositional features or a combination of compositional and structural features. You may obtain compositional features by constructing them from attributes available in the `Element` class in pymatgen (see [documentation here](https://pymatgen.org/pymatgen.core.periodic_table.html?highlight=element#pymatgen.core.periodic_table.Element)), similar to what you have done in lab 2. You can choose whatever reasonable attributes and transformation of attributes you wish. You may also use structural information, but it will be up to you to figure out the best structural representation. You will need to look at the `sample_submission.csv` to see what kind of files you should be submitting. Your results will be on the leaderboard of the Kaggle competition.
+Build the best machine learning models you can to predict the total and electronic dielectric constants (these are two separate models) from either compositional features or a combination of compositional and structural features. You may obtain compositional features by constructing them from attributes available in the `Element` class in pymatgen (see [documentation here](https://pymatgen.org/pymatgen.core.periodic_table.html?highlight=element#pymatgen.core.periodic_table.Element)), similar to what you have done in lab 2. You can choose whatever reasonable attributes and transformation of attributes you wish. You may also use structural information, but it will be up to you to figure out the best structural representation. You will need to look at the `sample_submission.csv` to see what kind of files you should be submitting. Your results will be on the leaderboard of the Kaggle competition. 
 
 Some very broad hints:
 1. Think carefully about the underlying science of dielectric constants. Choose your features and transformations like a materials scientist, not a data scientist.
