@@ -60,10 +60,10 @@ conda activate NANOx81
 conda install --yes numpy scipy matplotlib pandas jupyter seaborn scikit-learn
 conda install --channel conda-forge --yes pymatgen
 ```
-7. An alternative to steps 4-6 is to download the [NANOx281_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/NANO281/master/NANOx81_env.yml) 
+7. An alternative to steps 4-6 is to download the [NANOx281_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/NANO281/master/nanox81_env.yml) 
    file from the Google classroom or Github repo and create the environment directly.
 ```bash
-conda env create -f NANOx81_env.yml
+conda env create -f nanox81_env.yml
 ```
 8. Subsequently, always activate your NANO181/281 environment prior to working on
    your lectures/labs using:
@@ -74,7 +74,7 @@ conda activate NANOx81
 If for any reason you find that your conda environment is corrupted and you
 need to start over, please run:
 ```bash
-conda env remove --name NANO181/281
+conda env remove --name NANOx81
 ```
 and simply start from step 4 above to redo your setup.
 
