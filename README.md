@@ -6,7 +6,7 @@ lectures, labs, as well as other useful resources.
 
 # Syllabus
 
-The full syllabus is provided [here](syllabus).
+The full syllabus is provided [here](syllabus.md).
 
 # Lecture materials
 
