@@ -1,8 +1,12 @@
-# NANO281 - Data Science in Materials Science
+# NANO181/281 - Data Science in Materials Science
 
-Welcome to the official Github repo for UCSD Course NANO281 - 
+Welcome to the official Github repo for UCSD Course NANO 181/281 - 
 "Data Science in Materials Science". Here, you will find the materials for your
 lectures, labs, as well as other useful resources.
+
+# Syllabus
+
+The full syllabus is provided [here](syllabus).
 
 # Lecture materials
 
@@ -23,7 +27,7 @@ in the [labs](labs) folder.
 All lectures and labs will be conducted in Python 3.9+. Prior to the labs,
 please do the following:
 
-1. Install [python](https://www.python.org/) on your laptop.
+1. Install [python](https://www.python.org/) on your laptop (see next section).
 2. If you are unfamiliar with Python, please go through the official
    [Python tutorials](https://docs.python.org/3/tutorial/index.html) to
    understand the basics of variable assignment, if and for loops, etc. While
@@ -69,7 +73,7 @@ conda activate nano281
 
 If for any reason you find that your conda environment is corrupted and you
 need to start over, please run:
-```
+```bash
 conda env remove --name nano281
 ```
 and simply start from step 4 above to redo your setup.
