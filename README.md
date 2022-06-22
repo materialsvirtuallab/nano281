@@ -47,34 +47,34 @@ able to assist if there are issues in the installation.
    OS.
 2. Follow the official instructions and install Miniconda/Anaconda.
 3. Start the terminal (Mac/Linux) or Anaconda Prompt (Windows).
-4. Create a virtual environment for NANO281:
+4. Create a virtual environment for NANO181/281:
 ```bash
-conda create --name nano281 python=3.9
+conda create --name NANOx81 python=3.9
 ```
 5. Activate the virtual environment.
 ```bash
-conda activate nano281
+conda activate NANOx81
 ```
 6. Install the necessary Python libraries.
 ```bash
 conda install --yes numpy scipy matplotlib pandas jupyter seaborn scikit-learn
 conda install --channel conda-forge --yes pymatgen
 ```
-7. An alternative to steps 4-6 is to download the [nano281_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/nano281/master/nano281_env.yml) 
+7. An alternative to steps 4-6 is to download the [NANOx281_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/NANO281/master/NANOx81_env.yml) 
    file from the Google classroom or Github repo and create the environment directly.
 ```bash
-conda env create -f nano281_env.yml
+conda env create -f NANOx81_env.yml
 ```
-8. Subsequently, always activate your nano281 environment prior to working on
+8. Subsequently, always activate your NANO181/281 environment prior to working on
    your lectures/labs using:
 ```bash
-conda activate nano281
+conda activate NANOx81
 ```
 
 If for any reason you find that your conda environment is corrupted and you
 need to start over, please run:
 ```bash
-conda env remove --name nano281
+conda env remove --name NANO181/281
 ```
 and simply start from step 4 above to redo your setup.
 
