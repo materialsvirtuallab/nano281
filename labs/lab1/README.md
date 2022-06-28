@@ -1,6 +1,6 @@
 # Introduction
 
-Welcome to Lab 1 of NANO281 - Data Science in Materials Science. In this lab, you will be learn how to handle materials
+Welcome to Lab 1 of NANOx81 - Data Science in Materials Science. In this lab, you will be learn how to handle materials
 data using various open-source Python tools.
 
 # Getting started
@@ -8,15 +8,15 @@ data using various open-source Python tools.
 If you have not already done so, please follow the instructions outlined in the main [README](https://github.com/materialsvirtuallab/nano281)
 to setup your computer.  
 
-1. Activate your nano281 virtual environment.
+1. Activate your NANOx81 virtual environment.
 ```bash
-conda activate nano281
+conda activate NANOx81
 ```
 2. Start a Jupyter notebook
 ```bash
 jupyter notebook
 ```
-3. Create a Python 3 notebook and rename it `nano281-lab1-<first_name>-<last_name>`. This is important because I expect 
+3. Create a Python 3 notebook and rename it `NANOx81-lab1-<first_name>-<last_name>`. This is important because I expect 
    to be receiving a notebook from every student.
 
 # Assessment criteria
@@ -25,7 +25,7 @@ Try to complete all questions, doing everything in your Jupyter notebook. Make g
 etc. and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for
 your instructors to find the answers, the better.
 
-At the end of the lab, please submit the `nano281-lab1-<first_name>-<last_name>.ipynb` file (it should be in whatever
+At the end of the lab, please submit the `NANOx81-lab1-<first_name>-<last_name>.ipynb` file (it should be in whatever
 directory you started your jupyter notebook application in) via Google classroom.
 
 Just a reminder on our assessment criteria:
