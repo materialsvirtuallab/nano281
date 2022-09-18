@@ -11,6 +11,8 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16} 
 \setminted{fontsize=\scriptsize}
+\newcommand{\classname}{NANOx81}
+\newcommand{\classyear}{Fall 2022}
 
 \hypersetup{
     colorlinks=true,
@@ -25,7 +27,10 @@
 
 \mode<presentation> {
     \usetheme{CambridgeUS}
-    \setbeamertemplate{footline}[page number]
+    \setbeamertemplate{footline}[text line]{%
+      \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
+
+    %\setbeamertemplate{footline}[page number]
     \setbeamertemplate{navigation symbols}{}
 }
 
@@ -36,7 +41,7 @@
 \institute[UCSD]{University of California, San Diego\\
 \medskip
 }
-\date{NANO281}
+\date{\classyear}
 
 \begin{document}
 

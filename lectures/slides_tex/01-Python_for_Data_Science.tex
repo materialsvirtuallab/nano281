@@ -24,21 +24,25 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \let \vec \mathbf
 
+\newcommand{\classname}{NANOx81}
+\newcommand{\classyear}{Fall 2022}
 \mode<presentation> {
     \usetheme{CambridgeUS}
-    %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-    \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
-    \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+    \setbeamertemplate{footline}[text line]{%
+      \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
+
+    %\setbeamertemplate{footline}[page number]
+    \setbeamertemplate{navigation symbols}{}
 }
 
 
-\title[Python for Materials Data Science]{Python for Materials Data Science}
+\title[Python for Data Science and Materials Science]{Python for Data Science and Materials Science}
 
 \author{Shyue Ping Ong}
 \institute[UCSD]{University of California, San Diego\\
 \medskip
 }
-\date{NANO281} % Date, can be changed to a custom date
+\date{\classyear} % Date, can be changed to a custom date
 
 \begin{document}
 
@@ -57,7 +61,7 @@
 
 \begin{frame}{Preliminaries}
     \begin{itemize}
-        \item In this lecture, we will provide a brief overview of the Python programming language for data science.
+        \item In this lecture, we will provide a brief overview of the Python programming language for data science and materials science.
         \item This will form the basis for your first lab on materials data wrangling in Python.
         \item Very quick overview of chapters 1-4 of the Python Data Science Handbook\cite{vanderplasPythonDataScience2016} + materials science libraries.
         \item Content is targeted at giving a complete beginner to Python and the scientific python stack enough background to get started.
@@ -97,8 +101,13 @@
 
 \begin{frame}{Python 3 or 2?}
     \begin{itemize}
-        \item We will be using Python 3.9+.
+        \item We will be using Python 3.8/3.9+.
         \item Modern version of Python that has been around since 2008 and is now the de facto standard from Jan 1 2020 - most major software packages are stopping support for Python 2 henceforth.
+        \item Options for this course:
+        \begin{itemize}
+            \item Install python on your laptop - faster, not-reliant on internet connection, most modern version of Python possible.
+            \item \href{https://colab.research.google.com/}{Google Colab} - Online Python notebooks. No installation required. But Python version and installed libraries lag the latest versions (sometimes by years). 
+        \end{itemize}
     \end{itemize}
 \end{frame} 
 
@@ -132,18 +141,18 @@
         \item Isolated environment for Python projects, i.e., each env has its own Python and packages.
         \item Both conda and python3 itself comes with the ability to create virtual environments.
         \begin{verbatim}
-conda create --name nano281 python=3.9
-conda activate nano281
+conda create --name nanox81 python=3.9
+conda activate \classname
         \end{verbatim}
         \item To start over, you can remove the environment:
         \begin{verbatim}
-conda remove --name nano281 --all
+conda remove --name nanox81 --all
         \end{verbatim}
         \item You can also create reproducible environments from a file.
         \begin{verbatim}
-conda env create -f nano281_env.yml
+conda env create -f nanox81_env.yml
         \end{verbatim}
-        \item Example nano281\_env.yml file given in the \href{https://github.com/materialsvirtuallab/nano281}{nano281 Github repo}.
+        \item Example nanox81\_env.yml file given in the \href{https://github.com/materialsvirtuallab/\classname}{\classname Github repo}.
     \end{itemize}
 \end{frame}
 
@@ -165,6 +174,26 @@ conda update numpy
     \end{verbatim}
     \end{itemize}
 \end{frame}
+
+
+\begin{frame}[fragile]{Google Colab Demo}
+    \begin{itemize}
+        \item URL: \url{https://colab.research.google.com}
+        \item Start a new blank notebook or download one from Github.
+        \begin{figure}
+            \centering
+            \includegraphics[height=0.25\textwidth]{lectures/slides_tex/GoogleColab.png}
+            \includegraphics[height=0.25\textwidth]{lectures/slides_tex/GoogleColabGithub.png}
+        \end{figure}
+        \item Most of the data science packages we will be using in this course are pre-installed.
+        \item To install a missing package (e.g., pymatgen), add the following in the first cell:
+\begin{verbatim}
+    ! pip install pymatgen
+\end{verbatim}        
+    \end{itemize}
+\end{frame}
+
+
 
 
 \section{Scientific python stack}
@@ -208,7 +237,7 @@ conda update numpy
 
 \begin{frame}[fragile]{Jupyter notebook}
     \begin{itemize}
-        \item We will primarily be using Jupyter for its notebook application, though it is capable of a lot more.
+        \item We will primarily be using Jupyter for its notebook application, though it is capable of a lot more. (Google Colab is similar.)
         \item Jupyter Notebook is an open-source web application to create and share documents that contain code, equations, visualizations and narrative text, etc.
         \item All lecture examples will be done in Jupyter notebooks. You will also be submitting notebooks (ipynb files) as your lab reports.
         \item Document: \href{http://jupyter-notebook.readthedocs.io/en/stable/}{link}
@@ -241,7 +270,7 @@ conda update numpy
         \item Vectorization of operations, as opposed to loops, is key to efficiency.
         \item Recommend that you focus on the array object and ignore the matrix object.
         \item Note that standard operations such as +, -, * and / for np.arrays are element-wise. For matrix multiplications, use special numpy functions, e.g., numpy.dot or the new @ operator available in Python 3.7 and above.
-        \item For those of you who are familiar with Matlab, it helps to read the \href{https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html}{Numpy for matlab users doc}.
+        \item For those of you who are familiar with Matlab, it helps to read the \href{https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html}{Numpy for Matlab users doc}.
         \item Documentation: \href{http://docs.scipy.org/doc/numpy/}{link}
     \end{itemize}
 \end{frame}

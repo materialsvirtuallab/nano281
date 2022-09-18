@@ -23,11 +23,15 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \let \vec \mathbf
 
+\newcommand{\classname}{NANOx81}
+\newcommand{\classyear}{Fall 2022}
 \mode<presentation> {
     \usetheme{CambridgeUS}
-    %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-    \setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
-    \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+    \setbeamertemplate{footline}[text line]{%
+      \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
+
+    %\setbeamertemplate{footline}[page number]
+    \setbeamertemplate{navigation symbols}{}
 }
 
 
@@ -37,7 +41,7 @@
 \institute[UCSD]{University of California, San Diego\\
 \medskip
 }
-\date{NANO281} % Date, can be changed to a custom date
+\date{\classyear} % Date, can be changed to a custom date
 
 \begin{document}
 
