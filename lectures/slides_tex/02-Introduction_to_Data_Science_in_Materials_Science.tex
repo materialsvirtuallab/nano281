@@ -204,14 +204,247 @@ The Materials Project is an open science project to make the computed properties
 \end{frame}
 
 
-\begin{frame}{Materials API}
+\begin{frame}{Materials Application Programming Interface (API)\cite{ongMaterialsApplicationProgramming2015}}
 \begin{itemize}
     \item An open platform for accessing Materials Project data based on REpresentational State Transfer (REST) principles.
     \item \textit{Flexible and scalable} to cater to large number of users, with different access privileges.
     \item Simple to use and code agnostic.
+    \item Requires an API key, available at: \url{https://www.materialsproject.org/dashboard}
+    \item Documentation: \url{https://api.materialsproject.org/docs}
 \end{itemize}
 \end{frame}
 
+
+\begin{frame}{RESTful API}
+A REST API maps a URL to a resource. 
+\begin{exampleblock}{Example}
+GET https://api.dropbox.com/1/account/info
+\end{exampleblock}
+Returns information about a user’s account.
+
+Methods: GET, POST, PUT, DELETE, etc.
+
+Response: Usually JSON or XML or both
+\end{frame}
+
+
+\begin{frame}{Materials API Example}
+\begin{exampleblock}{URL}
+\small
+\textcolor{red}{https://api.materialsproject.org}/\textcolor{blue}{summary}/?\textcolor{green}{formula=Fe2O3}\&\_fields=formation\_energy\_per\_atom\\
+\end{exampleblock}
+\begin{columns}
+\column{0.45\textwidth}
+Example response:
+\inputminted{json}{mapi_response.txt}
+\column{0.45\textwidth}
+\begin{itemize}
+    \item[]
+    \item[]
+    \item[]
+    \item Intuitive response format.
+    \item Machine-readable (JSON parsers available for most programming languages).
+    \item Metadata provides provenance for tracking.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}[t]{Types of Materials Data}
+\begin{columns}[t]
+\column{0.33\textwidth}
+\begin{exampleblock}{Qualitative data}
+\begin{itemize}
+    \item Nominal measurement.
+    \item E.g., Metal/Insulator, Stable/Unstable.
+    \item No rank or order.
+\end{itemize}
+\end{exampleblock}
+\column{0.33\textwidth}
+\begin{exampleblock}{Ranked data}
+\begin{itemize}
+    \item Ordinal measurement (ordered).
+    \item E.g., Insulator/ semiconductor/ conductor.
+    \item Does not indicate distance between ranks.
+\end{itemize}
+\end{exampleblock}
+\column{0.33\textwidth}
+\begin{exampleblock}{Quantitative Data
+}
+\begin{itemize}
+    \item Interval/ratio measurement (equal intervals and true 0).
+    \item E.g., melting point, elastic constant, electrical/ionic conductivity.
+    \item Considerable information and permits meaningful arithmetic operations.
+\end{itemize}
+\end{exampleblock}
+\end{columns}
+\end{frame}
+
+\begin{frame}{What is Machine Learning?}
+\begin{columns}
+\column{0.5\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{lectures/slides_tex/ml.png}
+    \end{figure}
+\column{0.5\textwidth}
+\begin{figure}
+        \centering
+        \includegraphics[width=0.49\textwidth]{lectures/slides_tex/waymo.png}
+        \includegraphics[width=0.49\textwidth]{lectures/slides_tex/alphago.jpeg}
+        \includegraphics[width=0.49\textwidth]{lectures/slides_tex/netflixrec.png}
+    \end{figure}
+\end{columns}
+
+    
+\end{frame}
+
+
+\begin{frame}[t]{Materials ML Workflow}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{lectures/slides_tex/materials_ml_workflow.pdf}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[t]{Where is ML valuable in Materials Science?}
+    \begin{columns}[t]
+    \column{0.33\textwidth}
+    Too many to compute
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{lectures/slides_tex/mp_data_hist.png}
+    \end{figure}
+\column{0.33\textwidth}
+Too big to compute
+\begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{lectures/slides_tex/mpea_poly.png}
+    \end{figure}
+\column{0.33\textwidth}
+Too complex to understand.
+\begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{lectures/slides_tex/xas_interpretation.png}
+    \end{figure}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Data History of the Materials Project}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{lectures/slides_tex/mp_data_hist.png}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Surrogate models for “instant” property predictions}
+    \begin{equation*}
+        \mathrm{Property} = f(\mathrm{Composition}, \mathrm{Structure})
+    \end{equation*}
+    \begin{itemize}
+        \item In ML terms, the material property, e.g., energetic (formation, energy above hull, reaction, binding, etc.), electronic (band gaps, DOS), mechanical, functional (e.g., ionic conductivity) is called the \textbf{``target''}.
+        \item Composition and Structure are called the \textbf{``descriptors''} or \textbf{``features''}.
+        \item Examples of compositonal features: stoichiometric attributes, e.g., number and ratio of elements, etc. elemental properties, e.g., mean, range, min, max of atomic number, electronegativity, row, group, atomic radii, etc., electronic structure, e.g., number of valence electrons, shells, etc. 
+        \item Examples of structural features: crystal/molecular symmetry, lattice parameters, atomic coordinates, connectivity / bonding between atoms.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Compositional features}
+    
+    \begin{columns}
+        \column{0.25\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{lectures/slides_tex/compositional_features.png}
+            \caption{Meredig et al. (2014) Phys. Rev. B89, 094104}
+        \end{figure}
+        \column{0.75\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.49\textwidth]{lectures/slides_tex/elemnet.png}
+            \includegraphics[width=0.49\textwidth]{lectures/slides_tex/compositional_cnn.png}
+            \caption{Jha et al. (2018) Sci. Rep., 8(1), 17593., Zheng, X., et al (2018). Chem. Sci., 9(44), 8426-8432.}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Structural features}
+    \begin{columns}
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{lectures/slides_tex/fragments_gb.png}
+            \caption{Property-labelled materials fragments + gradient boosting decision tree.\cite{isayevUniversalFragmentDescriptors2016}}
+        \end{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{lectures/slides_tex/cgcnn.png}
+            \caption{Crystal graph + graph convolutional neural networks}
+        \end{figure}
+        \column{0.33\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=\textwidth]{lectures/slides_tex/soap.png}
+            \caption{Smooth overlap of atom positions (SOAP).\cite{rosenbrockDiscoveringBuildingBlocks2017}}
+        \end{figure}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Example: Graph-based representations}
+    
+\end{frame}
+
+
+\begin{frame}{MEGNet Performance}
+    
+\end{frame}
+
+
+\begin{frame}{Scale Challenge in Materials Science}
+    
+\end{frame}
+
+
+\begin{frame}{ML as a solution to the scale challenge}
+    
+\end{frame}
+
+
+\begin{frame}{Machine learning the potential energy surface}
+    
+\end{frame}
+
+
+\begin{frame}{Automatable workflows for ML Interatomic Potential Construction}
+    
+\end{frame}
+
+
+\begin{frame}{Example: Ni-Mo}
+    
+\end{frame}
+
+
+\begin{frame}{Modelling complex relationships}
+    
+\end{frame}
+
+
+\begin{frame}{Example: Coordination environment from X-ray Absorption Spectra}
+    
+\end{frame}
+
+
+\begin{frame}{Other examples}
+    
+\end{frame}
 
 \begin{frame}[allowframebreaks]{Bibliography}
     \bibliographystyle{unsrt}

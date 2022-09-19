@@ -1,0 +1,14 @@
+{
+    "data":[
+        {"_id":"61a2dcaa2c86325a0218b5ef","formation_energy_per_atom":-1.6299189062500006},
+        {"_id":"61a2dcb52c86325a021af9bd","formation_energy_per_atom":-1.4175868379999996},
+        ...
+    ],
+    "meta":{
+        "api_version":"0.48.0",
+        "time_stamp":"2022-09-19T13:17:11.321756",
+        "total_doc":26,
+        "max_limit":1000,
+        "default_fields":["material_id"]
+    }
+}
