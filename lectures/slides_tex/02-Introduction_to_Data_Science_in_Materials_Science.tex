@@ -400,60 +400,137 @@ Too complex to understand.
 \begin{frame}{Example: Graph-based representations}
     \begin{figure}
         \centering
-        \includegraphics{}
-        \caption{Caption}
-        \label{fig:my_label}
+        \includegraphics[width=0.45\textwidth]{lectures/slides_tex/figures/model_diagram.png}
+        \includegraphics[width=0.45\textwidth]{lectures/slides_tex/figures/model_arch.jpg}
+        \caption{MatErials Graph Networks (MEGNet).\cite{chenGraphNetworksUniversal2019}}
     \end{figure}
 \end{frame}
 
 
-\begin{frame}{MEGNet Performance}
-    
+\begin{frame}{MEGNet Performance Benchmarks}
+\footnotesize
+    \begin{table}[]
+        \centering
+        \begin{tabular}{l|c|c|c|c}
+& MEGNET & MEGNET-Simple & SchNet & “Chemical Accuracy”\\
+\hline
+U0 (meV) & 9 & 12 & 14 & 43 \\
+G (meV) & 10 & 12 & 14 & 43 \\
+$\varepsilon_{HOMO}$ (eV) & 0.038 & 0.043 & 0.041 & 0.043\\
+$\varepsilon_{LUMO}$ (eV) & 0.031 & 0.044 & 0.034 & 0.043\\
+$C_v$ (cal/molK) & 0.030 & 0.029 & 0.033 & 0.05
+        \end{tabular}
+        \caption{130,462 QM9 molecules}
+    \end{table}
+    \begin{table}[]
+        \centering
+        \begin{tabular}{l|c|c|c}
+Property & MEGNet & SchNet & CGCNN\\
+\hline
+Formation energy $E_f$ (meV/atom) & 28 (60,000) & 35 & 39 (28,046)\\
+Band gap $E_g$ (eV) & 0.330 (36,720) & - & 0.388 (16,485)\\
+$\log_{10} K_{VRH}$ (GPa) & 0.050 (4,664) & - & 0.054 (2,041)\\
+$\log_{10} G_{VRH}$ (GPa) & 0.079 (4,664) & - & 0.087 (2,041)\\
+Metal classifier & 78.9\% (55,391) & - & 80\% (28,046)\\
+Non-metal classifier & 90.6\% (55,391) & - & 95\% (28,046)
+        \end{tabular}
+        \caption{Materials Project Crystals. Brackets indicate number of data points.}
+    \end{table}
 \end{frame}
 
 
 \begin{frame}{Scale Challenge in Materials Science}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.7\textwidth]{lectures/slides_tex/figures/scale_challenge.png}
+    \end{figure}
 \end{frame}
 
 
 \begin{frame}{ML as a solution to the scale challenge}
-    
-\end{frame}
+\begin{columns}
+    \column{0.45\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{lectures/slides_tex/figures/ML-IAP.jpg}
+    \end{figure}
+    \column{0.55\textwidth}
+    \begin{itemize}
+    \small
+        \item Examples: Neural Network Potential (NNP)\cite{behlerHighDimensionalNeuralNetwork}, Gaussian Approximation Potential (GAP)\cite{bartokGaussianApproximationPotentials2010}, moment tensor potential (MTP)\cite{novikovMLIPPackageMoment2021}, spectral neighbor analysis potential,\cite{thompsonSpectralNeighborAnalysis2015}, atomic cluster expansion\cite{drautzAtomicClusterExpansion2020}, etc.
+        \item ML models: Linear regression, Gaussian kernels, neural networks, etc.
+        \item Local environment descriptors:
+        \tiny{
+        \begin{equation*}
+            G_{i}^{\rm atom, \rm rad} = \sum_{j\neq i}^{N_{\rm atom}} e^{-\eta(R_{ij}-R_{s})^{2}} \cdot f_{c}(R_{ij}),
+        \end{equation*}
+\begin{equation*}
+\begin{split}
+    G_{i}^{\rm atom, \rm ang}&=2^{1-\zeta}\sum_{j,k \neq i}^{N_{\rm atom}} (1 + \lambda \cos \theta_{ijk})^{\zeta} \cdot e^{-\eta^{\prime}(R_{ij}^{2}+R_{ik}^{2}+R_{jk}^{2})}
+    \cdot f_{c}(R_{ij}) \cdot f_{c}(R_{ik}) \cdot f_{c}(R_{jk}),
+\end{split}
+\end{equation*}}
+\begin{equation*}
+    \rho_{i}(\boldsymbol{R}) = \sum_{j} f_{c}(R_{ij}) \cdot \exp(-\frac{|\boldsymbol{R} - \boldsymbol{R}_{ij}|^{2}}{2\sigma_{\rm atom}^{2}}),
+\end{equation*}
 
-
-\begin{frame}{Machine learning the potential energy surface}
+    \end{itemize}
+\end{columns}
     
 \end{frame}
 
 
 \begin{frame}{Automatable workflows for ML Interatomic Potential Construction}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{lectures/slides_tex/figures/mliapworkflow.pdf}
+        \includegraphics[width=0.45\textwidth]{lectures/slides_tex/figures/mliapcostvsperformance.pdf}
+        \caption{Automatic workflow for ML-IAP construction and performance benchmarks.\cite{zuoPerformanceCostAssessment2020}}
+    \end{figure}
 \end{frame}
 
 
 \begin{frame}{Example: Ni-Mo}
-    
+        \begin{figure}
+        \centering
+        \includegraphics[width=0.3\textwidth]{lectures/slides_tex/figures/ni-mo_pd.png}
+        \includegraphics[width=0.35\textwidth]{lectures/slides_tex/figures/ni-mo-stress-strain.png}
+        \caption{ML-IAP results on Ni-Mo. (left) Ni-Mo phase diagram. (right) Stress-strain curves as a function of grain size\cite{zuoPerformanceCostAssessment2020}}
+    \end{figure}
 \end{frame}
 
 
 \begin{frame}{Modelling complex relationships}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\textwidth]{lectures/slides_tex/figures/imagenet.png}
+        \includegraphics[width=0.55\textwidth]{lectures/slides_tex/figures/imagenetperf.png}
+        \caption{ImageNet (\url{https://www.image-net.org/})}
+    \end{figure}
 \end{frame}
 
 
 \begin{frame}{Example: Coordination environment from X-ray Absorption Spectra}
-    
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{lectures/slides_tex/figures/xasflowchart.pdf}
+        \includegraphics[width=0.35\textwidth]{lectures/slides_tex/figures/xasaccuracy.pdf}
+        \caption{Random Forest Coordination Environment Classification\cite{zhengRandomForestModels2020}}
+    \end{figure}
 \end{frame}
 
 
 \begin{frame}{Other examples}
-    
+        \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{lectures/slides_tex/figures/xrdclassification.png}
+        \caption{X-ray diffraction data classification with CNNs\cite{oviedoFastInterpretableClassification2019}}
+    \end{figure}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Bibliography}
     \bibliographystyle{unsrt}
-    \bibliography{refs}
+    \bibliography{refs2022}
 \end{frame}
 
 
