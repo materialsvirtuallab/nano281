@@ -70,9 +70,9 @@
     \begin{itemize}
         \item Capital letters, e.g., $X$ denote variables.
         \item Lower-case letters e.g., $x$, denote observations.
-        \item Dummy index $j$ to denotes different variables, e.g., $X_j$
-        \item Dummy index $i$ to denotes different observations, e.g., $x_i$
-        \item Bolded variables are vector/matrices, e.g., $\vec{y}$, $\vec{X}$
+        \item Dummy index $j$ denotes different variables, e.g., $X_j$
+        \item Dummy index $i$ denotes different observations, e.g., $x_i$
+        \item Bolded variables are vector/matrices, e.g., $\mathbf{y}$, $\mathbf{X}$
     \end{itemize}
 \end{frame}
 
@@ -91,7 +91,7 @@
         \item Quantitative inputs
         \item Transformations of quantitative inputs, e.g., log, exp, powers, etc.
         Basis expansions, e.g., $X_2 = X_1^2$, $X_3 = X_1^3$
-        \item Interactions between variables
+        \item Interactions between variables, e.g., $X_1X_2$
         \item Encoding of levels of inputs
     \end{itemize}
 \end{frame}
@@ -127,7 +127,7 @@
     \end{eqnarray*}
     \end{frame}
 
-    \begin{frame}{Reformulating the general multiple linear regression as a vector equation…}
+    \begin{frame}{Reformulating the general multiple linear regression as a vector equation...}
     Considering $N$ observations of
     \begin{equation*}
         y_i = \beta_0 + \beta_1 x_{i1} + + \beta_2 x_{i2} + ... + \beta_p x_{ip}
@@ -148,7 +148,7 @@
 \end{frame}
 
 
-\begin{frame}{Reformulating the general multiple linear regression as a vector equation…}
+\begin{frame}{Reformulating the general multiple linear regression as a vector equation...}
     \begin{equation*}
         L = RSS = (\vec{y} - \vec{X}\bm{\beta})^T(\vec{y} - \vec{X}\bm{\beta})
     \end{equation*}
