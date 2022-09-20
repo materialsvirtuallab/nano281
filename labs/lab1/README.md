@@ -6,7 +6,8 @@ data using various open-source Python tools.
 # Getting started
 
 If you have not already done so, please follow the instructions outlined in the main [README](https://github.com/materialsvirtuallab/nano281)
-to setup your computer.  
+to set up your computer. You may alternatively use [Google Colab](https://colab.research.google.com/) to do this lab,
+in which case you can skip directly to step 3.
 
 1. Activate your NANOx81 virtual environment.
 ```bash

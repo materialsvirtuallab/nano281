@@ -7,7 +7,8 @@ data using data science techniques.
 
 # Getting started
 
-Same as previous lab, you need to set up your computer environment before the lab. 
+Same as previous lab, you need to set up your computer environment before the lab. You may alternatively use
+[Google Colab](https://colab.research.google.com/) to do this lab, in which case you can skip directly to step 3.
 
 1. Activate your NANOx81 virtual environment.
 ```bash
