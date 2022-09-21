@@ -49,15 +49,14 @@ We will explore various sources of materials data:
 ## Q1 - Materials Project data
 
 Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type
-compounds (hint: look at this [example notebook](https://github.com/materialsproject/mapidoc/blob/master/example_notebooks/Using%20the%20Materials%20API%20with%20Python.ipynb)
-and figure out what is the best way to do this): 
+compounds: 
 
 - materials project identifier (this is called task_id)
 - formula of the compound
 - number of sites in the unit cell
 - band gap
 - formation energy per atom
-- icsd ids (note that `icsd_id` key is no longer used, use `icsd_ids` instead)
+- theoretical (indicates whether a material is a theoretically generated one.)
 - energy above hull
 
 You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the
@@ -65,14 +64,19 @@ https://www.materialsproject.org/dashboard.
 
 ![API key](MP_API_KEY.png "Getting the Materials Project API key")
 
+Hints:
+- Go back to the lecture 1 example notebook for a quick starting example.
+- The Materials Project API Documentation also has [examples](https://docs.materialsproject.org/downloading-data/using-the-api/examples)
+  that can make this go faster. Focus on summary queries.
+- You will also need to refer to the [API docs](https://api.materialsproject.org/docs) to understand what the summary
+  doc contains. Note that you will need to figure out what is the name of the fields you need to be querying!
+
 Answer the following questions:
 
 1. Perform the query and convert the data into a Pandas DataFrame.
 2. How many ABO3 compounds in total are there in the Materials Project? How many unique ABO3 formulae are there? What
    is the average number of crystals (also known as polymorphs) per ABO3 formula?
-3. Typically, the existence of an ICSD (Inorganic Crystal Structure Database) id is a rough indication of whether a
-   compound is an experimentally-known compound or a theoretical compound. What fraction of the compounds have at least
-   one icsd id?
+3. What fraction of the compounds are non-theoretical?
 4. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset
    that has the formation energies in J/mol.
 5. Let us assume that materials with energy above hull of >0.03 eV/atom are `unstable` and are `potentially stable`
