@@ -9,7 +9,7 @@ being posted.
 2. Do the same thing as (1) but using built-in numpy methods.
 3. Write a Python class (please refer to [Python documentation](https://docs.python.org/3/tutorial/classes.html) to
    find out what a class is and how to make one) to represent an n-sided regular polygon with vertices at a distance r
-   from the center. Note that n and r should be inputs to your class. E.g., a square of with diagonals of length 2 can
+   from the center. Note that n and r should be inputs to your class. E.g., a square with diagonals of length 2 can
    be instantiated as `Polygon(4, 1)`.
 4. Add a method called get_vertices to your Polygon class, which will return a Python list of coordinates (xi, yi) for
    the vertices. This is not uniquely defined of course, but you can choose any scheme that results in a regular polygon.
