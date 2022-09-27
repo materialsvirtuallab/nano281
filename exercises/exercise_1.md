@@ -11,14 +11,14 @@ being posted.
    find out what a class is and how to make one) to represent an n-sided regular polygon with vertices at a distance r
    from the center. Note that n and r should be inputs to your class. E.g., a square of with diagonals of length 2 can
    be instantiated as `Polygon(4, 1)`.
-4. Add a method called get_vertices to your Polygon class, which will return a Python list of coordinates (xi, yi) for
-   the vertices. This is not uniquely defined of course, but you can choose any scheme that results in a regular polygon.
-   Hint: think of how to get the angles of polygon and construct the points from there.
+4. Add a method called `get_vertices` to your Polygon class, which will return a Python list of coordinates (xi, yi) for
+   the vertices. This is not uniquely defined of course, but you can choose any scheme that results in a regular
+   polygon. Hint: think of how to get the angles of polygon and construct the points from there using a for loop.
 5. Add a method called get_perimeter to your Polygon class, which will compute the perimeter of the Polygon based on
    the vertices obtained in (4) and the distance code in qn (1)/(2).
-6. Using your class in 4, construct a Python Data Frame with n = 3-100 (inclusive) with r = 1 with the following
-   columns: n, r, perimeter.
-7. In your DataFrame in 6, add a column for the percentage difference between the perimeter of the n-side Polygon and a
-   circle of radius 1.
+6. Using your class in (4), construct a [Pandas DataFrame](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
+   with n = 3-100 (inclusive) with r = 1 with the following columns: n, r, perimeter.
+7. In your DataFrame in (6), add a column for the percentage difference between the perimeter of the n-sided Polygon and
+   a circle of radius 1 (note: it does not matter what the radius is of course, but this makes it a bit more concrete).
 8. Using matplotlib or seaborn or any other means, plot the relationship between the percentage difference between the
    perimeter of the n-side Polygon and a circle of radius 1 against n. Label your x and y axes properly.
