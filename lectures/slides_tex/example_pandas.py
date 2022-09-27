@@ -9,7 +9,7 @@ raw = requests.get(url).text
 data = pd.read_csv(StringIO(raw))
 
 # Extracting a column as a Series.
-form_e = data['E_raw (eV)']
+form_e = data["E_raw (eV)"]
 
 # Summary statistics
 data.describe()

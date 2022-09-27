@@ -1,6 +1,8 @@
 import numpy as np
+
 ## Import CubicSpline from scipy
 from scipy.interpolate import CubicSpline
+
 ## x, y data for generating the spline fitting
 x = np.arange(10)
 y = np.sin(x)

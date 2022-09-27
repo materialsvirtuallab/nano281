@@ -1,4 +1,5 @@
 from sklearn.decomposition import PCA
+
 pca = PCA()
 pca.fit(x)
 x_pca = pca.transform(x)
