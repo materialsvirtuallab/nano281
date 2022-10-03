@@ -20,5 +20,5 @@ being posted.
    with n = 3-100 (inclusive) with r = 1 with the following columns: n, r, perimeter.
 7. In your DataFrame in (6), add a column for the percentage difference between the perimeter of the n-sided Polygon and
    a circle of radius 1 (note: it does not matter what the radius is of course, but this makes it a bit more concrete).
-8. Using matplotlib or seaborn or any other means, plot the relationship between the percentage difference between the
+8. Using matplotlib, seaborn or any other means, plot the relationship between the percentage difference between the
    perimeter of the n-side Polygon and a circle of radius 1 against n. Label your x and y axes properly.
