@@ -3,12 +3,12 @@ channels:
   - defaults
   - conda-forge
 dependencies:
-  - python=3.9.7
+  - python=3.9.13
   - jupyter=1.0.0
-  - matplotlib=3.4.2
+  - matplotlib=3.5.2
   - pandas==1.4.4
-  - pymatgen=2022.9.21
-  - scikit-learn==1.0.2
+  - scikit-learn==1.1.1
   - seaborn=0.11.2
   - statsmodels=0.12.2
-  - plotly=5.9.0
+  - pip:
+    - pymatgen==2022.9.21
