@@ -27,7 +27,7 @@ Try to complete all questions, doing everything in your Jupyter notebook. Make g
 etc. and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for
 your instructors to find the answers, the better.
 
-At the end of the lab, please submit the `NANOx81-lab1-<first_name>-<last_name>.ipynb` file.
+**At the end of the lab, please submit the `NANOx81-lab2-<first_name>-<last_name>.ipynb` file via Canvas.**
 
 Just a reminder on our assessment criteria:
 - Model performance: 30%
