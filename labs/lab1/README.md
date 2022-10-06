@@ -51,7 +51,7 @@ We will explore various sources of materials data:
 Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type
 compounds: 
 
-- materials project identifier (this is called task_id)
+- materials project identifier (material_id)
 - formula of the compound
 - number of sites in the unit cell
 - band gap
