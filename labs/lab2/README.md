@@ -123,11 +123,11 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
 3. Measured images has a variety of levels. Sometimes, we want to label each pixel at pre-specified levels, e.g., 0
    representing the background, and fixed values representing certain features. This is known as vector quantization.
    Here, we will quantize the image using K-means. We know for a fact that there are two elements (Pd and Ru) in the
-   system. Using K-means, quantize the image such that there are three levels representing the background, and one
-   level for each element. Ensure that 0 corresponds to the background (this should be the cluster with the largest
-   number of data points) and non-zero levels correspond to the elements. Plot the quantized image.
+   system. Using K-means, quantize the image such that there are three levels: 0 = background, 1 and 2 = Pd or Ru.
+   Ensure that 0 corresponds to the background (this should be the cluster with the largest number of data points) and
+   non-zero levels correspond to the elements. Plot the quantized image.
 4. For the purposes of this exercise, we will not attempt to distinguish between different elements. Any value within
-   the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to distinguish identify
+   the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to identify
    clusters of metal particles (you will need to figure out what a good value of K is). Plot your clustered image,
    ensuring that each cluster has a different color. Comment on how you chose your value of K.
 5. Finally, we will use a density-based clustering method called DBSCAN. Similar to part 4, any value in the numpy

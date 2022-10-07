@@ -69,7 +69,7 @@ Objective 1: (basic engineering knowledge and applications)
 
 1.3 Understand how to derive material and nano-scale properties from first principles calculations.
 
-Objective 2: (methods and problem solving) 
+Objective 2: (methods and problem solving)
 
 2.1 Choosing the most appropriate data science method for a particular application.
 
