@@ -80,8 +80,9 @@ Answer the following questions:
 4. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset
    that has the formation energies in J/mol.
 5. Let us assume that materials with energy above hull of >0.03 eV/atom are `unstable` and are `potentially stable`
-   otherwise. Furthermore, band gaps of 0, (0, 1], [1, +inf) are indicative of `metallic`, `small band gap`,
-   `large band gap` for the materials. Create a table of the number of ABO3 crystals in each joint category, e.g.,
+   otherwise. Furthermore, band gaps of 0, (0, 1], (1, +inf) are indicative of `metallic`, `small band gap`,
+   `large band gap` for the materials (note that square brackets means inclusive, while round brackets mean excluding
+   that value). Create a table of the number of ABO3 crystals in each joint category, e.g.,
    `(unstable, metallic)`, `(unstable, small band gap)`, etc.
 6. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials.
    Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled
