@@ -85,7 +85,7 @@ Answer the following questions:
    category, e.g., `(unstable, metallic)`, `(unstable, small band gap)`, etc. (10 points)
 6. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials.
    Annotate the plots with the average and standard deviation of each quantity. Ensure that all axes are labelled
-   appropriately with units, i.e., something that you can potentially put in a scientific paper. (6 points)
+   appropriately with units, i.e., something that you6 can potentially put in a scientific paper. (6 points)
 
 
 ## Q2 - Publicly available research data (30 points)
@@ -105,7 +105,8 @@ one such online platform. We will use this example to illustrate some of the cha
    strings that indicate whether a particular data point is valid. Filter the DataFrame to remove all invalid data
    points, i.e., those that contain just "-" in the formation energy column. and convert the formation energy column to
    the proper floats. How many data points remain? (10 points)
-5. Plot the distribution of the formation energies per atom. Annotate the plot with the average and standard deviation. (6 points)
+5. Plot the distribution of the formation energies per atom. Annotate the plot with the average and standard deviation.
+   (6 points)
 
 ## Q3 - Comparing data sets (32 points)
 
@@ -120,4 +121,5 @@ Project in Q1 and the OQMD data you downloaded from figshare in Q2.
    mean and standard deviation for each data set. (10 points)
 3. Perform a hypothesis test at the 95% level to determine if there is a significant difference between the formation
    energies reported in the Materials Project and the OQMD dataset (hint: check out the scipy.stats.ttest_ind method).
-   Discuss your findings, including providing any possible explanations for any discrepancy between the two datasets. (12 points)
+   Discuss your findings, including providing any possible explanations for any discrepancy between the two datasets.
+   (12 points)
