@@ -40,7 +40,8 @@ way to do this is to do a "Restart and Run All" from the notebook, which will ex
 
 # Lab
 
-Download `data.csv` file in this repo. It contains some data for all ternary iodides in the Materials Project.
+Download `data2022.csv` file in this repo. It contains some data for all binary bromides and iodides in the Materials
+Project.
 
 ## Q1 - Exploratory data analysis (7 points)
 
