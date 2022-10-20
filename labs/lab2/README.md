@@ -40,19 +40,19 @@ way to do this is to do a "Restart and Run All" from the notebook, which will ex
 
 # Lab
 
-Download `data.csv` file in this repo. It contains basic data for all materials in the Materials Project.
+Download `data2022.csv` file in this repo. It contains some data for all binary bromides and iodides in the Materials
+Project.
 
-## Q1 - Exploratory data analysis (10 points)
+## Q1 - Exploratory data analysis (7 points)
 
-Load the `data.csv` in variable `orig_data` using `pandas.read_csv` with `na_filter=False` option, and perform the
+Load the `data2022.csv` in variable `orig_data` using `pandas.read_csv` with `na_filter=False` option, and perform the
 following analysis. 
 
-1. How many elements are there in this data set? (1 point)
-2. What is the maximum number of elements (`max_el`) in a single structure? (1 point)
-3. Plot a barplot of the number of materials having 1, 2, 3, ... `max_els`. Use a log scale for the y-axis. (3 points)
-4. Count the number of materials where each element is present. Sort this count and answer the following questions.
-   What are the 10 most common elements in this data set? and what are the 10 least common elements in this data set?
-   (5 points)
+1. How many materials are there in this dataset? (1 point)
+2. How many elements are there in this data set? (1 point)
+3. How many unique formulae are there? (1 point)
+4. Count the number of materials where each element is present. Sort this count. Create a barplot showing the
+   number of materials with the top 10 most common elements (excluding iodine itself) in this data set. (4 points)
 
 Hint: When dealing with formula, you may use `pymatgen.core.Composition` to speed up the process. For example, the
 following code snippet shows the use of Composition to process formula. For more usage, you may visit
@@ -64,49 +64,59 @@ comp = Composition('Al2O3')
 print(comp.elements)  # this will give you the elements
 print(comp.to_data_dict['unit_cell_composition'])  # this will give you the elementstr-stoichiometry dictionary.
 ```
-## Q2 - Data cleaning and feature computations (20 points)
+## Q2 - Data cleaning and feature computations (24 points)
 
 About 80% of the effort in ML modelling is in data processing. The goal is to develop ML models to predict the formation
 energy per atom and band gap of the material from the formula. To do that, we will first convert the formula to numeric
-vectors (descriptors) for model inputs. 
+vectors (descriptors) for model inputs. For data filtering steps, note that you should use the filtered data after each
+filtering step henceforth.
 
-1. Filter out materials that contain noble gas elements and save it in variable `data`. How many materials are left?
-   Store this number in the variable `n`. (1 point)
-2. Load the element property data file `element_properties.csv` in variable `element_data` using pandas by setting
+1. From Q1.3, we note that the number of materials is greater than the number of formulae, i.e., there can be more than
+   1 polymorph present per formula. We do not expect the compositional features to be able to predict multiple values
+   of the same property for the same formula. Filter the data to remove duplicate formulae, keeping only the row with
+   the lowest formation energy per atom for each formula. How many materials are left? (2 points)
+2. Positive formation energies are often a sign that a calculation is poorly converged. Filter the data to remove rows
+   with positive formation energies as well. How many materials are left? (2 point)
+3. Load the element property data file `element_properties.csv` in variable `element_data` using pandas by setting
    `index_col=0` in `pandas.read_csv` function. How many NaN (Not a Number) are there in each column? (1 point)
-3. Compute the mean values for each column, ignoring the NaNs. For each column, fill the NaN with the mean value of
+4. Compute the mean values for each column, ignoring the NaNs. For each column, fill the NaN with the mean value of
    that column. This is a common data imputation technique. (2 points)
-4. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`.
+5. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`.
    For example, averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where `1.45` is the
    `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. (5 points)
-5. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the 
-   results in the variable `average_properties`. `average_properties` should have a dimension of `(n, 16)` where `n` is
-   the number of materials and 16 is the number of properties. (5 points)
-6. Similar to the previous computations of average properties, compute the maximum properties and minimum properties for
+6. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the 
+   results in the variable `average_properties`. `average_properties` should have a dimension of `(n, 11)` where `n` is
+   the number of materials and 11 is the number of properties. (5 points)
+7. Similar to the previous computations of average properties, compute the maximum properties and minimum properties for
    all properties and all materials, and store them in variables `max_properties` and `min_properties` respectively.
-   Both variables should have dimension `(n, 16)`. (5 points)
-7. Concatenate `average_properties`, `max_properties` and `min_properties`, and store the result in variable
-   `design_matrix` with dimension `(n, 48)`. (1 point)
+   Both variables should have dimension `(n, 11)`. (5 points)
+8. Concatenate `average_properties`, `max_properties` and `min_properties`, and store the result in variable
+   `design_matrix` with dimension `(n, 33)`. (2 point)
 
-## Q3 - Regression and classification modeling (40 points)
+## Q3 - Regression and classification modeling (46 points)
 
-We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets, and store them in variable
-`targets`. `targets` should be a dataframe with dimension of `(n, 2)`. 
+We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets. For the purposes of this
+question, you should just use a train-test split and there is no need to do k-fold cross validation. This is mainly for
+the purpose of efficiency and reproducibility of fits.
 
 1. Split the data (`design_matrix` as X, and `targets` as y) into training and test sets in the ratio 90%:10%. Store
    the training data in variables `train_X` and `train_y` and the test data as variables `test_X` and `test_y`. To make
-   sure the data is reproducible, set the `random_state=42` in `sklearn.model_selection.train_test_split`. (1 point)
-2. Compute the mean and standard deviation of columns in `train_X`. Both of them should be length 48 vectors. Use them
+   sure the data is reproducible, set the `random_state=42` in `sklearn.model_selection.train_test_split`. (2 point)
+2. Compute the mean and standard deviation of columns in `train_X`. Both of them should be length 33 vectors. Use them
    to normalize `train_X` and `test_X`, so that each column has a mean of 0 and standard deviation of 1. Store the
    normalized design matrices to `norm_train_X`, `norm_test_X`. (4 points)
-3. Train a linear model to predict `formation_energy_per_atom`. What are the mean absolute error (MAE) and root mean
-   squared error (RMSE) on the test data? (3 points)
-4. Train a Ridge regression model and a LASSO regression model for the `formation_energy_per_atom` using `alpha=0.1`,
-   what are the test MAE and RMSE? (15 points)
-5. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant
+3. Train a simple linear regression model to predict `formation_energy_per_atom`. What are the mean absolute error
+   (MAE) and root mean squared error (RMSE) on the test data? (4 points)
+4. Train a Ridge regression model and a LASSO regression model for the `formation_energy_per_atom`. You need to search
+   for an optimal value of `alpha`. To help you, try the following ranges of alpha: ridge (1-10), lasso (0.0001-0.001).
+   You have to figure out how best to sample the range of alphas. Too dense a sampling will result in very slow searches
+   and too sparse will result in non-optimal models. Use the MAE as your criterion for choosing the optimal alpha. What
+   are the test MAE and RMSE for your best models? (15 points)
+5. What are the features that do not contribute to the LASSO prediction? (4 points)
+6. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant
    analysis, quadratic discriminant analysis, and logistic regression models on train data and predict the accuracy of
    the models on test data. (15)
-6. What are the problems of using only the compositions to predict material properties? (2 points)
+7. What are the problems of using only the compositions to predict material properties? (2 points)
 
 ## Q4 - Clustering (30 points)
 
