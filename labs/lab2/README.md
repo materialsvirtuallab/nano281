@@ -52,7 +52,7 @@ following analysis.
 2. How many elements are there in this data set? (1 point)
 3. How many unique formulae are there? (1 point)
 4. Count the number of materials where each element is present. Sort this count. Create a barplot showing the
-   number of materials with the top 10 most common elements (excluding iodine itself) in this data set. (4 points)
+   number of materials with the top 10 most common elements in this data set. (4 points)
 
 Hint: When dealing with formula, you may use `pymatgen.core.Composition` to speed up the process. For example, the
 following code snippet shows the use of Composition to process formula. For more usage, you may visit
@@ -95,9 +95,7 @@ filtering step henceforth.
 
 ## Q3 - Regression and classification modeling (46 points)
 
-We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets. For the purposes of this
-question, you should just use a train-test split and there is no need to do k-fold cross validation. This is mainly for
-the purpose of efficiency and reproducibility of fits.
+We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets. 
 
 1. Split the data (`design_matrix` as X, and `targets` as y) into training and test sets in the ratio 90%:10%. Store
    the training data in variables `train_X` and `train_y` and the test data as variables `test_X` and `test_y`. To make
@@ -105,10 +103,15 @@ the purpose of efficiency and reproducibility of fits.
 2. Compute the mean and standard deviation of columns in `train_X`. Both of them should be length 33 vectors. Use them
    to normalize `train_X` and `test_X`, so that each column has a mean of 0 and standard deviation of 1. Store the
    normalized design matrices to `norm_train_X`, `norm_test_X`. (4 points)
+
+Note that from here out, all model training and validation should be done with the training split and all reported
+test results should be done using the test split. You should be using proper ML best practices such as cross-validation
+in fitting the model.
+
 3. Train a simple linear regression model to predict `formation_energy_per_atom`. What are the mean absolute error
    (MAE) and root mean squared error (RMSE) on the test data? (4 points)
 4. Train a Ridge regression model and a LASSO regression model for the `formation_energy_per_atom`. You need to search
-   for an optimal value of `alpha`. To help you, try the following ranges of alpha: ridge (1-10), lasso (0.0001-0.001).
+   for an optimal value of `alpha`. To help you, try the following ranges of alpha: ridge (0.1-10), lasso (0.0001-0.001).
    You have to figure out how best to sample the range of alphas. Too dense a sampling will result in very slow searches
    and too sparse will result in non-optimal models. Use the MAE as your criterion for choosing the optimal alpha. What
    are the test MAE and RMSE for your best models? (15 points)
