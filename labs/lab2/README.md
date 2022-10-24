@@ -62,7 +62,7 @@ following code snippet shows the use of Composition to process formula. For more
 from pymatgen.core import Composition
 comp = Composition('Al2O3')
 print(comp.elements)  # this will give you the elements
-print(comp.to_data_dict['unit_cell_composition'])  # this will give you the elementstr-stoichiometry dictionary.
+print(comp.to_data_dict['unit_cell_composition'])  # this will give you the element-stoichiometry dictionary.
 ```
 ## Q2 - Data cleaning and feature computations (24 points)
 
@@ -114,11 +114,11 @@ where and how to specify the loss function in the training.
 3. Train a simple linear regression model to predict `formation_energy_per_atom`. What is the CV score of your model?
    (4 points)
 4. Train a Ridge regression model and a LASSO regression model for the `formation_energy_per_atom`. You need to search
-   for an optimal value of `alpha`. To help you, try the following ranges of alpha: ridge (0.1-10), lasso (0.0001-0.01).
-   You have to figure out how best to sample the range of alphas. Too dense a sampling will result in very slow searches
-   and too sparse will result in non-optimal models. What are the CV scores of your best Ridge and Lasso models?
-   (13 points)
-5. What are the test MAE and RMSE of the best model (among those you have fitted so far)? (2 points)
+   for an optimal value of `alpha` for each model. To help you, try the following ranges of alpha: ridge (0.1-10),
+   lasso (0.0001-0.01). You have to figure out how best to sample the range of alphas. Too dense a sampling will result
+   in very slow searches and too sparse will result in non-optimal models. What are the CV scores of your best Ridge
+   and Lasso models? (13 points)
+5. What are the test MAE and RMSE of the best model (among all models you have fitted so far)? (2 points)
 6. What are the features that do not contribute to the LASSO prediction? (4 points)
 7. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant
    analysis, quadratic discriminant analysis, and logistic regression models on train data and predict the accuracy of
