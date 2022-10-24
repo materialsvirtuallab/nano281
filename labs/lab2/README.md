@@ -95,26 +95,29 @@ filtering step henceforth.
 
 ## Q3 - Regression and classification modeling (46 points)
 
-We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets. 
+We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets. To make sure the results are
+reproducible, set the `random_state=42` in all cases where random sampling is involved, e.g., train_test_split,
+shuffling, etc.
 
 1. Split the data (`design_matrix` as X, and `targets` as y) into training and test sets in the ratio 90%:10%. Store
-   the training data in variables `train_X` and `train_y` and the test data as variables `test_X` and `test_y`. To make
-   sure the data is reproducible, set the `random_state=42` in `sklearn.model_selection.train_test_split`. (2 point)
+   the training data in variables `train_X` and `train_y` and the test data as variables `test_X` and `test_y`.
+   (2 points)
 2. Compute the mean and standard deviation of columns in `train_X`. Both of them should be length 33 vectors. Use them
    to normalize `train_X` and `test_X`, so that each column has a mean of 0 and standard deviation of 1. Store the
    normalized design matrices to `norm_train_X`, `norm_test_X`. (4 points)
 
 Note that from here out, all model training and validation should be done with the training split and all reported
 test results should be done using the test split. You should be using proper ML best practices such as cross-validation
-in fitting the model.
+in fitting the model. In all cases, the loss function you use should be the mean squared error. You need to figure out
+where and how to specify the loss function in the training.
 
 3. Train a simple linear regression model to predict `formation_energy_per_atom`. What is the CV score of your model?
    (4 points)
 4. Train a Ridge regression model and a LASSO regression model for the `formation_energy_per_atom`. You need to search
-   for an optimal value of `alpha`. To help you, try the following ranges of alpha: ridge (0.1-10), lasso (0.0001-0.001).
+   for an optimal value of `alpha`. To help you, try the following ranges of alpha: ridge (0.1-10), lasso (0.0001-0.01).
    You have to figure out how best to sample the range of alphas. Too dense a sampling will result in very slow searches
-   and too sparse will result in non-optimal models. Use the MSE as your criterion for choosing the optimal alpha. What
-   are the CV scores of your best Ridge and Lasso models? (13 points)
+   and too sparse will result in non-optimal models. What are the CV scores of your best Ridge and Lasso models?
+   (13 points)
 5. What are the test MAE and RMSE of the best model (among those you have fitted so far)? (2 points)
 6. What are the features that do not contribute to the LASSO prediction? (4 points)
 7. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant
