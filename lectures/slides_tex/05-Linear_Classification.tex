@@ -241,6 +241,30 @@
 \end{figure}
 \end{frame} 
 
+\begin{frame}{Loss functions for binary classification}
+    \begin{itemize}
+        \item Consider a simple binary classification with two levels (-1, 1). The decision boundary is at 0.
+        \item Using the square error does not make sense, since we only care about whether it is $>0$ or $<0$.
+        \item \textit{Margin} $yf(x)$ is positive when prediction and actual value is in the same class, and negative if they are in opposite classes.
+        \item Need a loss that penalizes negative values much more than positive values for margins, i.e., monotone decreasing function.
+        \item Exponential loss: $L(y, f(x)) = e^{-yf(x)}$
+        \item Binomial/multinomial loss (can be used for K-classes):
+        \begin{equation*}
+            L(y, p(x)) = -\sum_{k=1}^K I(y=G_k)f_k(x) + \log \left(\sum_{l=1}^K e^{f_l(x)}\right)
+        \end{equation*}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Loss functions for binary classification}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/lossfunctions.pdf}
+    \caption{Loss functions for binary classification. Response: $y = \pm1$. X-axis is the margin $y \cdot f$. Misclassification : $I(\mathrm{sign}(f) \neq y)$; exponential: $e^{-yf}$; binomial deviance: $\log(1 + e^{-2yf})$; squared error: $(y - f)^2$ ; and support vector: $(1 - yf)_+$. Source: \cite{hastieElementsStatisticalLearning2016}}
+\end{figure}
+\end{frame}
+
+
 \begin{frame}
     \Huge{\centerline{The End}}
 \end{frame}
