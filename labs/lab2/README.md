@@ -82,8 +82,8 @@ filtering step henceforth.
 4. Compute the mean values for each column, ignoring the NaNs. For each column, fill the NaN with the mean value of
    that column. This is a common data imputation technique. (2 points)
 5. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`.
-   For example, averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where `1.45` is the
-   `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. (5 points)
+   For example, the composition-averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where 
+   `1.45` is the `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. (5 points)
 6. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the 
    results in the variable `average_properties`. `average_properties` should have a dimension of `(n, 11)` where `n` is
    the number of materials and 11 is the number of properties. (5 points)
@@ -106,10 +106,11 @@ shuffling, etc.
    to normalize `train_X` and `test_X`, so that each column has a mean of 0 and standard deviation of 1. Store the
    normalized design matrices to `norm_train_X`, `norm_test_X`. (4 points)
 
-Note that from here out, all model training and validation should be done with the training split and all reported
-test results should be done using the test split. You should be using proper ML best practices such as cross-validation
-in fitting the model. In all cases, the loss function you use should be the mean squared error. You need to figure out
-where and how to specify the loss function in the training.
+Note that from here out, all model training and validation should be done with the training split. The test split is
+only used for calculating a final model performance assessment in part 5. It is not used for any other purposes. You
+should be using proper ML best practices such as cross-validation in fitting the model. In all cases, the loss function
+you use should be the mean squared error. You need to figure out where and how to specify the loss function in the
+training.
 
 3. Train a simple linear regression model to predict `formation_energy_per_atom`. What is the CV score of your model?
    (4 points)
