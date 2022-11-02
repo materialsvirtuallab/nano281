@@ -83,7 +83,9 @@ filtering step henceforth.
    that column. This is a common data imputation technique. (2 points)
 5. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`.
    For example, the composition-averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where 
-   `1.45` is the `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. (5 points)
+   `1.45` is the `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. **Hint**: Read the [Pandas 
+   documentation on indexing](https://pandas.pydata.org/docs/user_guide/indexing.html). E.g., 
+   `element_data.loc["Fe"]["AtomicRadius"]` gives you the atomic radius for Fe. (5 points)
 6. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the 
    results in the variable `average_properties`. `average_properties` should have a dimension of `(n, 11)` where `n` is
    the number of materials and 11 is the number of properties. (5 points)
@@ -137,7 +139,7 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
 
 1. Read in the image as a numpy array using the `imread` method in `matplotlib.pyplot`. Show the image in your Jupyter 
    notebook using `imshow`. What are the dimensions of the array? (1 point)
-2. Plot the distribution of the values in the numpy array representing the image (hint: you need to `flatten` the 
+2. Plot the distribution of the values in the numpy array representing the image (**Hint**: you need to `flatten` the 
    array first). Note that the values in the numpy array are between 0 and 1 for png images representing the levels. 
    (1 point)
 3. Measured images has a variety of levels. Sometimes, we want to label each pixel at pre-specified levels, e.g., 0
@@ -145,7 +147,7 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
    Here, we will quantize the image using K-means. We know for a fact that there are two elements (Pd and Ru) in the
    system. Using K-means, quantize the image such that there are three levels: 0 = background, 1 and 2 = Pd or Ru.
    Ensure that 0 corresponds to the background (this should be the cluster with the largest number of data points) and
-   non-zero levels correspond to the elements. Plot the quantized image (hint: you may need to `reshape` your 
+   non-zero levels correspond to the elements. Plot the quantized image (**Hint**: you may need to `reshape` your 
    predicted array back to the original image dimensions first). (6 points)
 4. For the purposes of this exercise, we will not attempt to distinguish between different elements. Any value within
    the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to identify
