@@ -135,16 +135,18 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
 
 ![catalyst.png](catalyst.png "catalyst.png")
 
-1. Read in the image as a numpy array using matplotlib. Show the image in your Jupyter notebook. What are the
-   dimensions of the array? (1 point)
-2. Plot the distribution of the values in the numpy array representing the image. Note that the values in the numpy
-   array are between zero and 1. (1 point)
+1. Read in the image as a numpy array using the `imread` method in `matplotlib.pyplot`. Show the image in your Jupyter 
+   notebook using `imshow`. What are the dimensions of the array? (1 point)
+2. Plot the distribution of the values in the numpy array representing the image (hint: you need to `flatten` the 
+   array first). Note that the values in the numpy array are between 0 and 1 for png images representing the levels. 
+   (1 point)
 3. Measured images has a variety of levels. Sometimes, we want to label each pixel at pre-specified levels, e.g., 0
    representing the background, and fixed values representing certain features. This is known as vector quantization.
    Here, we will quantize the image using K-means. We know for a fact that there are two elements (Pd and Ru) in the
    system. Using K-means, quantize the image such that there are three levels: 0 = background, 1 and 2 = Pd or Ru.
    Ensure that 0 corresponds to the background (this should be the cluster with the largest number of data points) and
-   non-zero levels correspond to the elements. Plot the quantized image. (6 points)
+   non-zero levels correspond to the elements. Plot the quantized image (hint: you may need to `reshape` your 
+   predicted array back to the original image dimensions first). (6 points)
 4. For the purposes of this exercise, we will not attempt to distinguish between different elements. Any value within
    the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to identify
    clusters of metal particles (you will need to figure out what a good value of K is). Plot your clustered image,
