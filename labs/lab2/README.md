@@ -148,7 +148,8 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
    system. Using K-means, quantize the image such that there are three levels: 0 = background, 1 and 2 = Pd or Ru.
    Ensure that 0 corresponds to the background (this should be the cluster with the largest number of data points) and
    non-zero levels correspond to the elements. Plot the quantized image (**Hint**: you may need to `reshape` your 
-   predicted array back to the original image dimensions first). (6 points)
+   predicted array back to the original image dimensions), which should look like a slightly modified version of the 
+   image in Q4.1. (6 points)
 4. For the purposes of this exercise, we will not attempt to distinguish between different elements. Any value within
    the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to identify
    clusters of metal particles (you will need to figure out what a good value of K is). Plot your clustered image,
