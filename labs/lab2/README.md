@@ -152,8 +152,11 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
    image in Q4.1. (6 points)
 4. For the purposes of this exercise, we will not attempt to distinguish between different elements. Any value within
    the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to identify
-   clusters of metal particles (you will need to figure out what a good value of K is). Plot your clustered image,
-   ensuring that each cluster has a different color. Comment on how you chose your value of K. (10 points)
+   clusters of metal particles (you will need to figure out what a good value of K is). Hint: the way to do this is to
+   consider the 2D coordinates of non-zero data points and use them in your K-Means fitting. An example is shown in 
+   your lecture notebooks on unsupervised learning. After you have obtained your cluster labels, you will need to 
+   remap your coordinates-label pairs into pixel values. Plot your clustered image, ensuring that each cluster has a
+   different color. Comment on how you chose your value of K. (10 points)
 5. Finally, we will use a density-based clustering method called DBSCAN. Similar to part 4, any value in the numpy
    array that is > 0 is considered a catalyst particle. Use DBSCAN clustering to distinguish identify clusters of metal
    particles (you will need to figure out what a good value of `eps` is). Plot your clustered image, ensuring that each
