@@ -95,7 +95,7 @@ filtering step henceforth.
 8. Concatenate `average_properties`, `max_properties` and `min_properties`, and store the result in variable
    `design_matrix` with dimension `(n, 33)`. (2 point)
 
-## Q3 - Regression and classification modeling (46 points)
+## Q3 - Regression and classification modeling (39 points)
 
 We are going to use `band_gap` and `formation_energy_per_atom` in `data` as the targets. To make sure the results are
 reproducible, set the `random_state=42` in all cases where random sampling is involved, e.g., train_test_split,
@@ -120,12 +120,12 @@ training.
    for an optimal value of `alpha` for each model. To help you, try the following ranges of alpha: ridge (0.1-10),
    lasso (0.0001-0.01). You have to figure out how best to sample the range of alphas. Too dense a sampling will result
    in very slow searches and too sparse will result in non-optimal models. What are the CV scores of your best Ridge
-   and Lasso models? (13 points)
+   and Lasso models? (10 points)
 5. What are the test MAE and RMSE of the best model (among all models you have fitted so far)? (2 points)
 6. What are the features that do not contribute to the LASSO prediction? (4 points)
 7. Let's define `band_gap < 0.001` as metallic and `band_gap >= 0.001` as nonmetallic. Construct linear discriminant
    analysis, quadratic discriminant analysis, and logistic regression models on train data and predict the accuracy of
-   the models on test data. (15)
+   the models on test data. (11 points)
 8. What are the problems of using only the compositions to predict material properties? (2 points)
 
 ## Q4 - Clustering (30 points)
