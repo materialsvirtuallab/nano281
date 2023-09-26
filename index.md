@@ -4,13 +4,11 @@ title: Home
 nav_order: 1
 ---
 
-# NANO181/281 - Data Science in Materials Science
+# NANOx81 - Data Science in Materials Science
 
-Welcome to the UCSD Course NANO 181/281 - Data Science in Materials Science.
-
-# Syllabus
-
-The full syllabus is provided [here](syllabus).
+Welcome to the UCSD Course NANO 181/281 ("x81") - Data Science in Materials Science. NANOx81 is a co-scheduled 
+course for both undergraduates and graduate students. The aim is to provide a comprehensive introduction to the 
+application of data science to materials science. The full syllabus is available [here](syllabus).
 
 # Lecture materials
 
