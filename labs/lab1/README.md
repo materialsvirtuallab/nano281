@@ -1,3 +1,9 @@
+---
+layout: default
+title: Lab 1
+nav_order: 7
+---
+
 # Introduction
 
 Welcome to Lab 1 of NANOx81 - Data Science in Materials Science. In this lab, you will be learn how to handle materials

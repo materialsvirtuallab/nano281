@@ -1,3 +1,8 @@
+---
+layout: default
+title: Exercise 1
+nav_order: 6
+---
 # Exercise 1 - Python for Data Science
 
 This short exercise is meant to provide a quick guide to various features in the Python programming language and the

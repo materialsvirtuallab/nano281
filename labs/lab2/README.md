@@ -1,3 +1,9 @@
+---
+layout: default
+title: Lab 2
+nav_order: 8
+---
+
 # Introduction
 
 Welcome to Lab 2 of NANOx81 - Data Science in Materials Science. So far you should already have basic knowledge of
