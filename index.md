@@ -16,23 +16,25 @@ The full syllabus is provided [here](syllabus).
 
 ## Slides
 
-- [00-Course_Admin](assets%2Fslides%2F00-Course_Admin.pdf)
-- [01-Python_for_Data_Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf)
-- [02-Data_Science_in_Materials_Science](assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf)
-- [03-Linear_Methods](assets%2Fslides%2F03-Linear_Methods.pdf)
-- [04-Improving_and_extending_linear_models.pdf](assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf)
-- [05-Linear_Classification.pdf](assets%2Fslides%2F05-Linear_Classification.pdf)
-- [06-Unsupervised_Learning.pdf](assets%2Fslides%2F06-Unsupervised_Learning.pdf)
-- [07-Kernel_Regression.pdf](assets%2Fslides%2F07-Kernel_Regression.pdf)
-- [08-Generalized_Additive_Models_and_Trees.pdf](assets%2Fslides%2F08-Generalized_Additive_Models_and_Trees.pdf)
-- [09-Neural_Networks.pdf](assets%2Fslides%2F09-Neural_Networks.pdf)
+1. [Course Admin](assets%2Fslides%2F00-Course_Admin.pdf)
+2. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf)
+3. [Data Science in Materials Science](assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf)
+4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)
+5. [Improving and extending linear models](assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf)
+6. [Linear Classification](assets%2Fslides%2F05-Linear_Classification.pdf)
+7. [Unsupervised Learning](assets%2Fslides%2F06-Unsupervised_Learning.pdf)
+8. [Kernel Regression](assets%2Fslides%2F07-Kernel_Regression.pdf)
+9. [Generalized Additive Models and Trees](assets%2Fslides%2F08-Generalized_Additive_Models_and_Trees.pdf)
+10. [Neural Networks](assets%2Fslides%2F09-Neural_Networks.pdf)
 
 ## Jupyter Notebooks
-- [notebooks](https://github.com/materialsvirtuallab/nano281/tree/master/lectures/notebooks) contains the Jupyter notebooks that we will be using for in-lecture demos.
+
+In-lecture demos will be conducted using Jupyter notebooks, available [here](https://github.com/materialsvirtuallab/nano281/tree/master/lectures/notebooks).
 
 # Labs
 
-There are three lab sessions. The instructions for all labs are available [here](https://github.com/materialsvirtuallab/nano281/tree/master/labs).
+There are three lab sessions. The instructions for the first two labs are available via the menu on the left. The 
+final lab will be an open problem that will be determined at a later date and will be held via a Kaggle competition.
 
 # Programming language
 
