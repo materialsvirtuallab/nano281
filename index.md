@@ -8,8 +8,8 @@ The full syllabus is provided [here](syllabus).
 
 # Lecture materials
 
-- [slides](/slides) contains the lecture slides in PDF format.
-- [notebooks](/notebooks) contains the Jupyter notebooks that we will
+- [slides](slides) contains the lecture slides in PDF format.
+- [notebooks](notebooks) contains the Jupyter notebooks that we will
   be using for in-lecture demos.
 
 # Labs

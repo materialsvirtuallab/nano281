@@ -1,1 +1,32 @@
-theme: jekyll-theme-minimal
+title: NANO181/281
+email: ongsp@ucsd.edu
+description: >- # this means to ignore newlines until "baseurl:"
+  UCSD NANO 181/281 Data Science in Materials Science is a course developed by Prof Shyue Ping Ong of UCSD. The aim is
+  to provide a comprehensive introduction into the application of data science to materials science.
+#baseurl: ""
+#url: https://pymatgen.org
+# twitter_username: pymatgen
+github_username: materialsvirtuallab
+
+# Build settings
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-feed
+
+#color_scheme: pmg
+#favicon_ico: /assets/favicon.ico
+
+aux_links:
+  GitHub: [https://github.com/materialsvirtuallab/nano281]
+  Materials Project: [https://materialsvirtuallab.org]
+
+# Enable or disable the site search
+# Supports true (default) or false
+search_enabled: true
+
+# Split pages into sections that can be searched individually
+# Supports 1 - 6, default: 2
+search.heading_level: 6
+
+kramdown:
+  toc_levels: 1..3
