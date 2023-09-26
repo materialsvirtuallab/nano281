@@ -32,7 +32,7 @@ def build_pdf(ctx, fname):
         ctx.run('bibtex "%s"' % fn, warn=True)
         ctx.run('pdflatex -shell-escape "%s"' % fn)
         ctx.run('pdflatex -shell-escape "%s"' % fn)
-        ctx.run("mv *.pdf ../slides", warn=True)
+        ctx.run("mv *.pdf ../../assets/slides", warn=True)
 
 
 @task
