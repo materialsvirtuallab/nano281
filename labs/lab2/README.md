@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Lab 2
-nav_order: 8
+parent: Labs
+nav_order: 4
 ---
 
 # Introduction
