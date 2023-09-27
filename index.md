@@ -29,11 +29,6 @@ application of data science to materials science. The full syllabus is available
 
 In-lecture demos will be conducted using Jupyter notebooks, available [here](https://github.com/materialsvirtuallab/nano281/tree/master/lectures/notebooks).
 
-# Labs
-
-There are three lab sessions. The instructions for the first two labs are available via the menu on the left. The 
-final lab will be an open problem that will be determined at a later date and will be held via a Kaggle competition.
-
 # Course textbooks
 
 The course is intended to be self-contained and all textbooks are optional.
@@ -45,12 +40,32 @@ However, the following are useful to have around:
 2. Python Data Science Handbook. Buy from [Amazon](https://www.amazon.com/gp/product/1491912057/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) 
    or get the [free online version](https://jakevdp.github.io/PythonDataScienceHandbook/).
 
+# Labs
+
+There are three lab sessions. The instructions for the first two labs are available via the menu on the left. The 
+final lab will be an open problem that will be determined at a later date and will be held via a Kaggle competition.
+
 # Programming language
 
 All lectures and labs will be conducted in Python 3.9+. For most students, especially those that are new to python, you 
-can simply use [Google Colab](https://colab.research.google.com/) to run all lecture notebooks and do all labs.
+can simply use [Google Colab] to run all lecture notebooks and do all labs.
 
 The main disadvantage of Google Colab is that you have to work in the cloud and often, the compute resources 
 provided will not be as fast as running things on your laptop or any high performance computing system of your 
 choosing. For serious work, you can follow the [instructions provided](setup) to install Python and 
 the necessary libraries for this course.
+
+## Using Google Colab
+
+1. Go to [Google Colab]. Sign in with your Google account (preferably your UCSD google account).
+2. If you are working on a lab or creating a new notebook for your own work, exit the textbox and select `File->New 
+   Notebook` from the menu.
+3. If you want to work with the lecture examples, select `File-Open Notebook` from the menu.
+4. Select the `Github` tab.
+5. Enter `materialsvirtuallab` into the Github organization field and click the magnifying glass.
+6. Under `Repository`, select the `materialsvirtuallab/nano281` repository.
+7. Click on any of the notebooks to open them.
+
+![Google Colab](assets/colab.png)
+
+[Google Colab]: https://colab.research.google.com/
