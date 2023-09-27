@@ -34,8 +34,8 @@ In-lecture demos will be conducted using Jupyter notebooks, available [here](htt
 The course is intended to be self-contained and all textbooks are optional.
 However, the following are useful to have around:
 
-1. The Elements of Statistical Learning: Data Mining, Inference, and Prediction,
-   Second Edition [Amazon](https://www.amazon.com/dp/0387848576/ref=cm_sw_em_r_mt_dp_U_Z8r8DbR3HMYRE),
+1. The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Second Edition
+   [Amazon](https://www.amazon.com/dp/0387848576/ref=cm_sw_em_r_mt_dp_U_Z8r8DbR3HMYRE),
    or get the [free online version](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).
 2. Python Data Science Handbook. Buy from [Amazon](https://www.amazon.com/gp/product/1491912057/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) 
    or get the [free online version](https://jakevdp.github.io/PythonDataScienceHandbook/).
@@ -47,12 +47,17 @@ final lab will be an open problem that will be determined at a later date and wi
 
 # Programming language
 
-All lectures and labs will be conducted in Python 3.9+. For most students, especially those that are new to python, you 
-can simply use [Google Colab] to run all lecture notebooks and do all labs.
+All lectures and labs will be conducted in Python 3.9+. 
+
+For most students, especially those that are new to python, you can simply use the [Google Colab] cloud service to 
+run all lecture notebooks and do all labs. The advantage of using Google Colab is that you do not need bother with 
+installation of python and the necessary libraries in your local machine. 
 
 The main disadvantage of Google Colab is that you have to work in the cloud and often, the compute resources 
 provided will not be as fast as running things on your laptop or any high performance computing system of your 
-choosing. For serious work, you can follow the [instructions provided](setup) to install Python and 
+choosing. 
+
+For serious work, you can follow the [instructions provided](setup) to install Python and 
 the necessary libraries for this course.
 
 ## Using Google Colab
