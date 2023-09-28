@@ -12,8 +12,8 @@ data using various open-source Python tools.
 
 # Getting started
 
-If you have not already done so, please follow the instructions outlined in the main [README](https://github.com/materialsvirtuallab/nano281)
-to set up your computer. You may alternatively use [Google Colab](https://colab.research.google.com/) to do this lab,
+If you have not already done so, please follow the [setup instructions](setup) to set up your computer. You may 
+alternatively use [Google Colab](https://colab.research.google.com/) to do this lab,
 in which case you can skip directly to step 3.
 
 1. Activate your NANOx81 virtual environment.
@@ -69,7 +69,7 @@ compounds:
 You will need to sign up for a free account at https://www.materialsproject.org and get an API_KEY from the
 https://www.materialsproject.org/dashboard.
 
-![API key](MP_API_KEY.png "Getting the Materials Project API key")
+![API key](assets/MP_API_KEY.png "Getting the Materials Project API key")
 
 Hints:
 - Go back to the lecture 1 example notebook for a quick starting example.

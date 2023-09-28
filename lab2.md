@@ -14,8 +14,8 @@ data using data science techniques.
 
 # Getting started
 
-Same as previous lab, you need to set up your computer environment before the lab. You may alternatively use
-[Google Colab](https://colab.research.google.com/) to do this lab, in which case you can skip directly to step 3.
+If you have not already done so, please follow the [setup instructions](setup) to set up your computer. You may 
+alternatively use [Google Colab](https://colab.research.google.com/) to do this lab, in which case you can skip directly to step 3.
 
 1. Activate your NANOx81 virtual environment.
 ```bash
@@ -47,8 +47,8 @@ way to do this is to do a "Restart and Run All" from the notebook, which will ex
 
 # Lab
 
-Download `data2022.csv` file in this repo. It contains some data for all binary bromides and iodides in the Materials
-Project.
+Download [data2022.csv](assets/data2022.csv), which contains some data for all binary bromides and iodides in the
+Materials Project.
 
 ## Q1 - Exploratory data analysis (7 points)
 
@@ -84,8 +84,9 @@ filtering step henceforth.
    the lowest formation energy per atom for each formula. How many materials are left? (2 points)
 2. Positive formation energies are often a sign that a calculation is poorly converged. Filter the data to remove rows
    with positive formation energies as well. How many materials are left? (2 point)
-3. Load the element property data file `element_properties.csv` in variable `element_data` using pandas by setting
-   `index_col=0` in `pandas.read_csv` function. How many NaN (Not a Number) are there in each column? (1 point)
+3. Download and load the [element property data file](assets/element_properties.csv) in variable `element_data` 
+   using pandas by setting `index_col=0` in `pandas.read_csv` function. How many NaN (Not a Number) are there in 
+   each column? (1 point)
 4. Compute the mean values for each column, ignoring the NaNs. For each column, fill the NaN with the mean value of
    that column. This is a common data imputation technique. (2 points)
 5. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`.
@@ -142,7 +143,7 @@ figure shared on figshare by Gomez-Bolivar et al. (Front. Microbiol., 20 June 20
 is an energy dispersive X-ray (EDX) microanalysis of Pd/Ru bimetallic nanoparticle catalysts synthesized by
 Escherichia coli. For this whole exercise, it is recommended that you use the `hot` colormap in matplotlib.
 
-![catalyst.png](catalyst.png "catalyst.png")
+![catalyst.png](assets/catalyst.png "catalyst.png")
 
 1. Read in the image as a numpy array using the `imread` method in `matplotlib.pyplot`. Show the image in your Jupyter 
    notebook using `imshow`. What are the dimensions of the array? (1 point)
