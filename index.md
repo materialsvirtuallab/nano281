@@ -10,6 +10,20 @@ Welcome to the UCSD Course NANO 181/281 ("x81") - Data Science in Materials Scie
 course for both undergraduates and graduate students. The aim is to provide a comprehensive introduction to the 
 application of data science to materials science. The full syllabus is available [here](syllabus).
 
+# Approximate Course Schedule
+
+| Week   | Description                                                        |
+|--------|--------------------------------------------------------------------|
+| 1      | Course Admin                                                       |
+| 2      | Introduction to Data Science, Python and Data Wrangling            |
+| 3      | Data Science in Materials Science                                  |
+| 4      | Lab 1 (Introduction to Python for Data Science and Data Wrangling) | 
+| 5      | Linear Methods                                                     | 
+| 6      | Unsupervised Learning & Kernel Methods                             | 
+| 7      | Lab 2 (Linear methods and clustering for materials science)        |
+| 8      | Trees and Neural Netwprls                                          |       
+| 9 & 10 | Lab 3 (Kaggle competition)                                         |
+
 # Lecture materials
 
 ## Slides
