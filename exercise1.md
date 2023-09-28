@@ -2,7 +2,7 @@
 layout: default
 title: Exercise 1
 parent: Assignments
-nav_order: 2
+nav_order: 4
 ---
 
 # Exercise 1 - Python for Data Science
