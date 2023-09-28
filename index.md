@@ -62,7 +62,7 @@ the necessary libraries for this course.
 
 ## Using Google Colab
 
-1. Go to [Google Colab]. Sign in with your Google account (preferably your UCSD google account).
+1. Go to [Google Colab]. Sign in with your Google account (preferably your UCSD one).
 2. If you are working on a lab or creating a new notebook for your own work, exit the textbox and select `File->New 
    Notebook` from the menu.
 3. If you want to work with the lecture examples, select `File-Open Notebook` from the menu.
