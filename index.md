@@ -28,7 +28,7 @@ application of data science to materials science. The full syllabus is available
 
 ## Slides
 
-1. [Course Admin](assets%2Fslides%2F00-Course_Admin.pdf)
+1. [Course Admin](assets%2Fslides%2F00-Course_Admin.pdf) <a href="https://youtu.be/sUZzoxZPOso"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 2. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf)
 3. [Data Science in Materials Science](assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf)
 4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)
