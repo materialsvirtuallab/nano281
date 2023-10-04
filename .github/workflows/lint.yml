@@ -32,4 +32,4 @@ jobs:
       - name: black
         run: |
           black --version
-          black --check --diff --color ${{ github.event.repository.name }}
+          black --check --diff --color lectures
