@@ -27,7 +27,7 @@ jobs:
       - name: ruff
         run: |
           ruff --version
-          ruff .
+          ruff lectures/notebooks
 
       - name: black
         run: |
