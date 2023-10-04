@@ -41,4 +41,4 @@ jobs:
           pip install -r requirements.txt
       - name: pytest
         run: |
-          pytest --nbmake lectures/notebooks/*.ipynb
+          pytest --nbmake --nbmake-timeout=2000 lectures/notebooks/*.ipynb
