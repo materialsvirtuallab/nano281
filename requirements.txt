@@ -1,6 +1,6 @@
-pymatgen==2022.5.26
-seaborn==0.11.2
-scikit-learn==1.0.2
-pandas==1.4.1
+pymatgen==2023.10.4
+seaborn==0.12.2
+scikit-learn==1.2.2
+pandas==2.1.1
 statsmodels==0.13.2
-plotly==5.7.0
+plotly==5.17.0
