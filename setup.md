@@ -26,7 +26,7 @@ conda activate NANOx81
 6. Install the necessary Python libraries.
 ```bash
 conda install --yes numpy scipy matplotlib pandas jupyter seaborn scikit-learn
-conda install --channel conda-forge --yes pymatgen
+pip install pymatgen --upgrade
 ```
 7. An alternative to steps 4-6 is to download the [nanox81_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/NANO281/master/nanox81_env.yml) 
    file from the Github repo and create the environment directly.
