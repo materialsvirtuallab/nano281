@@ -21,7 +21,7 @@ application of data science to materials science. The full syllabus is available
 | 5      | Linear Methods                                                     | 
 | 6      | Unsupervised Learning & Kernel Methods                             | 
 | 7      | Lab 2 (Linear methods and clustering for materials science)        |
-| 8      | Trees and Neural Netwprls                                          |       
+| 8      | Trees and Neural Networks                                          |       
 | 9 & 10 | Lab 3 (Kaggle competition)                                         |
 
 # Lecture materials
