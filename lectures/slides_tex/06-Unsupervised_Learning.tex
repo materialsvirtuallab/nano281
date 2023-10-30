@@ -214,11 +214,16 @@ Unsupervised Learning
     \begin{itemize}
         \item K-means is often used for vector quantization, i.e., split a set of values into k levels.
         \item Determining $K$. Sometimes $K$ is based on goals, e.g., if you have a scientific / practical reason for having $K$ clusters, e.g., only $K$ instruments available or you want to bin the compounds in $K$ chemical classes.
-        \item Gap analysis:
+        \item Elbow Method
+        \begin{itemize}
+            \item Goal: Minimize within-cluster sum of squares (wss), i.e,  $\min(\sum_{k=1}^KW(C_k))$
+            \item Plot wss vs $k$. Location of bend (knee) is generally considered as an indicator of the appropriate number of clusters. $k=4$ seems appropriate for Figure below.
+        \end{itemize}
         \begin{figure}
             \centering
-            \includegraphics[width=0.5\textwidth]{figures/kmeans-gap-analysis.pdf}
+            \includegraphics[width=0.2\textwidth]{lectures/slides_tex/figures/elbow_detection.png}
         \end{figure}
+        \item Other methods: Gap analysis
     \end{itemize}
 \end{frame}
 
