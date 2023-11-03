@@ -34,10 +34,12 @@ application of data science to materials science. The full syllabus is available
 4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 5. [Improving and extending linear models](assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf) <a href="https://youtu.be/bjLn2y8350o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 6. [Linear Classification](assets%2Fslides%2F05-Linear_Classification.pdf) <a href="https://youtu.be/VTcgACBUUYE"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-7. [Unsupervised Learning](assets%2Fslides%2F06-Unsupervised_Learning.pdf)
-8. [Kernel Regression](assets%2Fslides%2F07-Kernel_Regression.pdf)
+7. [Unsupervised Learning](assets%2Fslides%2F06-Unsupervised_Learning.pdf) <a href="https://youtu.be/eRI8QLCvE6o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+8. [Kernel Regression](assets%2Fslides%2F07-Kernel_Regression.pdf) <a href="https://youtu.be/WJtI_jyYUKw"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 9. [Generalized Additive Models and Trees](assets%2Fslides%2F08-Generalized_Additive_Models_and_Trees.pdf)
 10. [Neural Networks](assets%2Fslides%2F09-Neural_Networks.pdf)
+
+
 
 ## Jupyter Notebooks
 
