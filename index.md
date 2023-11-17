@@ -37,7 +37,7 @@ application of data science to materials science. The full syllabus is available
 7. [Unsupervised Learning](assets%2Fslides%2F06-Unsupervised_Learning.pdf) <a href="https://youtu.be/eRI8QLCvE6o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 8. [Kernel Regression](assets%2Fslides%2F07-Kernel_Regression.pdf) <a href="https://youtu.be/WJtI_jyYUKw"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 9. [Generalized Additive Models and Trees](assets%2Fslides%2F08-Generalized_Additive_Models_and_Trees.pdf) <a href="https://youtu.be/NfksZnuGfu4"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-10. [Neural Networks](assets%2Fslides%2F09-Neural_Networks.pdf)
+10. [Neural Networks](assets%2Fslides%2F09-Neural_Networks.pdf)<a href="https://youtu.be/zSNe557lhR0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
 
 ## Jupyter Notebooks
