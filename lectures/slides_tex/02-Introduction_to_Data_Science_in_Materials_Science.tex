@@ -24,25 +24,19 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \let \vec \mathbf
 
-\newcommand{\classname}{NANOx81}
-\newcommand{\classyear}{Fall 2023}
-\mode<presentation> {
-    \usetheme{CambridgeUS}
-    \setbeamertemplate{footline}[text line]{%
-        \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
+\newcommand{\classname}{NANOx81R}
+\usetheme{metropolis}
 
-    %\setbeamertemplate{footline}[page number]
-    \setbeamertemplate{navigation symbols}{}
-}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\metroset{block=fill}
 
 
 \title[Introduction to Data Science in Materials Science]{Introduction to Data Science in Materials Science}
 
 \author{Shyue Ping Ong}
-\institute[UCSD]{University of California, San Diego\\
-\medskip
-}
-\date{\classyear} % Date, can be changed to a custom date
+\institute[UCSD]{Aiiso Yufeng Li Family Department of Chemical and Nano Engineering\\
+University of California, San Diego\\\url{http://materialsvirtuallab.org}}
+\date{}
 
 \begin{document}
 
@@ -52,15 +46,8 @@
     \end{frame}
 
 
-% \begin{frame}{Overview}
-%     \tableofcontents
-% \end{frame}
-
-
-% \section{What is Data Science?}
-
     \begin{frame}{What is Data Science?}
-        \Huge{Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to \textcolor{red}{extract knowledge and insights from structured and unstructured data}.}
+        \Large{Data science is a multi-disciplinary field that uses scientific methods, processes, algorithms and systems to \textcolor{red}{extract knowledge and insights from structured and unstructured data}.}
     \end{frame}
 
 
@@ -78,19 +65,19 @@
         \end{figure}
     \end{frame}
 
-    \begin{frame}{Growth of Materials Data (as of Jan 1 2020)}
+    \begin{frame}{Growth in Materials Data (as of Jan 1 2020)}
 
         \begin{columns}
             \column{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.4\textwidth]{figures/icsd.png}
+                \includegraphics[width=0.45\textwidth]{figures/icsd.png}
                 \caption{ICSD: $\sim$200,000 crystals
                 }
             \end{figure}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.4\textwidth]{figures/cod.png}
+                \includegraphics[width=0.45\textwidth]{figures/cod.png}
                 \caption{COD: $\sim$400,000 crystals
                 }
             \end{figure}
@@ -98,12 +85,12 @@
             \column{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.4\textwidth]{figures/pdb.png}
+                \includegraphics[width=0.45\textwidth]{figures/pdb.png}
                 \caption{Protein data bank}
             \end{figure}
             \begin{figure}
                 \centering
-                \includegraphics[width=0.4\textwidth]{figures/csd.png}
+                \includegraphics[width=0.45\textwidth]{figures/csd.png}
                 \caption{Cambridge structural database (small-molecule organic crystal structures)}
             \end{figure}
         \end{columns}
@@ -231,11 +218,11 @@
 
     \begin{frame}{Materials API Example}
         \begin{exampleblock}{URL}
-            \small
+            \footnotesize
             \textcolor{red}{https://api.materialsproject.org}/\textcolor{blue}{summary}/?\textcolor{green}{formula=Fe2O3}\&\_fields=formation\_energy\_per\_atom\\
         \end{exampleblock}
         \begin{columns}
-            \column{0.45\textwidth}
+            \column{0.4\textwidth}
             Example response:
             \inputminted{json}{mapi_response.txt}
             \column{0.45\textwidth}
@@ -300,6 +287,14 @@
 
     \end{frame}
 
+    \begin{frame}{Nobel Prizes in Chemistry and Physics 2024}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.6\textwidth]{lectures/slides_tex/figures/nobel-chem-2024.png}
+            \includegraphics[width=0.38\textwidth]{lectures/slides_tex/figures/nobel-physics-2024.png}
+        \end{figure}
+    \end{frame}
+
 
     \begin{frame}[t]{Materials ML Workflow}
         \begin{figure}
@@ -346,9 +341,9 @@
             \mathrm{Property} = f(\mathrm{Composition}, \mathrm{Structure})
         \end{equation*}
         \begin{itemize}
-            \item In ML terms, the material property, e.g., energetic (formation, energy above hull, reaction, binding, etc.), electronic (band gaps, DOS), mechanical, functional (e.g., ionic conductivity) is called the \textbf{``target''}.
+            \item The material property, e.g., energetic (formation, energy above hull, reaction, etc.), electronic (band gaps, DOS), mechanical, functional (e.g., ionic conductivity) is called the \textbf{``target''}.
             \item Composition and Structure are called the \textbf{``descriptors''} or \textbf{``features''}.
-            \item Examples of compositonal features: stoichiometric attributes, e.g., number and ratio of elements, etc. elemental properties, e.g., mean, range, min, max of atomic number, electronegativity, row, group, atomic radii, etc., electronic structure, e.g., number of valence electrons, shells, etc.
+            \item Examples of compositonal features: stoichiometric attributes, e.g., \# and ratio of elements; elemental properties, e.g., mean, range, min, max of atomic number, electronegativity, row, group, radii, \# of valence electrons, etc.
             \item Examples of structural features: crystal/molecular symmetry, lattice parameters, atomic coordinates, connectivity / bonding between atoms.
         \end{itemize}
     \end{frame}
@@ -412,19 +407,6 @@
         \footnotesize
         \begin{table}[]
             \centering
-            \begin{tabular}{l|c|c|c|c}
-                & MEGNET & MEGNET-Simple & SchNet & “Chemical Accuracy” \\
-                \hline
-                U0 (meV)                  & 9      & 12            & 14     & 43                  \\
-                G (meV)                   & 10     & 12            & 14     & 43                  \\
-                $\varepsilon_{HOMO}$ (eV) & 0.038  & 0.043         & 0.041  & 0.043               \\
-                $\varepsilon_{LUMO}$ (eV) & 0.031  & 0.044         & 0.034  & 0.043               \\
-                $C_v$ (cal/molK)          & 0.030  & 0.029         & 0.033  & 0.05
-            \end{tabular}
-            \caption{130,462 QM9 molecules}
-        \end{table}
-        \begin{table}[]
-            \centering
             \begin{tabular}{l|c|c|c}
                 Property                          & MEGNet          & SchNet & CGCNN          \\
                 \hline
@@ -448,14 +430,14 @@
     \end{frame}
 
 
-    \begin{frame}{ML as a solution to the scale challenge}
+    \begin{frame}{ML Interatomic Potentials as a solution to the scale challenge}
         \begin{columns}
-            \column{0.45\textwidth}
+            \column{0.3\textwidth}
             \begin{figure}
                 \centering
                 \includegraphics[width=\textwidth]{figures/ML-IAP.jpg}
             \end{figure}
-            \column{0.55\textwidth}
+            \column{0.7\textwidth}
             \begin{itemize}
                 \small
                 \item Examples: Neural Network Potential (NNP)\cite{behlerHighDimensionalNeuralNetwork}, Gaussian Approximation Potential (GAP)\cite{bartokGaussianApproximationPotentials2010}, moment tensor potential (MTP)\cite{novikovMLIPPackageMoment2021}, spectral neighbor analysis potential,\cite{thompsonSpectralNeighborAnalysis2015}, atomic cluster expansion\cite{drautzAtomicClusterExpansion2020}, etc.
@@ -481,11 +463,11 @@
     \end{frame}
 
 
-    \begin{frame}{Automatable workflows for ML Interatomic Potential Construction}
+    \begin{frame}{Automatable workflows for MLIP Construction}
         \begin{figure}
             \centering
             \includegraphics[width=0.45\textwidth]{figures/mliapworkflow.pdf}
-            \includegraphics[width=0.45\textwidth]{figures/mliapcostvsperformance.pdf}
+            \includegraphics[width=0.45\textwidth]{figures/mliapcostvsperformance.png}
             \caption{Automatic workflow for ML-IAP construction and performance benchmarks.\cite{zuoPerformanceCostAssessment2020}}
         \end{figure}
     \end{frame}
@@ -496,12 +478,21 @@
             \centering
             \includegraphics[width=0.3\textwidth]{figures/ni-mo_pd.png}
             \includegraphics[width=0.35\textwidth]{figures/ni-mo-stress-strain.png}
-            \caption{ML-IAP results on Ni-Mo. (left) Ni-Mo phase diagram. (right) Stress-strain curves as a function of grain size\cite{zuoPerformanceCostAssessment2020}}
+            \caption{MLIP results on Ni-Mo. (left) Ni-Mo phase diagram. (right) Stress-strain curves as a function of grain size\cite{zuoPerformanceCostAssessment2020}}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}{Universal MLIPs}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.4\textwidth]{figures/m3gnet.png}
+            \includegraphics[width=0.5\textwidth]{lectures/slides_tex/figures/matpes-pbe-pt.png}
+            \caption{Materials 3-body Graph Network (M3GNet), the first whole periodic table MLIP.\cite{chenUniversalGraphDeep2022}}
         \end{figure}
     \end{frame}
 
 
-    \begin{frame}{Modelling complex relationships}
+    \begin{frame}{Modeling complex relationships}
         \begin{figure}
             \centering
             \includegraphics[width=0.4\textwidth]{figures/imagenet.png}
@@ -514,8 +505,8 @@
     \begin{frame}{Example: Coordination environment from X-ray Absorption Spectra}
         \begin{figure}
             \centering
-            \includegraphics[width=0.45\textwidth]{figures/xasflowchart.pdf}
-            \includegraphics[width=0.35\textwidth]{figures/xasaccuracy.pdf}
+            \includegraphics[width=0.45\textwidth]{figures/xasflowchart.png}
+            \includegraphics[width=0.35\textwidth]{figures/xasaccuracy.png}
             \caption{Random Forest Coordination Environment Classification\cite{zhengRandomForestModels2020}}
         \end{figure}
     \end{frame}
