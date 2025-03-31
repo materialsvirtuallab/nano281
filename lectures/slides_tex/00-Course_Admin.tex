@@ -40,25 +40,19 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \let \vec \mathbf
 
-\newcommand{\classname}{NANOx81}
-\newcommand{\classyear}{Fall 2023}
-\mode<presentation> {
-    \usetheme{CambridgeUS}
-    \setbeamertemplate{footline}[text line]{%
-      \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
+\newcommand{\classname}{NANOx81R Data Science in Materials Science}
 
-    %\setbeamertemplate{footline}[page number]
-    \setbeamertemplate{navigation symbols}{}
-}
+\usetheme{metropolis}
 
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\metroset{block=fill}
 
-\title[\classname Course Admin]{\classname - Data Science in Materials Science\\Course Admin}
+\title[\classname Course Admin]{\classname\\Course Admin}
 
 \author{Shyue Ping Ong}
-\institute[UCSD]{University of California, San Diego\\
-\medskip
-}
-\date{\classyear} % Date, can be changed to a custom date
+\institute[UCSD]{Aiiso Yufeng Li Family Department of Chemical and Nano Engineering\\
+University of California, San Diego\\\url{http://materialsvirtuallab.org}}
+\date{}
 
 \begin{document}
 
@@ -69,20 +63,20 @@
 
 
 \begin{frame}{Course Objectives}
-\huge{To provide a comprehensive introduction into the application of data science to materials science.}
+\huge{Provide a comprehensive introduction into the application of data science to materials science.}
 \end{frame}
 
 
 \begin{frame}{What will you learn in this course?}
     \begin{itemize}
-        \item Enough data science (including the mathematics) to understand how to apply them to solve materials science problems.
-        \item Best practices in using various data science techniques.
-        \item Practical use of open-source Python packages to do data science in materials science.
+    \item Understand key data science methods and how they relate to materials science.
+    \item Apply best practices using real-world examples.
+    \item Use Python and open-source libraries for practical analysis.
     \end{itemize}
 \end{frame}
 
 
-\begin{frame}{What this course is \textbf{not}}
+\begin{frame}{What this course is NOT}
     \begin{itemize}
         \item A probability and statistics course.
         \item A replacement for a rigorous data science course.
@@ -94,9 +88,9 @@
 \begin{frame}{Course Plan}
     \begin{itemize}
         \item Weeks 1 and 2: Introduction to Data Science, Python and Data Wrangling
-        \item Week 3: Lab 1 (Introduction to Python for Data Science and Data Wrangling)
+        \item Week 3: Lab 1 - Python for Data Science and Data Wrangling
         \item Weeks 4 and 5: Linear Methods and Unsupervised Learning
-        \item Week 6: Lab 2 (Exercises in linear methods and clustering for materials science)
+        \item Week 6: Lab 2 - Linear methods and clustering
         \item Weeks 7 and 8: Kernel Methods, Trees and Neural Networks
         \item Weeks 9 and 10: Final Lab (Kaggle competition)
     \end{itemize}
@@ -106,7 +100,7 @@
 \begin{frame}{Instructors}
     \begin{itemize}
         \item Lecturer: Shyue Ping Ong (\href{mailto:ongsp@ucsd.edu}{ongsp@ucsd.edu})
-        \item Teaching Assistant: Keivan Rahmani (\href{mailto:kerahmani@ucsd.edu}{kerahmani@ucsd.edu})
+        \item Teaching Assistant: Sojung Koo (\href{mailto:s2koo@ucsd.edu}{s2koo@ucsd.edu})
     \end{itemize}
 \end{frame}
 
@@ -134,15 +128,15 @@
 
 \begin{frame}{Course Structure}
     \begin{itemize}
-        \item Lectures/Labs (Tues/Thurs @ 1230-1350) in person.
+        \item Lectures/Labs (Tues/Thurs @ 930-1050).
         \item Note: Please ignore scheduled lab sessions - all labs are held in lecture times, not in a separate time.
         \item Recordings will be available online after the class.
         \item \textbf{Please bring your laptops.}
         \item Grading:
         \begin{itemize}
-            \item Lab 1: 25\% - Same for NANO181 and NANO281
-            \item Lab 2: 25\% - Same for NANO181 and NANO281
-            \item Lab 3: 50\% - Different for NANO181 and NANO281
+            \item Lab 1: 25\% - Same for NANO181R and NANO281R
+            \item Lab 2: 25\% - Same for NANO181R and NANO281R
+            \item Lab 3: 50\% - Different for NANO181R and NANO281R
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -163,9 +157,13 @@ Programming Style & 10\%\\
 \hline
     \end{tabular}
 \end{table}
+\end{frame}
+
+\begin{frame}{Class policies}
     \begin{itemize}
-        \item \textbf{Collaboration policy}:  Working together is highly encouraged, but each student must submit his / her own work. 
-        \item To make the best use of this course, you should make sure you can do the exercises and not over-rely on your course mates.
+        \item \textbf{Collaboration}:  Working together is highly encouraged, but each student must submit his / her own work. 
+        \item \textbf{Use of AI}: Despite being an course in AI/ML techniques, use of AI tools such as ChatGPT or similar is \textbf{strongly discouraged}. You need to work through the exercises, including the mistakes and iterations, to learn the concepts. The instructors will use AI detection tools on your labs - we know what an AI-generated answer looks like. If the problem is severe enough, all credit for Labs 1 and 2 will be zeroed out, and all evaluation will be done only on the final lab, which is open-ended and therefore not amenable to AI cheating.
+        \item \textbf{Remember that you are here to learn an essential skill}.
     \end{itemize}
 \end{frame}
 
@@ -181,8 +179,8 @@ Programming Style & 10\%\\
 
 \begin{frame}{Prerequisites}
     \begin{itemize}
-        \item Knowledge of basic statistics (e.g., Gaussian distributions, Bayes theorem, etc.)
-        \item Knowledge of basic linear algebra (e.g., matrix multiplication, eigenvalue decomposition, inverse)
+        \item Knowledge of basic statistics (e.g., Gaussian distribution, Bayes theorem, etc.).
+        \item Knowledge of basic linear algebra (e.g., matrix multiplication, eigenvalue decomposition, inverse).
         \item Some programming experience. Ideally, experience in the Python programming language would be helpful.
         \item 1st Homework (ungraded):
         \begin{enumerate}
@@ -197,7 +195,7 @@ Programming Style & 10\%\\
 \begin{frame}{Course Admin}
     \begin{itemize}
         \item Canvas for all course admin, including announcements/communications and submission of labs.
-        \item \href{https://materialsvirtuallab.github.io/nano281/}{NANOx81 website} for all materials, including labs with instructions.
+        \item \href{https://materialsvirtuallab.github.io/nano281/}{NANOx81 } for all materials, including labs with instructions.
         \begin{figure}
             \centering
             \includegraphics[width=0.25\textwidth]{figures/QR-NANO281Github.png}
@@ -210,7 +208,7 @@ Programming Style & 10\%\\
 \begin{frame}{Questions and Feedback}
     \begin{itemize}
         \item Questions welcomed at any time during or after lectures
-        \item \classname~is relatively very new - the instructors will try their best, but I would ask for you to be tolerant of any issues while we continue to improve the curriculum and labs.
+        \item NANO181R/NANO281R is relatively very new - the instructors will try their best, but I would ask for you to be tolerant of any issues while we continue to improve the curriculum and labs.
         \item Your \textbf{feedback} is invaluable for shaping the current course as well as future courses. 
         \item Email all feedback directly to \href{mailto:ongsp@ucsd.edu}{ongsp@ucsd.edu}.
     \end{itemize}

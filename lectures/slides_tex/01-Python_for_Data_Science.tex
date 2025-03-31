@@ -24,25 +24,20 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \let \vec \mathbf
 
-\newcommand{\classname}{NANOx81}
-\newcommand{\classyear}{Fall 2023}
-\mode<presentation> {
-    \usetheme{CambridgeUS}
-    \setbeamertemplate{footline}[text line]{%
-        \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
+\newcommand{\classname}{NANOx81R}
 
-    %\setbeamertemplate{footline}[page number]
-    \setbeamertemplate{navigation symbols}{}
-}
+\usetheme{metropolis}
+
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\metroset{block=fill}
 
 
 \title[Python for Data Science and Materials Science]{Python for Data Science and Materials Science}
 
 \author{Shyue Ping Ong}
-\institute[UCSD]{University of California, San Diego\\
-\medskip
-}
-\date{\classyear} % Date, can be changed to a custom date
+\institute[UCSD]{Aiiso Yufeng Li Family Department of Chemical and Nano Engineering\\
+University of California, San Diego\\\url{http://materialsvirtuallab.org}}
+\date{}
 
 \begin{document}
 
@@ -61,7 +56,7 @@
 
     \begin{frame}{Preliminaries}
         \begin{itemize}
-            \item In this lecture, we will provide a brief overview of the Python programming language for data science and materials science.
+            \item In this lecture, we will provide an overview of the Python programming language.
             \item This will form the basis for your first lab on materials data wrangling in Python.
             \item Very quick overview of chapters 1-4 of the Python Data Science Handbook\cite{vanderplasPythonDataScience2016} + materials science libraries.
             \item Content is targeted at giving a complete beginner to Python and the scientific python stack enough background to get started.
@@ -72,10 +67,6 @@
 
 
     \section{Python}
-
-    \begin{frame}{Python}
-        \Huge{\centerline{Python}}
-    \end{frame}
 
     \begin{frame}{Introduction to Python}
         \centering{\includegraphics[width=0.3\textwidth]{figures/python-logo.png}}
@@ -101,8 +92,7 @@
 
     \begin{frame}{Python 3 or 2?}
         \begin{itemize}
-            \item We will be using Python 3.9+.
-            \item Modern version of Python that has been around since 2008 and is now the de facto standard from Jan 1 2020 - most major software packages are stopping support for Python 2 henceforth.
+            \item We will be using Python 3.10+.
             \item Options for this course:
             \begin{itemize}
                 \item Install python on your laptop - faster, not-reliant on internet connection, most modern version of Python possible.
@@ -114,8 +104,8 @@
 
     \begin{frame}{Installing Python}
         \begin{itemize}
-            \item Regardless of whether your OS comes with Python, it is recommended that you install your own version of python using the Anaconda distribution.
-            \item Two versions:
+            \item Regardless of whether your OS comes with Python, it is recommended that you install your own version of python using a package manager (e.g., the Anaconda distribution, uv, poetry, etc.).
+            \item For the Anaconda distribution, you have two options:
             \begin{description}
                 \item[Miniconda] Minimal installation of Python interpreter itself + conda command-line tool. conda is essentially a package manager. \href{https://docs.conda.io/en/latest/miniconda.html}{Link}
                 \item[Anaconda] Miniconda + several scientific packages such as scipy, numpy, etc. Several GB in size. \href{https://www.anaconda.com/distribution/}{Link}
@@ -194,11 +184,8 @@ conda update numpy
     \end{frame}
 
 
-    \section{Scientific python stack}
+    \section{Scientific Python}
 
-    \begin{frame}{Scientific Python}
-        \Huge{\centerline{Scientific Python}}
-    \end{frame}
 
     \begin{frame}{Scientific Python Packages}
         \begin{figure}
