@@ -6,8 +6,8 @@ nav_order: 1
 
 # NANOx81 - Data Science in Materials Science
 
-Welcome to the UCSD Course NANO 181/281 ("x81") - Data Science in Materials Science. NANOx81 is a co-scheduled 
-course for both undergraduates and graduate students. The aim is to provide a comprehensive introduction to the 
+Welcome to the UCSD Course NANO 181/281 ("x81") - Data Science in Materials Science. NANOx81 is a co-scheduled
+course for both undergraduates and graduate students. The aim is to provide a comprehensive introduction to the
 application of data science to materials science. The full syllabus is available [here](syllabus).
 
 # Approximate Course Schedule
@@ -17,11 +17,11 @@ application of data science to materials science. The full syllabus is available
 | 1      | Course Admin                                                       |
 | 2      | Introduction to Data Science, Python and Data Wrangling            |
 | 3      | Data Science in Materials Science                                  |
-| 4      | Lab 1 (Introduction to Python for Data Science and Data Wrangling) | 
-| 5      | Linear Methods                                                     | 
-| 6      | Unsupervised Learning & Kernel Methods                             | 
+| 4      | Lab 1 (Introduction to Python for Data Science and Data Wrangling) |
+| 5      | Linear Methods                                                     |
+| 6      | Unsupervised Learning & Kernel Methods                             |
 | 7      | Lab 2 (Linear methods and clustering for materials science)        |
-| 8      | Trees and Neural Networks                                          |       
+| 8      | Trees and Neural Networks                                          |
 | 9 & 10 | Lab 3 (Kaggle competition)                                         |
 
 # Lecture materials
@@ -32,7 +32,7 @@ application of data science to materials science. The full syllabus is available
 
 2. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf) <a href="https://youtu.be/4KO45XflPB0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
-3. [Data Science in Materials Science](assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf) <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+3. [Data Science in Materials Science](assets%2Fslides%2F02-Data_Science_in_Materials_Science.pdf) <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
 4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
@@ -48,7 +48,6 @@ application of data science to materials science. The full syllabus is available
 
 [//]: # (10. [Neural Networks]&#40;assets%2Fslides%2F09-Neural_Networks.pdf&#41;<a href="https://youtu.be/zSNe557lhR0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
 
-
 ## Jupyter Notebooks
 
 In-lecture demos will be conducted using Jupyter notebooks, available [here](https://github.com/materialsvirtuallab/nano281/tree/master/lectures/notebooks).
@@ -61,33 +60,33 @@ However, the following are useful to have around:
 1. The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Second Edition
    [Amazon](https://www.amazon.com/dp/0387848576/ref=cm_sw_em_r_mt_dp_U_Z8r8DbR3HMYRE),
    or get the [free online version](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).
-2. Python Data Science Handbook. Buy from [Amazon](https://www.amazon.com/gp/product/1491912057/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) 
+2. Python Data Science Handbook. Buy from [Amazon](https://www.amazon.com/gp/product/1491912057/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
    or get the [free online version](https://jakevdp.github.io/PythonDataScienceHandbook/).
 
 # Labs
 
-There are three lab sessions. The instructions for the first two labs are available via the menu on the left. The 
+There are three lab sessions. The instructions for the first two labs are available via the menu on the left. The
 final lab will be an open problem that will be determined at a later date and will be held via a Kaggle competition.
 
 # Programming language
 
-All lectures and labs will be conducted in Python 3.9+. 
+All lectures and labs will be conducted in Python 3.9+.
 
-For most students, especially those that are new to python, you can simply use the [Google Colab] cloud service to 
-run all lecture notebooks and do all labs. The advantage of using Google Colab is that you do not need bother with 
-installation of python and the necessary libraries in your local machine. 
+For most students, especially those that are new to python, you can simply use the [Google Colab] cloud service to
+run all lecture notebooks and do all labs. The advantage of using Google Colab is that you do not need bother with
+installation of python and the necessary libraries in your local machine.
 
-The main disadvantage of Google Colab is that you have to work in the cloud and often, the compute resources 
-provided will not be as fast as running things on your laptop or any high performance computing system of your 
-choosing. 
+The main disadvantage of Google Colab is that you have to work in the cloud and often, the compute resources
+provided will not be as fast as running things on your laptop or any high performance computing system of your
+choosing.
 
-For serious work, you can follow the [instructions provided](setup) to install Python and 
+For serious work, you can follow the [instructions provided](setup) to install Python and
 the necessary libraries for this course.
 
 ## Using Google Colab
 
 1. Go to [Google Colab]. Sign in with your Google account (preferably your UCSD one).
-2. If you are working on a lab or creating a new notebook for your own work, exit the textbox and select `File->New 
+2. If you are working on a lab or creating a new notebook for your own work, exit the textbox and select `File->New
    Notebook` from the menu.
 3. If you want to work with the lecture examples, select `File-Open Notebook` from the menu.
 4. Select the `Github` tab.
