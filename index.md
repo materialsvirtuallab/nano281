@@ -26,18 +26,28 @@ application of data science to materials science. The full syllabus is available
 
 # Lecture materials
 
-## Slides
+[//]: # (## Slides)
 
-1. [Course Admin](assets%2Fslides%2F00-Course_Admin.pdf) <a href="https://youtu.be/sUZzoxZPOso"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-2. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf) <a href="https://youtu.be/4KO45XflPB0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-3. [Data Science in Materials Science](assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf) <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-5. [Improving and extending linear models](assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf) <a href="https://youtu.be/bjLn2y8350o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-6. [Linear Classification](assets%2Fslides%2F05-Linear_Classification.pdf) <a href="https://youtu.be/VTcgACBUUYE"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-7. [Unsupervised Learning](assets%2Fslides%2F06-Unsupervised_Learning.pdf) <a href="https://youtu.be/eRI8QLCvE6o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-8. [Kernel Regression](assets%2Fslides%2F07-Kernel_Regression.pdf) <a href="https://youtu.be/WJtI_jyYUKw"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-9. [Generalized Additive Models and Trees](assets%2Fslides%2F08-Generalized_Additive_Models_and_Trees.pdf) <a href="https://youtu.be/NfksZnuGfu4"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
-10. [Neural Networks](assets%2Fslides%2F09-Neural_Networks.pdf)<a href="https://youtu.be/zSNe557lhR0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+[//]: # ()
+[//]: # (1. [Course Admin]&#40;assets%2Fslides%2F00-Course_Admin.pdf&#41; <a href="https://youtu.be/sUZzoxZPOso"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (2. [Python for Data Science]&#40;assets%2Fslides%2F01-Python_for_Data_Science.pdf&#41; <a href="https://youtu.be/4KO45XflPB0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (3. [Data Science in Materials Science]&#40;assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf&#41; <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (4. [Linear Methods]&#40;assets%2Fslides%2F03-Linear_Methods.pdf&#41;  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (5. [Improving and extending linear models]&#40;assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf&#41; <a href="https://youtu.be/bjLn2y8350o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (6. [Linear Classification]&#40;assets%2Fslides%2F05-Linear_Classification.pdf&#41; <a href="https://youtu.be/VTcgACBUUYE"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (7. [Unsupervised Learning]&#40;assets%2Fslides%2F06-Unsupervised_Learning.pdf&#41; <a href="https://youtu.be/eRI8QLCvE6o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (8. [Kernel Regression]&#40;assets%2Fslides%2F07-Kernel_Regression.pdf&#41; <a href="https://youtu.be/WJtI_jyYUKw"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (9. [Generalized Additive Models and Trees]&#40;assets%2Fslides%2F08-Generalized_Additive_Models_and_Trees.pdf&#41; <a href="https://youtu.be/NfksZnuGfu4"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+
+[//]: # (10. [Neural Networks]&#40;assets%2Fslides%2F09-Neural_Networks.pdf&#41;<a href="https://youtu.be/zSNe557lhR0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
 
 
 ## Jupyter Notebooks
