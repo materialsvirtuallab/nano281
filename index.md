@@ -32,9 +32,9 @@ application of data science to materials science. The full syllabus is available
 
 2. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf) <a href="https://youtu.be/4KO45XflPB0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
-[//]: # (3. [Data Science in Materials Science]&#40;assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf&#41; <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+3. [Data Science in Materials Science](assets%2Fslides%2F02-Introduction_to_Data_Science_in_Materials_Science.pdf) <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
-[//]: # (4. [Linear Methods]&#40;assets%2Fslides%2F03-Linear_Methods.pdf&#41;  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
 
 [//]: # (5. [Improving and extending linear models]&#40;assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf&#41; <a href="https://youtu.be/bjLn2y8350o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
 
