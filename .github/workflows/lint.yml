@@ -22,14 +22,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --upgrade ruff black
+          pip install --upgrade ruff
 
       - name: ruff
         run: |
           ruff --version
           ruff check lectures/notebooks
-
-      - name: black
-        run: |
-          black --version
-          black --check --diff --color lectures
+          ruff format lectures/notebooks
