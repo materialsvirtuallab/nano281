@@ -40,7 +40,7 @@ ignore = [
     "SLF", # Access "private" class members
     "T20", # Check for print/pprint
     "TD",  # TODO tags related
-    "E741", "PD901",
+    "E741", "PD901", "EXE", "D103", "E402", "NPY002",
 
     # Single rules
     "B023",    # Function definition does not bind loop variable
