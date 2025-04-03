@@ -24,14 +24,11 @@
 \DeclareMathOperator*{\argmin}{argmin}
 \let \vec \mathbf
 
-\mode<presentation> {
-    \usetheme{CambridgeUS}
-    \setbeamertemplate{footline}[text line]{%
-      \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\insertpagenumber}}
 
-    %\setbeamertemplate{footline}[page number]
-    \setbeamertemplate{navigation symbols}{}
-}
+\usetheme{metropolis}
+
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\metroset{block=fill}
 
 
 \title[Linear Methods]{Linear Methods}
@@ -75,10 +72,6 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \end{frame}
 
 \section{Linear regression}
-
-\begin{frame}{Linear Regression}
-    \Huge{\centerline{Linear Regression}}
-\end{frame} 
 
 \begin{frame}{Simplest possible model between target and feature}
     \begin{equation*}
@@ -185,7 +178,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Example materials data}
     \begin{columns}
-    \begin{column}{0.6\textwidth}
+    \begin{column}{0.7\textwidth}
         \begin{itemize}
             \item Target: Bulk modulus of elements (from Materials Project)
             \item Candidate features:
@@ -197,7 +190,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
                 \item Atomic radius ($r$)
             \end{itemize}
             \item Question: Why these features?
-            \item We will add some transformations of these inputs as well, i.e., the square and square root of the electronegativity and atomic radius.
+            \item We will also add some transformations of these inputs, i.e., the square and square root of the electronegativity and the atomic radius.
     \end{itemize}
     \end{column}
     \begin{column}{0.3\textwidth}
@@ -218,18 +211,16 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \begin{frame}[fragile]{MLR in scikit-learn}
 \inputminted{python}{example_sklearn_mlr.py}
 \begin{itemize}
-    \item Note that x should contain the features only - there is no need to add a 1 column for the intercept. By default, the parameter fit\_intercept in sklearn.linear\_model.LinearRegression is True. You can set it to False to do a MLR without intercept.
+    \item Note that x should contain the features only; there is no need to add a 1 column for the intercept. By default, the parameter \texttt{fit\_intercept} in \texttt{sklearn.linear\_model.LinearRegression} is True. You can set it to False to do a MLR without intercept.
     \item Documentation: \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{link}.
 \end{itemize}
 
 \end{frame} 
 
 
-
-
 \begin{frame}{Hypothesis Testing for Coefficients}
     \begin{itemize}
-        \item To derive insights into a model, we often want to know which of the input parameters are the most relevant to the target.
+        \item To derive insights into a model, we often want to know which among the input parameters are the most relevant to the target.
         \item Under assumptions of the errors in $y$ follow a Gaussian distribution $N(0, \sigma^2)$, the errors in $\hat{\bm{\beta}}$ also have a Gaussian distribution $N(\beta, (\vec{X}^T \vec{X})^{-1} \sigma^2)$
         \item Hypothesis testing can be carried out for whether a particular $\beta_j$ is 0 using the following test statistic:
         \begin{equation*}
@@ -271,16 +262,12 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \section{Model selection}
 
-\begin{frame}{Model selection}
-    \Huge{\centerline{Model selection}}
-\end{frame} 
-
 
 \begin{frame}{Model performance}
     \begin{itemize}
-        \item We will take a brief digression into model assessment and selection before continuing on to other linear methods.
+        \item We will take a brief digression into model assessment and selection before continuing to other linear methods.
         \item Model performance is related to its performance on \textit{independent test data}, i.e., one cannot simply report a model's performance on training data alone.
-        \item Note that this section is deliberately limited to high level concepts that are needed to continue further in exploration of linear methods. A more detailed discussion will be performed in later lectures.
+        \item Note that this section is deliberately limited to high-level concepts that are universally applicable to many different models.
     \end{itemize}
 \end{frame} 
 
@@ -325,16 +312,16 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Training, validation and test data}
     \begin{itemize}
-        \item Model selection: estimating the performance of different models in order to choose the best one.
-        \item Model assessment: having chosen a final model, estimating its prediction error (generalization error) on new data.
-        \item Ideal data-rich situation: Divide data into three parts:
+        \item \textbf{Model selection}: estimating the performance of different models in order to choose the best one.
+        \item \textbf{Model assessment}: having chosen a final model, estimating its prediction error (generalization error) on new data.
+        \item In a data-rich situation, divide data into three parts:
         \begin{itemize}
             \item Training set: For training the model.
             \item Validation set: For estimating prediction error to select the model.
             \item Test set: For assessing the generalization error of the final model.
         \end{itemize}
-        \item Typical training:validation:test split is 50:25:25 or 80:10:10, or in very data-poor situations, maybe even 90:5:5.
-        \item Note that at no point in the model fitting process should the test set be ``seen''.
+        \item Typical training:validation:test splits are 50:25:25 or 80:10:10, or 90:5:5.
+        \item Note that at no point in the model fitting and selection process should the test set be ``seen''.
     \end{itemize}
 \end{frame}
 
@@ -363,7 +350,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \begin{frame}[fragile]{CV in scikit-learn}
 \inputminted{python}{example_sklearn_cv.py}
 \begin{itemize}
-    \item Note that we have customized the KFold object passed to the cross\_validate method. The reason is that our element data is non-random by default. So we want to perform shuffling prior to doing the splits.
+    \item Note that we have customized the \texttt{KFold} object passed to the \texttt{cross\_validate} method. The reason is that our element data is sorted by default, i.e., non-random. So we want to perform shuffling prior to doing the splits.
     \item Documentation: \href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_validate.html?highlight=cross_validate#sklearn.model_selection.cross_validate}{link}.
 \end{itemize}
 \end{frame}

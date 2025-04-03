@@ -10,4 +10,4 @@ with MPRester("<APIKEY>") as mpr:
 print(data)
 import pandas as pd
 
-df = pd.DataFrame([d.dict() for d in data])  # Convert to DataFrame
+df = pd.DataFrame(data)  # Convert to DataFrame

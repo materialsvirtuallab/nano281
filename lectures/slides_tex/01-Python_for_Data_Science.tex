@@ -90,13 +90,13 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \end{itemize}
     \end{frame}
 
-    \begin{frame}{Python 3 or 2?}
+    \begin{frame}{Python Version}
         \begin{itemize}
             \item We will be using Python 3.10+.
             \item Options for this course:
             \begin{itemize}
                 \item Install python on your laptop - faster, not-reliant on internet connection, most modern version of Python possible.
-                \item \href{https://colab.research.google.com/}{Google Colab} - Online Python notebooks. No installation required. But Python version and installed libraries lag the latest versions (sometimes by years).
+                \item \href{https://colab.research.google.com/}{Google Colab} - Online Python notebooks. No installation required. But Python version and installed libraries may lag the latest versions (sometimes by years).
             \end{itemize}
         \end{itemize}
     \end{frame}
@@ -128,10 +128,9 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
     \begin{frame}[fragile]{Virtual environments}
         \begin{itemize}
-            \item Isolated environment for Python projects, i.e., each env has its own Python and packages.
-            \item Both conda and python3 itself comes with the ability to create virtual environments.
+            \item Isolated environment for Python projects, i.e., each env has its own Python and packages. Both conda and python3 itself comes with the ability to create virtual environments.
             \begin{verbatim}
-conda create --name nanox81 python=3.9
+conda create --name nanox81 python=3.10
 conda activate nanox81
             \end{verbatim}
             \item To start over, you can remove the environment:
@@ -142,7 +141,7 @@ conda remove --name nanox81 --all
             \begin{verbatim}
 conda env create -f nanox81_env.yml
             \end{verbatim}
-            \item Example nanox81\_env.yml file given in the \href{https://github.com/materialsvirtuallab/\classname}{\classname Github repo}.
+            \item Example nanox81\_env.yml file given in the \href{https://github.com/materialsvirtuallab/nano281}{\classname Github repo}.
         \end{itemize}
     \end{frame}
 
@@ -175,8 +174,8 @@ conda update numpy
                 \includegraphics[height=0.25\textwidth]{figures/GoogleColab.png}
                 \includegraphics[height=0.25\textwidth]{figures/GoogleColabGithub.png}
             \end{figure}
-            \item Most of the data science packages we will be using in this course are pre-installed.
-            \item To install a missing package (e.g., pymatgen), add the following in the first cell:
+            \item Most of the data science packages we will be using are pre-installed.
+            \item To install a missing package (e.g., pymatgen), run the following in the first cell:
             \begin{verbatim}
     ! pip install pymatgen
             \end{verbatim}
@@ -204,6 +203,7 @@ conda update numpy
             \item[\href{http://pandas.pydata.org/}{pandas}] High-performance, easy to use data structures.
             \item[\href{http://scikit-learn.org/}{scikit-learn}] Tools for predictive data analysis.
             \item[\href{http://www.tensorflow.org/}{TensorFlow}] Library for developing and training ML models.
+            \item[\href{http://pytorch.org/}{PyTorch}] Library for developing and training ML models.
             \item[\href{http://matplotlib.org/}{matplotlib}] De facto plotting library
             \item[\href{http://seaborn.pydata.org/}{seaborn}] Statistical data visualization
         \end{description}
@@ -213,9 +213,9 @@ conda update numpy
     \begin{frame}{Brief note on coverage}
         \begin{itemize}
             \item In the following slides, we will provide a brief background on all these packages, with a heavy focus on actual demos.
-            \item It should be noted that most of these packages have an extensive suite of functionality and it is not possible to comprehensively go through them in this course.
-            \item Focus will be on modules and methods that pertain to the data science problem we are solving. You are expected to learn to navigate the relevant documentation pages of each package (plus a generous amount of googling) to identify the appropriate module or method for what you need to do.
-            \item numpy and scipy are the backbone for many of the other packages such as pandas and scikit-learn. You need to ensure you understand the basics of numpy arrays and how to perform various simple linear algebra operations. In most instances, the actual data science package (scikit-learn) will be the one you interact with most.
+            \item It should be noted that it is not possible to comprehensively the extensive functionality of these packages in this course.
+            \item Focus will be on modules and methods that pertain to the data science problem we are solving. You are expected to navigate the relevant documentation pages of each package (plus a generous amount of googling) to identify the appropriate module or method for what you need to do.
+            \item numpy and scipy are the backbone for many of the other packages such as pandas and scikit-learn. You need to understand the basics of numpy arrays and how to perform various simple linear algebra operations. In most instances, the actual data science package (scikit-learn) will be the one you interact with most.
         \end{itemize}
     \end{frame}
 
@@ -241,7 +241,7 @@ conda update numpy
             \begin{itemize}
                 \item Run code in a cell with `shift+return` - helpful things include tab completion, magic functions (e.g., ?, ! and \% are the key ones to know, especially ?).
                 \item Write text/narrative - set cell to markdown mode and write markdown.
-                \item Make plots (highly recommend that you put ``\%matplotlib inline'' near the start of your notebook to display graphs inline).
+                \item Make plots.
             \end{itemize}
             \item Very useful for quick code prototyping and data analysis.
         \end{itemize}
@@ -255,8 +255,8 @@ conda update numpy
             \item Vectorization of operations, as opposed to loops, is key to efficiency.
             \item Recommend that you focus on the array object and ignore the matrix object.
             \item Note that standard operations such as +, -, * and / for np.arrays are element-wise. For matrix multiplications, use special numpy functions, e.g., numpy.dot or the new @ operator available in Python 3.7 and above.
-            \item For those of you who are familiar with Matlab, it helps to read the \href{https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html}{Numpy for Matlab users doc}.
-            \item Documentation: \href{http://docs.scipy.org/doc/numpy/}{link}
+            \item For those of you who are familiar with Matlab, it helps to read the \href{http://numpy.org/doc/stable/user/numpy-for-matlab-users.html}{Numpy for Matlab users doc}.
+            \item Documentation: \href{http://numpy.org/doc/stable/}{link}
         \end{itemize}
     \end{frame}
 
@@ -272,7 +272,7 @@ conda update numpy
             \item scipy.linalg is a superset of numpy.linalg, and is always compiled with BLAS/LAPACK. So use scipy.linalg.
             \item Dependency for most other packages you will be using.
             \inputminted{python}{example_scipy.py}
-            \item Documentation: \href{https://docs.scipy.org/doc/scipy/reference/}{link}
+            \item Documentation: \href{http://docs.scipy.org/doc/scipy/}{link}
             \item Scipy lectures (very useful resource): \href{https://scipy-lectures.org/}{link}
         \end{itemize}
     \end{frame}
@@ -288,7 +288,7 @@ conda update numpy
                 \item[DataFrame] 2D labeled, size-mutable tabular structure with potentially heterogeneously-typed column
             \end{description}
             \item It is helpful to think of DataFrame as essentially a Python object representing the contents of a table, e.g. such as what you would have in Excel spreadsheet. This is similar to the dataframe in R.
-            \item Please go through the \href{http://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html}{10 minute guide to pandas}.
+            \item Please go through the \href{http://pandas.pydata.org/docs/user_guide/index.html}{Pandas Guide}.
         \end{itemize}
     \end{frame}
 
@@ -301,12 +301,12 @@ conda update numpy
     \end{frame}
 
 
-    \begin{frame}{scikit-learn \& TensorFlow}
+    \begin{frame}{scikit-learn \& TensorFlow \& PyTorch}
         \begin{itemize}
             \item Packages for machine learning.
-            \item To some extent, scikit-learn and TensorFlow (TF) overlap in functionality.
-            \item For the purposes of this course, we will use mainly scikit-learn for ML and will briefly touch on TF for neural networks.
-            \item We will defer all specific code examples for scikit-learn and TF until we go through specific types of ML models, e.g., linear regression, kernel regression, etc. Having the theory background of the ML methods will make it easier to understand the code usage and implementations.
+            \item To some extent, scikit-learn, TensorFlow (TF) and PyTorch overlap in functionality.
+            \item For the purposes of this course, we will use mainly scikit-learn for ML and will briefly touch on TF/PyTorch for neural networks.
+            \item We will defer all specific code examples for scikit-learn until we go through specific types of ML models, e.g., linear regression, kernel regression, etc. Having the theory background of the ML methods will make it easier to understand the code usage and implementations.
             \item Instead, we will provide an overview of the high-level API design of scikit-learn.
         \end{itemize}
     \end{frame}
@@ -324,7 +324,6 @@ conda update numpy
 
     \begin{frame}[fragile]{Matplotlib and Seaborn}
         \begin{itemize}
-            \item Plotting libraries.
             \item Matplotlib is the de facto library for generating all kinds of plots and many other plotting engines (including seaborn) are built on top of it
             \item seaborn is a extremely helpful package for statistical data visualization. Works very well with Pandas DataFrame.
             \inputminted{python}{example_plotting.py}
