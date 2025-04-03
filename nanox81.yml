@@ -4,11 +4,11 @@ channels:
   - conda-forge
 dependencies:
   - python=3.11.4
-  - jupyter=1.0.0
-  - matplotlib=3.5.2
-  - pandas==2.1.1
-  - scikit-learn==1.2.2
-  - seaborn==0.12.2
-  - statsmodels=0.12.2
+  - jupyter=1.1.1
+  - matplotlib=3.10.1
+  - pandas==2.2.3
+  - scikit-learn==1.6.1
+  - seaborn==0.13.2
+  - statsmodels=0.14.4
   - pip:
-    - pymatgen==2023.10.4
+    - pymatgen==2025.3.10
