@@ -65,12 +65,16 @@ executing==2.2.0
     # via stack-data
 fastjsonschema==2.21.1
     # via nbformat
+filelock==3.18.0
+    # via torch
 flatbuffers==25.2.10
     # via tensorflow
 fonttools==4.57.0
     # via matplotlib
 fqdn==1.5.1
     # via jsonschema
+fsspec==2025.3.2
+    # via torch
 gast==0.6.0
     # via tensorflow
 google-pasta==0.2.0
@@ -120,6 +124,7 @@ jinja2==3.1.6
     #   jupyterlab
     #   jupyterlab-server
     #   nbconvert
+    #   torch
 joblib==1.4.2
     # via
     #   pymatgen
@@ -240,7 +245,9 @@ nbmake==1.5.5
 nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.4.2
-    # via pymatgen
+    # via
+    #   pymatgen
+    #   torch
 notebook==7.3.3
     # via jupyter
 notebook-shim==0.2.4
@@ -434,8 +441,10 @@ stack-data==0.6.3
     # via ipython
 statsmodels==0.14.4
     # via nano281 (pyproject.toml)
-sympy==1.13.3
-    # via pymatgen
+sympy==1.13.1
+    # via
+    #   pymatgen
+    #   torch
 tabulate==0.9.0
     # via pymatgen
 tensorboard==2.19.0
@@ -460,6 +469,8 @@ tomli==2.2.1
     # via
     #   jupyterlab
     #   pytest
+torch==2.6.0
+    # via nano281 (pyproject.toml)
 tornado==6.4.2
     # via
     #   ipykernel
@@ -500,6 +511,7 @@ typing-extensions==4.13.1
     #   rich
     #   spglib
     #   tensorflow
+    #   torch
 tzdata==2025.2
     # via pandas
 uncertainties==3.2.2
