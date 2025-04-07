@@ -57,7 +57,7 @@ Two 80-minute lectures per week and three computational laboratory sessions
 
 ## Course Objectives
 
-1. To provide students with a foundation in data science techniques, with practical examples rooted in materials science domain applications. 
+1. To provide students with a foundation in data science techniques, with practical examples rooted in materials science domain applications.
 2. To provide hands-on experience in the use of the Python programming language for data science
 3. To inculcate best practices in developing and interpreting machine learning models for materials property predictions.
 

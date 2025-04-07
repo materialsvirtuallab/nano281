@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from scipy import stats  # Statistics package
 
 dist = stats.norm(0, 1)  # Gaussian distribution

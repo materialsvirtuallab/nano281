@@ -9,14 +9,14 @@
 \usepackage{tikz}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16} 
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 \newcommand{\classname}{NANOx81R}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=red,
 }
 
@@ -128,11 +128,11 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \vec{y} = \begin{pmatrix}y_1\\y_2\\...\\y_n\end{pmatrix}, \bm{\beta} = \begin{pmatrix}\beta_0\\\beta_1\\...\\\beta_p\end{pmatrix}, \vec{X} = \begin{pmatrix}1 & x_{11} & x_{12} & ... & x_{1p}\\
         1 & x_{21} & x_{22} & ... & x_{2p}\\
         \vdots & & & & \\
-        1 & x_{N1} & x_{N2} & ... & x_{Np}\end{pmatrix}, 
+        1 & x_{N1} & x_{N2} & ... & x_{Np}\end{pmatrix},
     \end{equation*}
-    So, 
+    So,
     \begin{equation*}
-        \vec{y} = \vec{X}\bm{\beta} 
+        \vec{y} = \vec{X}\bm{\beta}
     \end{equation*}
     Note that $\vec{y}$ is a $N \times 1$ vector,
     $\bm{\beta}$ is a $(p+1) \times 1$ vector, and $\vec{X}$ is a  $N \times (p+1)$ matrix.
@@ -146,7 +146,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
     Assuming (for the moment) that $\vec{X}$ has full column rank, and hence $\vec{X}^T\vec{X}$ is positive definite, It can be shown using the same principles that the following unique solution for $\bm{\beta}$ is:
     \begin{eqnarray*}
         \hat{\bm{\beta}} &=& (\vec{X}^T \vec{X})^{-1} \vec{X}^T \vec{y} \\
-        \hat{\vec{y}} & = & \vec{X} \hat{\bm{\beta}} = \vec{X}(\vec{X}^T \vec{X})^{-1} \vec{X}^T \vec{y} 
+        \hat{\vec{y}} & = & \vec{X} \hat{\bm{\beta}} = \vec{X}(\vec{X}^T \vec{X})^{-1} \vec{X}^T \vec{y}
     \end{eqnarray*}
 \end{frame}
 
@@ -200,12 +200,12 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
     \end{figure}
     \end{column}
 \end{columns}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}[fragile]{Using pandas for easy data manipulation}
     \inputminted{python}{example_pandas_data_manipulation.py}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}[fragile]{MLR in scikit-learn}
@@ -215,7 +215,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
     \item Documentation: \href{https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html}{link}.
 \end{itemize}
 
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Hypothesis Testing for Coefficients}
@@ -228,7 +228,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \end{equation*}
         where $v_j$ is the $j$th diagonal element of $(\vec{X}^T \vec{X})^{-1}$. $t_j$ has a $t$ distribution with $N-p-1$ degrees of freedom (dof).
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Hypothesis Testing for Groups of Coefficients}
@@ -240,7 +240,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \end{equation*}
         where $\mathrm{RSS}_0$ is the RSS of the larger model with $p_0 + 1$ parameters and $\mathrm{RSS}_1$ is the RSS of the smaller model with $p_1 + 1$ parameters with $p_0 - p_1$ parameters set to zero. The $F$ statistic has a distribution of $F_{p_1-p_0,N-p_1-1}$.
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Gauss-Markov Theorem}
@@ -269,7 +269,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \item Model performance is related to its performance on \textit{independent test data}, i.e., one cannot simply report a model's performance on training data alone.
         \item Note that this section is deliberately limited to high-level concepts that are universally applicable to many different models.
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Typical measures of model performance}
@@ -290,7 +290,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Training and test errors with model complexity}
     \begin{itemize}
-        \item Model complexity increases as the number of parameters increases (e.g., number of independent variables in MLR). 
+        \item Model complexity increases as the number of parameters increases (e.g., number of independent variables in MLR).
         \item Training errors \textbf{always} decrease with increasing model complexity.
         \item However, test errors do not have a monotonic relationship with model complexity. Test errors are high when model complexity is too low (underfitting) or too high (overfitting).
     \end{itemize}
@@ -402,4 +402,3 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \end{frame}
 
 \end{document}
-

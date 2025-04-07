@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 model = Model(**params)  # Init a model with parameters.
 model.get_params()  # Get model parameters.
 model.set_params(**params)  # Set model parameters

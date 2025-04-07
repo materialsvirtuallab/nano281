@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from sklearn.ensemble import GradientBoostingClassifier, GradientBoostingRegressor
 
 model = GradientBoostingClassifier(n_estimators=50)

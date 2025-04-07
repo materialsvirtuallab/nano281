@@ -6,12 +6,12 @@ nav_order: 3
 
 # Setting up your own Python environment
 
-If you are not using Google Colab, you will need to setup a working Python environment with all the necessary 
-dependencies. You only need to do this once. There are alternative approaches to setting up your machine, but the 
-approach outlined here is guaranteed to work and is reproducible. Your instructors would be better able to assist if 
+If you are not using Google Colab, you will need to setup a working Python environment with all the necessary
+dependencies. You only need to do this once. There are alternative approaches to setting up your machine, but the
+approach outlined here is guaranteed to work and is reproducible. Your instructors would be better able to assist if
 there are issues in the installation.
 
-1. Download the Python 3.11+ version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) 
+1. Download the Python 3.11+ version of [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
    (recommended) or [Anaconda](https://www.anaconda.com/distribution/) for your OS.
 2. Follow the official instructions and install Miniconda/Anaconda.
 3. Start the terminal (Mac/Linux) or Anaconda Prompt (Windows).
@@ -28,7 +28,7 @@ conda activate NANOx81
 conda install --yes numpy scipy matplotlib pandas jupyter seaborn scikit-learn
 pip install pymatgen --upgrade
 ```
-7. An alternative to steps 4-6 is to download the [nanox81_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/NANO281/master/nanox81_env.yml) 
+7. An alternative to steps 4-6 is to download the [nanox81_env.yml](https://raw.githubusercontent.com/materialsvirtuallab/NANO281/master/nanox81_env.yml)
    file from the Github repo and create the environment directly.
 ```bash
 conda env create -f nanox81_env.yml

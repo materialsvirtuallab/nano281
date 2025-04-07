@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from sklearn.ensemble import AdaBoostClassifier
 
 x_train, x_test, y_train, y_test = train_test_split(x, y_class, test_size=0.2)

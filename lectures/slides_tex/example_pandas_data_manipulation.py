@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import pandas as pd
 
 # Read in data and set first column as index.

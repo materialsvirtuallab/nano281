@@ -9,13 +9,13 @@
 \usepackage{tikz}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16} 
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=red,
 }
 
@@ -74,7 +74,7 @@
         \begin{equation*}
             z_i \sim g_{\theta}(z)
         \end{equation*}
-        \item Also, known as a parametric model for $Z$, with $\theta$ being unknown parameter that govern the distribution. 
+        \item Also, known as a parametric model for $Z$, with $\theta$ being unknown parameter that govern the distribution.
         \item Let us assume that $Z$ has a normal distribution ($\theta = (\mu, \sigma^2)$):
         \begin{equation*}
             g_{\theta} = \frac{1}{\sqrt{2\pi}\sigma} e^{-\frac{(z-\mu)^2}{2\sigma^2}}
@@ -84,7 +84,7 @@
             L(\theta; \vec{Z}) = \prod_{i=1}^N g_{\theta}(z_i)
         \end{equation*}
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Maximum Likelihood Inference, cont.}
@@ -174,4 +174,3 @@
 \end{frame}
 
 \end{document}
-

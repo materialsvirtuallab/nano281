@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 x = 1  # integer
 y = 2.0  # float
 my_string = "Hello world"  # string

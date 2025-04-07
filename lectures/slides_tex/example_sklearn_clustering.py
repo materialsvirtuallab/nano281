@@ -1,14 +1,15 @@
 # Reading images using matplotlib
-from matplotlib import image
+from __future__ import annotations
+
 import matplotlib.pyplot as plt
-import numpy as np
+from matplotlib import image
 
 # load image as numpy array.
 data = image.imread("example.png")
 # Display image
 plt.imshow(data)
 
-from sklearn.cluster import kmeans, DBSCAN
+from sklearn.cluster import DBSCAN
 
 clustering = KMeans(k).fit(X)
 print(clustering.labels_)

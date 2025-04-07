@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import pandas as pd
 
 url = "https://ndownloader.figshare.com/files/13007075"

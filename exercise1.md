@@ -11,7 +11,7 @@ This short exercise is meant to provide a quick guide to various features in the
 Scientific Python packages. It is highly recommended that all students attempt this exercise prior to the solutions
 being posted.
 
-1. Write a Python method using only the standard library - no external packages or methods - to compute the distance 
+1. Write a Python method using only the standard library - no external packages or methods - to compute the distance
    between the points (x1, y1) and (x2, y2). Make sure you test it out properly.
 2. Do the same thing as (1) but using built-in numpy methods.
 3. Write a Python class (please refer to [Python documentation](https://docs.python.org/3/tutorial/classes.html) to
