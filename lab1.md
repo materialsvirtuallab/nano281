@@ -12,7 +12,7 @@ data using various open-source Python tools.
 
 # Getting started
 
-If you have not already done so, please follow the [setup instructions](setup) to set up your computer. You may 
+If you have not already done so, please follow the [setup instructions](setup) to set up your computer. You may
 alternatively use [Google Colab](https://colab.research.google.com/) to do this lab,
 in which case you can skip directly to step 3.
 
@@ -24,12 +24,12 @@ conda activate NANOx81
 ```bash
 jupyter notebook
 ```
-3. Create a Python 3 notebook and rename it `NANOx81-lab1-<first_name>-<last_name>`. This is important because I expect 
+3. Create a Python 3 notebook and rename it `NANOx81-lab1-<first_name>-<last_name>`. This is important because I expect
    to be receiving a notebook from every student.
 
 # Assessment criteria
 
-Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells, 
+Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells,
 etc. and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for
 your instructors to find the answers, the better.
 
@@ -56,7 +56,7 @@ We will explore various sources of materials data:
 ## Q1 - Materials Project data (38 points)
 
 Using pymatgen (or any alternative approach), query the Materials Project for the following properties of all ABO3 type
-compounds: 
+compounds:
 
 - materials project identifier (material_id)
 - formula of the compound
@@ -87,7 +87,7 @@ Answer the following questions:
 4. The formation energies in the Materials Project are given in eV/atom. Create an additional column in your dataset
    that has the formation energies in J/mol. (4 points)
 5. Let us assume that materials with energy above hull of >0.03 eV/atom are `unstable` and are `potentially stable`
-   otherwise. Furthermore, band gaps (E_g) of E_g = 0, 0 < E_g ≤ 1, E_g > 1 are indicative of `metallic`, 
+   otherwise. Furthermore, band gaps (E_g) of E_g = 0, 0 < E_g ≤ 1, E_g > 1 are indicative of `metallic`,
    `small band gap`, `large band gap` for the materials. Create a table of the number of ABO3 crystals in each joint
    category, e.g., `(unstable, metallic)`, `(unstable, small band gap)`, etc. (10 points)
 6. Plot the distribution of (a) the formation energies per atom (in eV/atom) and (b) the band gaps of all the materials.

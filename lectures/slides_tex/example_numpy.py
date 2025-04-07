@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import numpy as np
 
 x = np.array([[1, 2, 3], [4, 7, 6], [9, 4, 2]])

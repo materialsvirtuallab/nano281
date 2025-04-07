@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from pymatgen.ext.matproj import MPRester
 
 # Change "<APIKEY>" to the API key obtained from MP.

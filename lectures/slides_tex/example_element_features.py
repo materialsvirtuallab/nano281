@@ -1,5 +1,8 @@
+from __future__ import annotations
+
 import numpy as np
 import pandas as pd
+
 from pymatgen.core import Composition
 
 binaries = pd.read_csv("binary_band_gap.csv")

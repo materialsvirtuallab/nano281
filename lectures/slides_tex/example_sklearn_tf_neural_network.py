@@ -1,12 +1,12 @@
+from __future__ import annotations
+
 from sklearn.neural_network import MLPRegressor
 
-nn = MLPRegressor(
-    hidden_layer_sizes=(5, 3), alpha=1e-4, max_iter=200, learning_rate_init=0.01
-)
+nn = MLPRegressor(hidden_layer_sizes=(5, 3), alpha=1e-4, max_iter=200, learning_rate_init=0.01)
 nn.fit(x, y_reg)
 
 # Equivalent Tensorflow 2.0
-from tensorflow.keras import Model, Input
+from tensorflow.keras import Input, Model
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.optimizers import Adam
 

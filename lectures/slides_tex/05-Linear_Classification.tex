@@ -9,13 +9,13 @@
 \usepackage{tikz}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16} 
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=red,
 }
 
@@ -78,7 +78,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}[fragile]{Creating the features and classes}
 \inputminted{python}{example_element_features.py}
-\end{frame} 
+\end{frame}
 
 
 \section{Basic concepts}
@@ -95,11 +95,11 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
             \end{pmatrix}
         \end{equation*}
         \item For the $k$th response variable, the fitted $\hat{f_k}(x) = \hat{\beta_{k0}} + \hat{\beta_{k}^T}x$.
-        \item Decision boundary between $k$ and $l$ class is given by $\hat{f_k}(x) = \hat{f_l}(x)$. 
+        \item Decision boundary between $k$ and $l$ class is given by $\hat{f_k}(x) = \hat{f_l}(x)$.
         \item Input is divided into regions.
         \item Similar to linear regression, we can augment the input space with polynomial (e.g., $X_1^2, X_2^s, X_1X_2$) and other basis functions, leading to boundaries that are non-linear.
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}
@@ -121,7 +121,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \includegraphics[width=0.8\textwidth]{figures/linearclassifier.pdf}
     \end{figure}
 \end{columns}
-\end{frame} 
+\end{frame}
 
 
 \section{Discriminant Analysis}
@@ -138,7 +138,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
             f_k(x) = \frac{1}{(2\pi)^{p/2}|\Sigma_k|^{1/2}}\exp{-\frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1}(x-\mu_k)}
         \end{equation*}
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Linear Discriminant Analysis}
@@ -196,7 +196,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}[fragile]{Discriminant analysis in scikit-learn}
 \inputminted{python}{example_sklearn_discriminant_analysis.py}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Logistic regression}
@@ -214,7 +214,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
             P(G=K|X=x) & = & \frac{1}{1 + \sum_{l=1}^{K-1}\exp{(\beta_{l0} + \beta_l^T x})}
         \end{eqnarray*}
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Solving for the Logistic Regression Coefficients}
@@ -224,9 +224,9 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
             l(\beta) = \sum_{i=1}^N \log {P(G = k | X = x i; \beta)}
         \end{equation*}
         \item Differentiation and setting $\frac{\partial{l}}{\partial{\beta}} = 0$ leads to equations that are non-linear in $\beta$.
-        \item These equations are solved using some optimization algorithm (e.g., Newton-Raphson, BFGS, etc.). 
+        \item These equations are solved using some optimization algorithm (e.g., Newton-Raphson, BFGS, etc.).
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}[fragile]{Logistic regression on metal/insulator dataset}
@@ -235,7 +235,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/logistic_metal_insulator.png}
 \end{figure}
-\end{frame} 
+\end{frame}
 
 \begin{frame}{Loss functions for binary classification}
     \begin{itemize}
@@ -266,4 +266,3 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \end{frame}
 
 \end{document}
-

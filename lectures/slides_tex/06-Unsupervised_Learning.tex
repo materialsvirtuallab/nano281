@@ -9,13 +9,13 @@
 \usepackage{tikz}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16} 
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=red,
 }
 
@@ -57,7 +57,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \begin{frame}{Preliminaries}
     \begin{itemize}
         \item Here, we will take a digression from the \textbf{supervised learning} that we have focused on so far, and go into \textbf{unsupervised learning}.
-        \item In supervised learning, model development is carried out with a set of input/output examples (training data). 
+        \item In supervised learning, model development is carried out with a set of input/output examples (training data).
         \item In unsupervised learning, the goal is to infer the properties of a set of data (e.g., its distribution) without training examples.
         \item We will include dimensionality reduction techniques within the umbrella of unsupervised learning.
     \end{itemize}
@@ -82,7 +82,7 @@ Unsupervised Learning
 \end{itemize}
 
 \end{columns}
-\end{frame} 
+\end{frame}
 
 
 \section{Principal Component Analysis}
@@ -102,7 +102,7 @@ Unsupervised Learning
             \min_{\vec{\mu}, \vec{V_q}, \vec{\lambda}} \sum_{i=1}^N ||\vec{x_i} - \vec{\mu} - \vec{V_q}\vec{\lambda_i}||^2
         \end{equation*}
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 \begin{frame}{Solution}
     \begin{itemize}
@@ -116,7 +116,7 @@ Unsupervised Learning
           \min_{\vec{V_q}} \sum_{i=1}^N ||(\vec{x_i}-\bar{\vec{x}}) - \vec{V_q}\vec{V_q}^T(\vec{x_i}-\bar{\vec{x}})||^2
         \end{equation*}
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 \begin{frame}{Solution, contd.}
     \begin{itemize}
@@ -125,10 +125,10 @@ Unsupervised Learning
             \vec{X} = \vec{U}\vec{D}\vec{V}^T
         \end{equation*}
         \item $\vec{U}$ is an $N \times p$ orthogonal matrix, $\vec{D}$ is a $p\times p $ diagonal matrix with singular values $d_1 > d_2 > ... > d_p$ and $\vec{V}$ is $p \times p$ orthogonal matrix with right singular vectors $\vec{v_1}, \vec{v_2}, ...\vec{v_p}$ as columns.
-        \item $\vec{UD}$ are the principal components. 
+        \item $\vec{UD}$ are the principal components.
         \item $\vec{Xv_1}$ has highest variance among all linear combination of features, followed by $\vec{Xv_2}$, $\vec{Xv_3}$, etc.
     \end{itemize}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Linear regression of bulk modulus on first two PCAs of elemental features}
@@ -137,12 +137,12 @@ Unsupervised Learning
     \includegraphics[width=0.47\textwidth]{figures/pca-elements.png}
     \includegraphics[width=0.45\textwidth]{figures/pca-regression.png}
 \end{figure}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}[fragile]{Code}
 \inputminted{python}{example_sklearn_pca.py}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Example of linear regression on PCA components}
@@ -150,7 +150,7 @@ Unsupervised Learning
     \centering
     \includegraphics[width=0.45\textwidth]{figures/pca-regression.png}
 \end{figure}
-\end{frame} 
+\end{frame}
 
 \begin{frame}{Extensions to PCA}
     \begin{itemize}
@@ -203,7 +203,7 @@ Unsupervised Learning
             \includegraphics[width=0.18\textwidth]{figures/k-means-step-4.png}
             \caption{Four steps of K-means algorithm. Source: Wikipedia}
         \end{figure}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Practical considerations}
@@ -228,7 +228,7 @@ Unsupervised Learning
     \begin{itemize}
         \item Does not require specific of number of clusters.
         \item Require dissimilarity measure.
-        \item Produce hierarchical representations in which the clusters at each level of the hierarchy are created by merging clusters at the next lower level. 
+        \item Produce hierarchical representations in which the clusters at each level of the hierarchy are created by merging clusters at the next lower level.
         \item Two paradigms: agglomerative (bottom-up merging) and divisive (top-down splitting).
         \item Typically shown in a dendrogram.
     \end{itemize}
@@ -248,10 +248,10 @@ Unsupervised Learning
     \begin{itemize}
         \item Clusters are defined as areas of higher density.
         \item Most popular variant is Density-based spatial clustering of applications with noise (DBSCAN).\cite{esterDensityBasedAlgorithmDiscovering}
-        \item DBSCAN groups together points that are closely packed together and marks points that lie alone in low-density regions as outliers. 
+        \item DBSCAN groups together points that are closely packed together and marks points that lie alone in low-density regions as outliers.
         \item Key parameters of the DBSCAN algorithm are:
         \begin{itemize}
-            \item eps: Max distance between two samples for one to be considered as in the neighborhood of the other. 
+            \item eps: Max distance between two samples for one to be considered as in the neighborhood of the other.
             \item min\_samples: No. of samples in a neighborhood for a point to be considered as a core point.
         \end{itemize}
     \end{itemize}
@@ -277,4 +277,3 @@ Unsupervised Learning
 \end{frame}
 
 \end{document}
-

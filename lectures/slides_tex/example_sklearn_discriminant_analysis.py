@@ -1,7 +1,6 @@
-from sklearn.discriminant_analysis import (
-    LinearDiscriminantAnalysis,
-    QuadraticDiscriminantAnalysis,
-)
+from __future__ import annotations
+
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
 
 lda = LinearDiscriminantAnalysis(solver="svd", store_covariance=True)
 X = binaries[["mean_X", "diff_X"]]

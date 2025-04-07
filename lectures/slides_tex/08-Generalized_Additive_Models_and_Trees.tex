@@ -9,13 +9,13 @@
 \usepackage{tikz}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16} 
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=red,
 }
 
@@ -56,7 +56,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Preliminaries}
     \begin{itemize}
-        \item We have covered two broad categories of methods for regression - the highly rigid linear methods and the very flexible local methods such as kNN. 
+        \item We have covered two broad categories of methods for regression - the highly rigid linear methods and the very flexible local methods such as kNN.
         \item There exist an entire spectrum of methods that assuming some structured form for the unknown regression function in between these two extremes.
     \end{itemize}
 \end{frame}
@@ -69,7 +69,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \begin{equation*}
             E[Y|X_1, X_2, ..., X_p] = \alpha + \sum_{j=1}^p f_j(X_j)
         \end{equation*}
-        \item If $f_j$ are expanded in terms of basis functions, this reduces to a least squares fit. 
+        \item If $f_j$ are expanded in terms of basis functions, this reduces to a least squares fit.
         \item For generalized additive models, we fit each function using a scatterplot smoother, e.g., cubic spline or kernel smoother.
         \item Penalized residual sum of squares is given as:
         \begin{equation*}
@@ -93,7 +93,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
                 \hat{f_j} &\longleftarrow & \hat{f_j} - \frac{1}{N} \sum_{i=1}^N \hat{f_j}(x_{ij})
             \end{eqnarray*}
         \end{enumerate}
-        \item Conceptually, fitting a cubic smoothing spline $S_j$ to the residual $y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})$ for each $f_j$, and iterate until all $\hat{f_j}$s stabilize.  
+        \item Conceptually, fitting a cubic smoothing spline $S_j$ to the residual $y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})$ for each $f_j$, and iterate until all $\hat{f_j}$s stabilize.
     \end{itemize}
 \end{frame}
 
@@ -150,7 +150,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Cost-Complexity Tree Pruning}
     \begin{itemize}
-        \item Generate the tree until a minimum node size is achieved. 
+        \item Generate the tree until a minimum node size is achieved.
         \item Note: perfect performance on training data can always be obtained with an arbitrarily large tree, e.g., when the final `leaf' nodes each contain only one training observation.
         \item Number of samples in a node is therefore an indicator of tree complexity.
         \item Let subtree $T \subset T_0$ be any tree that can be obtained by pruning $T_0$.
@@ -166,7 +166,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Classification Trees}
     \begin{itemize}
-        \item Instead of squared error, we need to use alternative \textit{node impurity} measures: 
+        \item Instead of squared error, we need to use alternative \textit{node impurity} measures:
         \begin{description}
         \item[Misclassification error] $1/N_m \sum_{i \in R_m} I(y_i \neq k(m)) = 1-\hat{p_{mk(m)}}$
         \item[Gini index] $\sum_{k \neq k'} \hat{p_{mk}}\hat{p_{mk'}}$
@@ -235,7 +235,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \end{figure}
 \scriptsize{
 \begin{itemize}
-    \item Compounds with mean $\chi \leq 2.03$ are mostly classified as metals. 
+    \item Compounds with mean $\chi \leq 2.03$ are mostly classified as metals.
     \item Compounds with mean $\chi > 2.03$ are classified as insulators, i.e., mostly ionic compounds containing chalcogenides and halides with high $\chi$.
 \end{itemize}}
 \column{0.5\textwidth}
@@ -409,7 +409,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
     \begin{itemize}
         \item We can think of the algorithm in Slide \ref{frame:adaboost} as essentially a forward stage-wise fit of an additive model $f(x) = \sum_{m=1}^M \alpha_m G_m(x)$ (refer to \cite{hastieElementsStatisticalLearning2016} for details).
         \item Greedy approach in that it seeks to maximally reduce the loss at each step, i.e., steepest descent, by adjusting the weights iteratively.
-        \item In contrast, \textit{gradient boosting} attempts to fit a new learner to the residuals of the errors from the previous step. 
+        \item In contrast, \textit{gradient boosting} attempts to fit a new learner to the residuals of the errors from the previous step.
     \end{itemize}
 \end{columns}
 \end{frame}
@@ -433,7 +433,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
         \begin{equation*}
             L(y, f(x)) = \left\{ \begin{array}{cc}
                 (y - f(x))^2 & |y-f(x)| \leq \delta \\
-                2\delta (y-f(x) - \delta^2 & otherwise 
+                2\delta (y-f(x) - \delta^2 & otherwise
             \end{array}\right.
         \end{equation*}
     \end{itemize}
@@ -477,7 +477,7 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
             \item Split node into two daughter nodes.
             \item Repeat until minimum node size is reached.
         \end{enumerate}
-        
+
     \end{itemize}
 \end{frame}
 
@@ -522,4 +522,3 @@ FPR & = & \frac{FP}{N} = \frac{FP}{TN + FP}
 \end{frame}
 
 \end{document}
-

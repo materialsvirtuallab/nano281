@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from sklearn.decomposition import PCA
 
 pca = PCA()
@@ -7,7 +9,7 @@ print(pca.explained_variance_)
 
 # Linear regression using PCA components
 from sklearn import linear_model
-from sklearn.model_selection import cross_val_predict, KFold
+from sklearn.model_selection import KFold, cross_val_predict
 
 kfold = KFold(n_splits=5, shuffle=True, random_state=42)
 mlr = linear_model.LinearRegression()

@@ -9,14 +9,14 @@
 \usepackage{tikz}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.16} 
+\pgfplotsset{compat=1.16}
 \setminted{fontsize=\scriptsize}
 \usepackage{multirow}
 
 \hypersetup{
     colorlinks=true,
     linkcolor=red,
-    filecolor=magenta,      
+    filecolor=magenta,
     urlcolor=red,
 }
 
@@ -79,7 +79,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \item Types of problems that can most benefit from data science:
         \begin{itemize}
             \item Things that are still too difficult to perform experiments on or compute.
-            \item Relationships that are beyond our understanding (at the present moment). 
+            \item Relationships that are beyond our understanding (at the present moment).
         \end{itemize}
     \end{itemize}
 \end{frame}
@@ -138,7 +138,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
             \item Training error: $L$ over training set.
             \item Test error: $L$ over independent test set.
         \end{itemize}
-        \item Model complexity increases as the number of parameters increases. 
+        \item Model complexity increases as the number of parameters increases.
         \item Training errors \textbf{always} decrease with increasing model complexity.
         \item Test errors are high when model complexity is too low (underfitting) or too high (overfitting).
     \end{itemize}
@@ -146,7 +146,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \centering
         \includegraphics[width=0.25\textwidth]{figures/fig7-1.pdf}
     \end{figure}
-\end{frame} 
+\end{frame}
 
 
 \begin{frame}{Training, validation and test data}
@@ -301,7 +301,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \begin{frame}{Dataset}
     \begin{itemize}
         \item $\sim$ 42,000 crystals from Crystallography Open Database
-        \item We have already sampled the crystals in a way to somewhat equalize the number of crystals in each Bravais lattice type (note that the actual distribution in the literature is highly biased towards certain lattices).  
+        \item We have already sampled the crystals in a way to somewhat equalize the number of crystals in each Bravais lattice type (note that the actual distribution in the literature is highly biased towards certain lattices).
     \end{itemize}
     \begin{figure}
         \centering
@@ -320,10 +320,10 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 \begin{frame}{Task}
     \begin{itemize}
-        \item Develop a ML model to classify an XRD pattern into one of the 14 Bravais lattices. 
-        \item Experiment with any of the ML models that you have learnt, and play around with various parameters. 
-        \item \textbf{Hint:} use smaller sample of 10,000 data points to experiment with different models first, before using full data set to do serious model building and optimization. 
-        \item Show all parameter optimizations carried out, e.g., grid search. Demonstrate the usage of at least two types of ML model. 
+        \item Develop a ML model to classify an XRD pattern into one of the 14 Bravais lattices.
+        \item Experiment with any of the ML models that you have learnt, and play around with various parameters.
+        \item \textbf{Hint:} use smaller sample of 10,000 data points to experiment with different models first, before using full data set to do serious model building and optimization.
+        \item Show all parameter optimizations carried out, e.g., grid search. Demonstrate the usage of at least two types of ML model.
         \item Submission should be done in two places:
         \begin{itemize}
             \item Kaggle, which will have a leaderboard.
@@ -347,7 +347,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \item Sign up for Kaggle account.
         \item Download the dataset.
         \item Start building your models.
-        \item Submission: Please submit at least one model 
+        \item Submission: Please submit at least one model
     \end{itemize}
 \end{frame}
 
@@ -370,4 +370,3 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \end{frame}
 
 \end{document}
-
