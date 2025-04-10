@@ -28,15 +28,15 @@ application of data science to materials science. The full syllabus is available
 
 ## Slides
 
-1. [Course Admin](assets%2Fslides%2F00-Course_Admin.pdf) <a href="https://youtu.be/sUZzoxZPOso"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+[Course Admin](assets%2Fslides%2F00-Course_Admin.pdf)
 
-2. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf) <a href="https://youtu.be/4KO45XflPB0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+1. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf)
 
-3. [Data Science in Materials Science](assets%2Fslides%2F02-Data_Science_in_Materials_Science.pdf) <a href="https://youtu.be/lCrOzPElNQ0"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+2. [Data Science in Materials Science](assets%2Fslides%2F02-Data_Science_in_Materials_Science.pdf) 
 
-4. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf)  <a href="https://youtu.be/Kl-X9nq92sg"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>
+3. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf) 
 
-[//]: # (5. [Improving and extending linear models]&#40;assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf&#41; <a href="https://youtu.be/bjLn2y8350o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+4. [Improving and extending linear models](assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf)
 
 [//]: # (6. [Linear Classification]&#40;assets%2Fslides%2F05-Linear_Classification.pdf&#41; <a href="https://youtu.be/VTcgACBUUYE"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
 
