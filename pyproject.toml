@@ -1,7 +1,7 @@
 [project]
-name = "nano281"
+name = "nanox81"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is a code base of examples for NANOx81 - Data Science in Materials Science at UCSD."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -19,7 +19,6 @@ dependencies = [
 ]
 
 [tool.ruff]
-target-version = "py310"
 line-length = 120
 output-format = "concise"
 

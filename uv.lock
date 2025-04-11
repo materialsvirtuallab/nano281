@@ -1468,7 +1468,7 @@ wheels = [
 ]
 
 [[package]]
-name = "nano281"
+name = "nanox81"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
