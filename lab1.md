@@ -77,6 +77,27 @@ Hints:
   that can make this go faster. Focus on summary queries.
 - You will also need to refer to the [API docs](https://api.materialsproject.org/docs) to understand what the summary
   doc contains. Note that you will need to figure out what is the name of the fields you need to be querying!
+- The MPRester supports using a `PMG_MAPI_KEY` environment variable as an API key. This can be set using pymatgen's
+  `pmg` CLI tool as follows:
+```shell
+pmg config --add PMG_MAPI_KEY <KEY_OBTAINED_FROM_MP>
+```
+  For those of you using Google Colab, you can add your PMG_MAPI_KEY as a secret using the toolbar on the left. See
+  below.
+![Setting_PMG_MAPI_KEY_in_Colab](assets/Setting_PMG_MAPI_KEY_in_Colab.png "Setting PMG_MAPI_KEY in Google Colab.")
+
+   You can then use the API key in your notebook as follows without exposing the actual key:
+```python
+from google.colab import userdata
+
+api_key = userdata.get("PMG_MAPI_KEY")
+from pymatgen.ext.matproj import MPRester
+
+mpr = MPRester(api_key)
+```
+
+**You do not need to submit your API keys with your notebook - the instructors will have their own keys and run your
+code with them.**
 
 Answer the following questions:
 
