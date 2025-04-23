@@ -356,6 +356,12 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 \end{frame}
 
 
+
+
+\begin{frame}{Model Fitting Procedure}
+\end{frame}
+
+
 \begin{frame}{Characteristics of the example materials dataset}
     \begin{itemize}
         \item Before proceeding further, let us try to tease out some aspects of the dataset.
@@ -379,7 +385,7 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
         \item Another common loss function is the absolute error $L(y, f(x)) = |y - f(x)|$
         \item MSE penalizes outliers with large observed residuals severely, and hence is less robust in data with long-tailed distributions.
         \item MAE is more robust against outliers.
-        \item Other criteria include the Huber loss:
+        \item Other criteria include the Huber loss, which is also more robust against outliers:
         \begin{equation*}
             L(y, f(x)) = \left\{ \begin{array}{cc}
                 (y - f(x))^2 & |y-f(x)| \leq \delta \\
