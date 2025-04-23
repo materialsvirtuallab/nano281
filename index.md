@@ -40,7 +40,7 @@ application of data science to materials science. The full syllabus is available
 
 5. [Linear Classification](assets/slides/05-Linear_Classification.pdf)
 
-[//]: # (7. [Unsupervised Learning]&#40;assets%2Fslides%2F06-Unsupervised_Learning.pdf&#41; <a href="https://youtu.be/eRI8QLCvE6o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+6. [Unsupervised Learning](assets/slides/06-Unsupervised_Learning.pdf)
 
 [//]: # (8. [Kernel Regression]&#40;assets%2Fslides%2F07-Kernel_Regression.pdf&#41; <a href="https://youtu.be/WJtI_jyYUKw"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
 
