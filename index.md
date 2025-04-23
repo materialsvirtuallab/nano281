@@ -70,7 +70,7 @@ final lab will be an open problem that will be determined at a later date and wi
 
 # Programming language
 
-All lectures and labs will be conducted in Python 3.9+.
+All lectures and labs will be conducted in the latest Python.
 
 For most students, especially those that are new to python, you can simply use the [Google Colab] cloud service to
 run all lecture notebooks and do all labs. The advantage of using Google Colab is that you do not need bother with
