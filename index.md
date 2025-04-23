@@ -28,17 +28,17 @@ application of data science to materials science. The full syllabus is available
 
 ## Slides
 
-[Course Admin](assets%2Fslides%2F00-Course_Admin.pdf)
+[Course Admin](assets/slides/00-Course_Admin.pdf)
 
-1. [Python for Data Science](assets%2Fslides%2F01-Python_for_Data_Science.pdf)
+1. [Python for Data Science](assets/slides/01-Python_for_Data_Science.pdf)
 
-2. [Data Science in Materials Science](assets%2Fslides%2F02-Data_Science_in_Materials_Science.pdf) 
+2. [Data Science in Materials Science](assets/slides/02-Data_Science_in_Materials_Science.pdf)
 
-3. [Linear Methods](assets%2Fslides%2F03-Linear_Methods.pdf) 
+3. [Linear Methods](assets/slides/03-Linear_Methods.pdf)
 
-4. [Improving and extending linear models](assets%2Fslides%2F04-Improving_and_extending_linear_models.pdf)
+4. [Improving and extending linear models](assets/slides/04-Improving_and_extending_linear_models.pdf)
 
-[//]: # (6. [Linear Classification]&#40;assets%2Fslides%2F05-Linear_Classification.pdf&#41; <a href="https://youtu.be/VTcgACBUUYE"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
+5. [Linear Classification](assets/slides/05-Linear_Classification.pdf)
 
 [//]: # (7. [Unsupervised Learning]&#40;assets%2Fslides%2F06-Unsupervised_Learning.pdf&#41; <a href="https://youtu.be/eRI8QLCvE6o"><img src="assets/youtube.png" alt="YouTube Video" width="20"/></a>)
 
