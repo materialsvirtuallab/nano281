@@ -1,6 +1,10 @@
+"""Some utility functions for the lecture notebooks."""
+from __future__ import annotations
+
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
+
 
 def train_fit_plot_model(model, x, y, split=0.1, random_state=42):
     """

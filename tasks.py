@@ -1,18 +1,12 @@
 #!/usr/bin/env python
 
-"""
-Deployment file to facilitate releases of monty.
-"""
-
-from __future__ import division
+"""Deployment file to facilitate releases of monty."""
+from __future__ import annotations
 
 import glob
-import requests
-import json
-import os
-import re
 import subprocess
 from pathlib import Path
+
 from invoke import task
 from monty.os import cd
 
@@ -28,10 +22,10 @@ def cleanup(ctx):
 def build_pdf(ctx, fname):
     with cd("lectures/slides_tex"):
         fn, ext = fname.split(".")
-        ctx.run('pdflatex -shell-escape "%s"' % fn)
-        ctx.run('bibtex "%s"' % fn, warn=True)
-        ctx.run('pdflatex -shell-escape "%s"' % fn)
-        ctx.run('pdflatex -shell-escape "%s"' % fn)
+        ctx.run(f'pdflatex -shell-escape "{fn}"')
+        ctx.run(f'bibtex "{fn}"', warn=True)
+        ctx.run(f'pdflatex -shell-escape "{fn}"')
+        ctx.run(f'pdflatex -shell-escape "{fn}"')
         ctx.run("mv *.pdf ../../assets/slides", warn=True)
 
 
@@ -46,7 +40,7 @@ def build_changed(ctx):
 
 @task
 def build_all(ctx):
-    for fname in glob.glob("lectures/slides_tex/*.tex"):    
-        path = Path(fname)    
+    for fname in glob.glob("lectures/slides_tex/*.tex"):
+        path = Path(fname)
         build_pdf(ctx, path.name)
     cleanup(ctx)
