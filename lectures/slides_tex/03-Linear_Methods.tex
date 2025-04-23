@@ -7,6 +7,7 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{tikz}
+\usetikzlibrary{automata,positioning}
 \usepackage[version=3]{mhchem}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.16}
@@ -359,6 +360,31 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
 
 
 \begin{frame}{Model Fitting Procedure}
+
+    \begin{figure}
+        \begin{tikzpicture}
+        [
+            rectnode/.style={rectangle, rounded corners, minimum width=3cm, minimum height=2cm,text centered, draw=black, fill=green!30},
+            invisiblenode/.style={circle,radius=0},
+            node distance=1cm,
+        ]
+%Nodes
+
+            \node[rectnode] (node1) [text width=3.5cm]{\footnotesize{Train-test split, e.g., 80:20}};
+            \node[rectnode] (node2) [right=of node1, text width=3.5cm]{\footnotesize{Fit scaler / transforms on \textbf{training} data (if needed)}};
+            \node[rectnode] (node3) [right=of node2, text width=3.5cm] {\footnotesize{CV or train/val using \textbf{training} data only}};
+            \node[rectnode] (node4) [below=of node3, text width=3.5cm] {\footnotesize{Select best param. set using CV / val scores.}};
+           \node[rectnode] (node5) [left=of node4, text width=3.5cm] {\footnotesize{Refit using best param. set and \textbf{training} data}};
+           \node[rectnode] (node6) [left=of node5, text width=3.5cm] {\footnotesize{Evaluate using \textbf{test} set}};
+
+
+            \draw[->, very thick] (node1.east) -- (node2.west);
+            \draw[->, very thick] (node2.east) -- (node3.west);            \draw[->, very thick] (node3.south) -- (node4.north);            \draw[->, very thick] (node4.west) -- (node5.east);  
+            \draw[->, very thick] (node5.west) -- (node6.east);  
+
+        \end{tikzpicture}
+    \end{figure}
+    Note: For simple MLR, there are no parameters or multiple models to choose from. We will use this procedure when we look at other models where there are parameters that need to be optimized.
 \end{frame}
 
 
