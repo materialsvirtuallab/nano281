@@ -10,11 +10,11 @@ nav_order: 2
 Welcome to Lab 2 of NANOx81 - Data Science in Materials Science. So far you should already have basic knowledge of
 python data science stack and know how to manipulate materials data. In this lab, it is time to put your knowledge into
 use. We will be solving real materials research problems - using both theoretically computed as well as experimental
-data using data science techniques. 
+data using data science techniques.
 
 # Getting started
 
-If you have not already done so, please follow the [setup instructions](setup) to set up your computer. You may 
+If you have not already done so, please follow the [setup instructions](setup) to set up your computer. You may
 alternatively use [Google Colab](https://colab.research.google.com/) to do this lab, in which case you can skip directly to step 3.
 
 1. Activate your NANOx81 virtual environment.
@@ -30,7 +30,7 @@ jupyter notebook
 3. Create a Python 3 notebook and rename it `NANOx81-lab2-<first_name>-<last_name>`.
 
 # Assessment criteria
-Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells, 
+Try to complete all questions, doing everything in your Jupyter notebook. Make generous use of code cells, text cells,
 etc. and write your notebook as though it is a lab report but with Python code incorporated. The easier you make it for
 your instructors to find the answers, the better.
 
@@ -53,7 +53,7 @@ Materials Project.
 ## Q1 - Exploratory data analysis (7 points)
 
 Load the `data2022.csv` in variable `orig_data` using `pandas.read_csv` with `na_filter=False` option, and perform the
-following analysis. 
+following analysis.
 
 1. How many materials are there in this dataset? (1 point)
 2. How many elements are there in this data set? (1 point)
@@ -63,13 +63,16 @@ following analysis.
 
 Hint: When dealing with formula, you may use `pymatgen.core.Composition` to speed up the process. For example, the
 following code snippet shows the use of Composition to process formula. For more usage, you may visit
-[https://matgenb.materialsvirtuallab.org/2013/01/01/Basic-functionality.html](https://matgenb.materialsvirtuallab.org/2013/01/01/Basic-functionality.html) 
+[https://matgenb.materialsvirtuallab.org/2013/01/01/Basic-functionality.html](https://matgenb.materialsvirtuallab.org/2013/01/01/Basic-functionality.html)
 
 ```python
 from pymatgen.core import Composition
-comp = Composition('Al2O3')
+
+comp = Composition("Al2O3")
 print(comp.elements)  # this will give you the elements
-print(comp.to_data_dict['unit_cell_composition'])  # this will give you the element-stoichiometry dictionary.
+print(
+    comp.to_data_dict["unit_cell_composition"]
+)  # this will give you the element-stoichiometry dictionary.
 ```
 ## Q2 - Data cleaning and feature computations (24 points)
 
@@ -84,17 +87,17 @@ filtering step henceforth.
    the lowest formation energy per atom for each formula. How many materials are left? (2 points)
 2. Positive formation energies are often a sign that a calculation is poorly converged. Filter the data to remove rows
    with positive formation energies as well. How many materials are left? (2 point)
-3. Download and load the [element property data file](assets/element_properties.csv) in variable `element_data` 
-   using pandas by setting `index_col=0` in `pandas.read_csv` function. How many NaN (Not a Number) are there in 
+3. Download and load the [element property data file](assets/element_properties.csv) in variable `element_data`
+   using pandas by setting `index_col=0` in `pandas.read_csv` function. How many NaN (Not a Number) are there in
    each column? (1 point)
 4. Compute the mean values for each column, ignoring the NaNs. For each column, fill the NaN with the mean value of
    that column. This is a common data imputation technique. (2 points)
 5. Compute the composition-averaged `AtomicRadius` for all materials and store the results in variable `atomic_radius`.
-   For example, the composition-averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where 
-   `1.45` is the `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. **Hint**: Read the [Pandas 
-   documentation on indexing](https://pandas.pydata.org/docs/user_guide/indexing.html). E.g., 
+   For example, the composition-averaged `AtomicRadius` for `Li2O` can be computed as `(2 * 1.45 + 0.6) / 3`, where
+   `1.45` is the `AtomicRadius` for `Li` and `0.6` is the `AtomicRadius` for `O`. **Hint**: Read the [Pandas
+   documentation on indexing](https://pandas.pydata.org/docs/user_guide/indexing.html). E.g.,
    `element_data.loc["Fe"]["AtomicRadius"]` gives you the atomic radius for Fe. (5 points)
-6. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the 
+6. Compute the composition-averaged properties for all properties in `element_data` and for all materials. Store the
    results in the variable `average_properties`. `average_properties` should have a dimension of `(n, 11)` where `n` is
    the number of materials and 11 is the number of properties. (5 points)
 7. Similar to the previous computations of average properties, compute the maximum properties and minimum properties for
@@ -145,24 +148,24 @@ Escherichia coli. For this whole exercise, it is recommended that you use the `h
 
 ![catalyst.png](assets/catalyst.png "catalyst.png")
 
-1. Read in the image as a numpy array using the `imread` method in `matplotlib.pyplot`. Show the image in your Jupyter 
+1. Read in the image as a numpy array using the `imread` method in `matplotlib.pyplot`. Show the image in your Jupyter
    notebook using `imshow`. What are the dimensions of the array? (1 point)
-2. Plot the distribution of the values in the numpy array representing the image (**Hint**: you need to `flatten` the 
-   array first). Note that the values in the numpy array are between 0 and 1 for png images representing the levels. 
+2. Plot the distribution of the values in the numpy array representing the image (**Hint**: you need to `flatten` the
+   array first). Note that the values in the numpy array are between 0 and 1 for png images representing the levels.
    (1 point)
 3. Measured images has a variety of levels. Sometimes, we want to label each pixel at pre-specified levels, e.g., 0
    representing the background, and fixed values representing certain features. This is known as vector quantization.
    Here, we will quantize the image using K-means. We know for a fact that there are two elements (Pd and Ru) in the
    system. Using K-means, quantize the image such that there are three levels: 0 = background, 1 and 2 = Pd or Ru.
    Ensure that 0 corresponds to the background (this should be the cluster with the largest number of data points) and
-   non-zero levels correspond to the elements. Plot the quantized image (**Hint**: you may need to `reshape` your 
-   predicted array back to the original image dimensions), which should look like a slightly modified version of the 
+   non-zero levels correspond to the elements. Plot the quantized image (**Hint**: you may need to `reshape` your
+   predicted array back to the original image dimensions), which should look like a slightly modified version of the
    image in Q4.1. (6 points)
 4. For the purposes of this exercise, we will not attempt to distinguish between different elements. Any value within
    the numpy array that is > 0 is considered a catalyst particle. Use K-means clustering to identify
    clusters of metal particles (you will need to figure out what a good value of K is). Hint: the way to do this is to
-   consider the 2D coordinates of non-zero data points and use them in your K-Means fitting. An example is shown in 
-   your lecture notebooks on unsupervised learning. After you have obtained your cluster labels, you will need to 
+   consider the 2D coordinates of non-zero data points and use them in your K-Means fitting. An example is shown in
+   your lecture notebooks on unsupervised learning. After you have obtained your cluster labels, you will need to
    remap your coordinates-label pairs into pixel values. Plot your clustered image, ensuring that each cluster has a
    different color. Comment on how you chose your value of K. (10 points)
 5. Finally, we will use a density-based clustering method called DBSCAN. Similar to part 4, any value in the numpy
