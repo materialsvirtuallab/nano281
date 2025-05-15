@@ -42,9 +42,9 @@ application of data science to materials science. The full syllabus is available
 
 6. [Unsupervised Learning](assets/slides/06-Unsupervised_Learning.pdf)
 
-7. [Kernel Regression](assets/slides/07-Kernel_Regression.pdf)
+7. [Kernel Regression](assets/slides/07-Kernel_Methods.pdf)
 
-[//]: # (8. [Generalized Additive Models and Trees](assets/slides/08-Generalized_Additive_Models_and_Trees.pdf)
+8. [Trees](assets/slides/08-Trees.pdf)
 
 [//]: # (9. [Neural Networks](assets/slides/09-Neural_Networks.pdf)
 
