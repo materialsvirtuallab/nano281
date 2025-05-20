@@ -417,7 +417,7 @@ seaborn==0.13.2
     # via nano281 (pyproject.toml)
 send2trash==1.8.3
     # via jupyter-server
-setuptools==78.1.0
+setuptools==78.1.1
     # via
     #   jupyterlab
     #   tensorboard
