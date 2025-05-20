@@ -46,7 +46,7 @@ application of data science to materials science. The full syllabus is available
 
 8. [Trees](assets/slides/08-Trees.pdf)
 
-[//]: # (9. [Neural Networks](assets/slides/09-Neural_Networks.pdf)
+9. [Neural Networks](assets/slides/09-Neural_Networks.pdf)
 
 ## Jupyter Notebooks
 
