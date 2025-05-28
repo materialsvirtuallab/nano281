@@ -24,15 +24,12 @@
 \let \vec \mathbf
 
 \newcommand{\classname}{NANOx81R}
-\newcommand{\classyear}{Spring 2025}
-\mode<presentation> {
-    \usetheme{CambridgeUS}
-    \setbeamertemplate{footline}[text line]{%
-      \parbox{\linewidth}{\vspace*{-8pt}\classname\hfill\classyear\hfill\insertpagenumber}}
-
-    %\setbeamertemplate{footline}[page number]
-    \setbeamertemplate{navigation symbols}{}
-}
+\usetheme{metropolis}
+\metroset{block=fill}
+\setbeamertemplate{footline}[text line]{%
+  \parbox{\linewidth}{\vspace*{-10pt}NANOx81-Data Science in Materials Science\hfill\insertpagenumber}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
 
 
 \title[Maximum Likelihood and Bayesian Methods]{Maximum Likelihood and Bayesian Methods}
@@ -41,7 +38,7 @@
 \institute[UCSD]{University of California, San Diego\\
 \medskip
 }
-\date{\classyear} % Date, can be changed to a custom date
+\date{} % Date, can be changed to a custom date
 
 \begin{document}
 

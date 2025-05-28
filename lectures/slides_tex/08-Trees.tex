@@ -26,13 +26,15 @@
 \newcommand{\classname}{NANOx81R}
 
 \usetheme{metropolis}
-
-\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
 \metroset{block=fill}
+\setbeamertemplate{footline}[text line]{%
+  \parbox{\linewidth}{\vspace*{-10pt}NANOx81-Data Science in Materials Science\hfill\insertpagenumber}}
+\setbeamertemplate{navigation symbols}{}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
 
 
 
-\title[Generalized Additive Models and Trees]{Generalized Additive Models and Trees}
+\title[Trees]{Trees}
 
 \author{Shyue Ping Ong}
 \institute[UCSD]{Aiiso Yufeng Li Family Department of Chemical and Nano Engineering\\
@@ -61,53 +63,53 @@ University of California, San Diego\\\url{http://materialsvirtuallab.org}}
     \end{itemize}
 \end{frame}
 
-\section{Generalized Additive Models}
+% \section{Generalized Additive Models}
 
-\begin{frame}{Generalized Additive Models}
-    \begin{itemize}
-        \item A generalized additive model has the form:
-        \begin{equation*}
-            E[Y|X_1, X_2, ..., X_p] = \alpha + \sum_{j=1}^p f_j(X_j)
-        \end{equation*}
-        \item If $f_j$ are expanded in terms of basis functions, this reduces to a least squares fit.
-        \item For generalized additive models, we fit each function using a scatterplot smoother, e.g., cubic spline or kernel smoother.
-        \item Penalized residual sum of squares is given as:
-        \begin{equation*}
-            PRSS = \sum_{i=1}^N \left( y_i - \alpha - \sum_{j=1}^p f_j(X_j) \right)^2 + \sum_{j=1}^p \int f_j''(t_j)^2 dt_j
-        \end{equation*}
-        \item First term is our standard sum squared error, and the right term is penalizes discontinuities (recall section on smoothing splines).
-    \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Fitting generalized additive models}
-    \begin{itemize}
-        \item Each function $f_j$ is a cubic spline of component $X_j$.
-        \item To obtain unique solution, we impose a further convention that the functions average to zero over the data, i.e., $\sum_{i=1}^N f_j(x_{ij}) = 0 \forall j$
-        \item Backfitting algorithm:
-        \begin{enumerate}
-            \item Initialize $\hat{\alpha} = \frac{1}{N} \sum_{i=1}^N y_i, \hat{f_j} = 0$.
-            \item Cycle through $1, 2, ... p, 1, 2, ..., p$
-            \begin{eqnarray*}
-                \hat{f_j} & \longleftarrow & S_j\left[ \{y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})\}_1^N \right]\\
-                \hat{f_j} &\longleftarrow & \hat{f_j} - \frac{1}{N} \sum_{i=1}^N \hat{f_j}(x_{ij})
-            \end{eqnarray*}
-        \end{enumerate}
-        \item Conceptually, fitting a cubic smoothing spline $S_j$ to the residual $y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})$ for each $f_j$, and iterate until all $\hat{f_j}$s stabilize.
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Generalized Additive Models}
+%     \begin{itemize}
+%         \item A generalized additive model has the form:
+%         \begin{equation*}
+%             E[Y|X_1, X_2, ..., X_p] = \alpha + \sum_{j=1}^p f_j(X_j)
+%         \end{equation*}
+%         \item If $f_j$ are expanded in terms of basis functions, this reduces to a least squares fit.
+%         \item For generalized additive models, we fit each function using a scatterplot smoother, e.g., cubic spline or kernel smoother.
+%         \item Penalized residual sum of squares is given as:
+%         \begin{equation*}
+%             PRSS = \sum_{i=1}^N \left( y_i - \alpha - \sum_{j=1}^p f_j(X_j) \right)^2 + \sum_{j=1}^p \int f_j''(t_j)^2 dt_j
+%         \end{equation*}
+%         \item First term is our standard sum squared error, and the right term is penalizes discontinuities (recall section on smoothing splines).
+%     \end{itemize}
+% \end{frame}
 
 
-\begin{frame}{Extensions of Generalized Additive Models}
-    \begin{itemize}
-        \item Note that we are not limited to cubic splines. E.g, local polynomial and kernel methods, linear regression, and surface smoothers etc. can be used with the appropriate choice of smoother $S_j$.
-        \item GAMs can be used for classification as well, using the logit \textit{link} function. For example, for binary classification:
-        \begin{equation*}
-            \log{\frac{P(Y=1|X)}{P(Y=0|X)}} = \log{\frac{P(Y=1|X)}{1-P(Y=1|X)}} =  \alpha + \sum_{j=1}^p f_j(X_j)
-        \end{equation*}
-        Very commonly used in medical research: outcomes encoded as 0 or 1 (e.g., death/relapse of disease).
-    \end{itemize}
-\end{frame}
+% \begin{frame}{Fitting generalized additive models}
+%     \begin{itemize}
+%         \item Each function $f_j$ is a cubic spline of component $X_j$.
+%         \item To obtain unique solution, we impose a further convention that the functions average to zero over the data, i.e., $\sum_{i=1}^N f_j(x_{ij}) = 0 \forall j$
+%         \item Backfitting algorithm:
+%         \begin{enumerate}
+%             \item Initialize $\hat{\alpha} = \frac{1}{N} \sum_{i=1}^N y_i, \hat{f_j} = 0$.
+%             \item Cycle through $1, 2, ... p, 1, 2, ..., p$
+%             \begin{eqnarray*}
+%                 \hat{f_j} & \longleftarrow & S_j\left[ \{y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})\}_1^N \right]\\
+%                 \hat{f_j} &\longleftarrow & \hat{f_j} - \frac{1}{N} \sum_{i=1}^N \hat{f_j}(x_{ij})
+%             \end{eqnarray*}
+%         \end{enumerate}
+%         \item Conceptually, fitting a cubic smoothing spline $S_j$ to the residual $y_i - \hat{\alpha} - \sum_{k\neq j} \hat{f_k}(x_{ik})$ for each $f_j$, and iterate until all $\hat{f_j}$s stabilize.
+%     \end{itemize}
+% \end{frame}
+
+
+% \begin{frame}{Extensions of Generalized Additive Models}
+%     \begin{itemize}
+%         \item Note that we are not limited to cubic splines. E.g, local polynomial and kernel methods, linear regression, and surface smoothers etc. can be used with the appropriate choice of smoother $S_j$.
+%         \item GAMs can be used for classification as well, using the logit \textit{link} function. For example, for binary classification:
+%         \begin{equation*}
+%             \log{\frac{P(Y=1|X)}{P(Y=0|X)}} = \log{\frac{P(Y=1|X)}{1-P(Y=1|X)}} =  \alpha + \sum_{j=1}^p f_j(X_j)
+%         \end{equation*}
+%         Very commonly used in medical research: outcomes encoded as 0 or 1 (e.g., death/relapse of disease).
+%     \end{itemize}
+% \end{frame}
 
 
 \section{Trees}
