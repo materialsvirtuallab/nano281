@@ -323,7 +323,7 @@ prompt-toolkit==3.0.50
     # via
     #   ipython
     #   jupyter-console
-protobuf==5.29.4
+protobuf==5.29.5
     # via
     #   tensorboard
     #   tensorflow
