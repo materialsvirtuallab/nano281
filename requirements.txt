@@ -469,7 +469,7 @@ tomli==2.2.1
     # via
     #   jupyterlab
     #   pytest
-torch==2.6.0
+torch==2.7.1
     # via nano281 (pyproject.toml)
 tornado==6.4.2
     # via
