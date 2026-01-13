@@ -65,7 +65,7 @@ executing==2.2.0
     # via stack-data
 fastjsonschema==2.21.1
     # via nbformat
-filelock==3.18.0
+filelock==3.20.3
     # via torch
 flatbuffers==25.2.10
     # via tensorflow
