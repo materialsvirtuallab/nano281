@@ -37,7 +37,7 @@ def train_fit_plot_model(model, x, y, split=0.1, random_state=42):
 
     mse_train = mean_squared_error(yhat_train, y_train)
     mse_test = mean_squared_error(yhat_test, y_test)
-    f, ax = plt.subplots(figsize=(8, 8))
+    _f, ax = plt.subplots(figsize=(8, 8))
     plt.plot(y_train, yhat_train, "o", label=f"Train: $R^2$ = {r2_train:.3f}, MSE={mse_train:.1f}")
     plt.plot(y_test, yhat_test, "o", label=f"Test: $R^2$ = {r2_test:.3f}, MSE={mse_test:.1f}")
     plt.ylabel(r"$K_{predicted}$ (GPa)")
