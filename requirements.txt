@@ -185,7 +185,7 @@ jupyterlab-server==2.27.3
     #   notebook
 jupyterlab-widgets==3.0.13
     # via ipywidgets
-keras==3.9.2
+keras==3.12.1
     # via tensorflow
 kiwisolver==1.4.8
     # via matplotlib
